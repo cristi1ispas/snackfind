@@ -1,0 +1,764 @@
+<!DOCTYPE HTML>
+<html>        
+    <head>
+		<meta name = "viewport" content="initial-scale=1, width=device-width">
+		<title> comPrix </title>
+		
+		
+
+		<link rel="stylesheet" type="text/css" href="../static/style.css">
+		<link rel="stylesheet" type="text/css" href="../static/styles/contributePage.css">
+		<link rel="stylesheet" type="text/css" href="../static/styles/categoryChips.css">
+		<link rel="stylesheet" type="text/css" href="../static/styles/filterToggleTO-BE-DEPRICATED.css">
+		<link rel="stylesheet" type="text/css" href="../static/styles/filtersFAB.css">
+
+		
+		<!-- Material Web -->
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+			<script type="importmap">
+			{
+				"imports": {
+				"@material/web/": "https://esm.run/@material/web/"
+				}
+			}
+			</script>
+			<script type="module">
+				import '@material/web/all.js';
+				import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+
+				document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+			</script>
+			
+
+			
+		<!-- END OF Material Web -->
+
+		<!-- Mobile Test
+
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="banner.css">
+		<link rel="stylesheet" type="text/css" href="navDrawer.css">
+		<link rel="stylesheet" type="text/css" href="contributeUpdatePrice.css">
+		<link rel="stylesheet" type="text/css" href="contributeAnounceDiscount.css">
+		<link rel="stylesheet" type="text/css" href="contributePage.css">
+		<link rel="stylesheet" type="text/css" href="shopPage.css">
+		<link rel="stylesheet" type="text/css" href="productPage.css">
+		<link rel="stylesheet" type="text/css" href="pageGridX2.css">
+		<link rel="stylesheet" type="text/css" href="advancedFAB.css">
+		<link rel="stylesheet" type="text/css" href="navBar.css">
+
+		-->
+
+
+	</head> 
+    <body style="margin: 0px; font-family: 'Roboto', sans-serif; background-color: antiquewhite;">
+        <div id="page" style="background-color: aquamarine;">
+			<div id="categoryChipsWraper">
+				<md-chip-set id="categoryChips">
+					<md-filter-chip label="Sodas">
+						<md-icon slot="icon">cleaning</md-icon>
+					</md-filter-chip>
+					<md-filter-chip label="Chips">
+						<md-icon slot="icon">money_bag</md-icon>
+					</md-filter-chip>
+					<md-filter-chip label="Sweets">
+						<md-icon slot="icon">cookie</md-icon>
+					</md-filter-chip>
+					<md-filter-chip label="Crackers">
+						<md-icon slot="icon">pet_supplies</md-icon>
+					</md-filter-chip>
+					<md-filter-chip label="Fasting">
+						<md-icon slot="icon">nutrition</md-icon>
+					</md-filter-chip>
+					<md-filter-chip label="Grill">
+						<md-icon slot="icon">outdoor_grill</md-icon>
+					</md-filter-chip>
+					<md-filter-chip label="Beverages">
+						<md-icon slot="icon">liquor</md-icon>
+					</md-filter-chip>
+				</md-chip-set>
+			</div>
+
+
+			<link rel="stylesheet" type="text/css" href="../static/styles/contributeAnounceDiscount.css">
+
+			<div id="contributeAnounceDiscountWraper">
+				<form action="/anounce_discount.php">		<!-- Path For PHP -->
+					<div>
+						<md-outlined-select has-leading-icon clamp-menu-width no-asterisk label="Select the shop" id="contributeUpdatePriceShopSelect" name="shop" required>
+							<md-icon slot="leading-icon">question_mark</md-icon>
+							<md-select-option value="EllaStore">
+								<md-icon slot="start">storefront</md-icon>
+								<div slot="headline">Georgi</div>
+								<i slot="supporting-text">Formerly known as: <b>Ella Store</b></i>
+							</md-select-option>
+							<md-select-option value="ElizaPoticaSRL">
+								<md-icon slot="start">store</md-icon>
+								<div slot="headline">Potica</div>
+								<i slot="supporting-text">Formerly known as: <b>Eliza Potica SRL</b></i>
+							</md-select-option>
+							<md-select-option value="MedinaSRL">
+								<md-icon slot="start">storefront</md-icon>
+								<div slot="headline">Medina</div>
+								<i slot="supporting-text">Formerly known as: <b>Medina SRL</b></i>
+							</md-select-option>		<!-- NOT SURE -->
+						</md-outlined-select>
+						<md-outlined-select has-leading-icon clamp-menu-width no-asterisk label="Select the category" id="contributeUpdatePriceCategorySelect" name="category" required>
+							<md-icon slot="leading-icon">question_mark</md-icon>
+							<md-select-option value="sodas">
+								<md-icon slot="start">cleaning</md-icon>
+								<div slot="headline">Sodas</div>
+							</md-select-option>
+							<md-select-option value="chips">
+								<md-icon slot="start">money_bag</md-icon>
+								<div slot="headline">Chips</div>
+							</md-select-option>
+							<md-select-option value="crackers">
+								<md-icon slot="start">pet_supplies</md-icon>
+								<div slot="headline">Crackers</div>
+							</md-select-option>
+							<md-select-option value="sweets">
+								<md-icon slot="start">cookie</md-icon>
+								<div slot="headline">Sweets</div>
+							</md-select-option>
+							<md-select-option value="fasting">
+								<md-icon slot="start">nutrition</md-icon>
+								<div slot="headline">Fasting</div>
+							</md-select-option>
+							<md-select-option value="grill">
+								<md-icon slot="start">outdoor_grill</md-icon>
+								<div slot="headline">Grill</div>
+							</md-select-option>
+							<md-select-option value="beverages">
+								<md-icon slot="start">liquor</md-icon>
+								<div slot="headline">Beverages</div>
+							</md-select-option>
+						</md-outlined-select>
+
+						<img src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300" alt="Image 1">
+
+						<md-filled-text-field label="Search for the product(optional)"></md-filled-text-field>
+
+						<md-outlined-select clamp-menu-width no-asterisk label="Select the brand" id="contributeUpdatePriceBrandSelect" name="brand" required>
+							<md-select-option value="Pepsi">
+								<div slot="headline">Pespi</div>
+							</md-select-option>
+							<md-select-option value="Coca-cola">
+								<div slot="headline">Coca Cola</div>
+							</md-select-option>
+							<md-select-option value="Fanta">
+								<div slot="headline">Fanta</div>
+							</md-select-option>
+						</md-outlined-select>
+						<md-outlined-select clamp-menu-width no-asterisk label="Select the name" id="contributeUpdatePriceNameSelect" name="name" required>
+							<md-select-option value="pepsi">
+								<div slot="headline">Pespi</div>
+							</md-select-option>
+							<md-select-option value="coca-cola">
+								<div slot="headline">Coca Cola</div>
+							</md-select-option>
+							<md-select-option value="fanta">
+								<div slot="headline">Fanta</div>
+							</md-select-option>
+						</md-outlined-select>
+						<div class="inRowFlavLitters">
+							<md-outlined-select style="flex-grow: 1;" clamp-menu-width no-asterisk label="Select the flavor" id="contributeUpdatePriceFlavorSelect" name="flavor" required>
+								<md-select-option value="original">
+									<div slot="headline">Original</div>
+								</md-select-option>
+								<md-select-option value="twist">
+									<div slot="headline">Twist</div>
+								</md-select-option>
+								<md-select-option value="sugar0">
+									<div slot="headline">Zero Sugar</div>
+								</md-select-option>
+								<md-select-option value="sugar0Max">
+									<div slot="headline">Zero Sugar Max Taste</div>
+								</md-select-option>
+							</md-outlined-select>
+							<md-outlined-select style="max-width: 120px; min-width: 85px;" clamp-menu-width no-asterisk label="L" id="contributeUpdatePriceCapacitySelect" name="capacity" required>
+								<md-select-option value="0.2L">
+									<div slot="headline">0.2 L</div>
+								</md-select-option>
+								<md-select-option value="0.33L">
+									<div slot="headline">0.33 L</div>
+								</md-select-option>
+								<md-select-option value="0.5L">
+									<div slot="headline">0.5 L</div>
+								</md-select-option>
+								<md-select-option value="1L">
+									<div slot="headline">1 L</div>
+								</md-select-option>
+								<md-select-option value="1.25L">
+									<div slot="headline">1.25 L</div>
+								</md-select-option>
+								<md-select-option value="2L">
+									<div slot="headline">300 g</div>
+								</md-select-option>
+								<md-select-option value="2.5L">
+									<div slot="headline">2.5 L</div>
+								</md-select-option>
+							</md-outlined-select>
+						</div>
+						<div id="contributeAnounceDiscountFields">
+							<b style="font-size: larger; align-self: flex-start; color: #1d1b20;">Discount:</b>
+							<div class="percentageRowWraper">
+								<md-outlined-text-field name="priceUSUAL" type="number" label="The usual price:" value="912.99" suffix-text="RON" inputmode="decimal" id="contributeAnounceDiscountFieldsUsual" disabled></md-outlined-text-field>
+
+								<md-icon>add</md-icon>
+
+								<md-outlined-text-field no-asterisk name="percentage" type="number" label="Discount:" value="25" suffix-text="%" id="contributeAnounceDiscountFieldsPercentage" min="5" max="51" step="1" inputmode="decimal" required></md-outlined-text-field>
+							</div>
+							
+							<md-icon>south</md-icon>
+
+							<md-outlined-text-field no-asterisk name="priceDISCOUNT" type="number" label="Price after discount:" value="9.74" suffix-text="RON" id="contributeAnounceDiscountFieldsDiscount" min="0" max="999.99" step="0.01" inputmode="decimal" required></md-outlined-text-field>
+						</div>
+						<span style="align-self: center;">How should it show up as?</span>
+						<div class="contributeSubmitButton">
+							<md-filled-button type="submit" disabled>
+								<md-icon slot="icon">paid</md-icon>
+								New price
+							</md-filled-button>
+							<md-filled-button type="submit" disabled>
+								<md-icon slot="icon">percent_discount</md-icon>
+								Percentage
+							</md-filled-button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			
+			<md-divider style="padding: 10px 0 10px 0; color: orangered"></md-divider>
+			
+
+			<link rel="stylesheet" type="text/css" href="../static/styles/contributeUpdatePrice.css">
+
+			<div id="contributeUpdatePriceWraper">
+				<form action="/update_price.php">		<!-- Path For PHP -->
+					<div>
+						<md-outlined-select has-leading-icon clamp-menu-width no-asterisk label="Select the shop" id="contributeUpdatePriceShopSelect" name="shop" required>
+							<md-icon slot="leading-icon">question_mark</md-icon>
+							<md-select-option value="EllaStore">
+								<md-icon slot="start">storefront</md-icon>
+								<div slot="headline">Georgi</div>
+								<i slot="supporting-text">Formerly known as: <b>Ella Store</b></i>
+							</md-select-option>
+							<md-select-option value="ElizaPoticaSRL">
+								<md-icon slot="start">store</md-icon>
+								<div slot="headline">Potica</div>
+								<i slot="supporting-text">Formerly known as: <b>Eliza Potica SRL</b></i>
+							</md-select-option>
+							<md-select-option value="MedinaSRL">
+								<md-icon slot="start">storefront</md-icon>
+								<div slot="headline">Medina</div>
+								<i slot="supporting-text">Formerly known as: <b>Medina SRL</b></i>
+							</md-select-option>		<!-- NOT SURE -->
+						</md-outlined-select>
+						<md-outlined-select has-leading-icon clamp-menu-width no-asterisk label="Select the category" id="contributeUpdatePriceCategorySelect" name="category" required>
+							<md-icon slot="leading-icon">question_mark</md-icon>
+							<md-select-option value="sodas">
+								<md-icon slot="start">cleaning</md-icon>
+								<div slot="headline">Sodas</div>
+							</md-select-option>
+							<md-select-option value="chips">
+								<md-icon slot="start">money_bag</md-icon>
+								<div slot="headline">Chips</div>
+							</md-select-option>
+							<md-select-option value="crackers">
+								<md-icon slot="start">pet_supplies</md-icon>
+								<div slot="headline">Crackers</div>
+							</md-select-option>
+							<md-select-option value="sweets">
+								<md-icon slot="start">cookie</md-icon>
+								<div slot="headline">Sweets</div>
+							</md-select-option>
+							<md-select-option value="fasting">
+								<md-icon slot="start">nutrition</md-icon>
+								<div slot="headline">Fasting</div>
+							</md-select-option>
+							<md-select-option value="grill">
+								<md-icon slot="start">outdoor_grill</md-icon>
+								<div slot="headline">Grill</div>
+							</md-select-option>
+							<md-select-option value="beverages">
+								<md-icon slot="start">liquor</md-icon>
+								<div slot="headline">Beverages</div>
+							</md-select-option>
+						</md-outlined-select>
+
+						<img src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300" alt="Image 1">
+
+						<md-filled-text-field label="Search for the product(optional)"></md-filled-text-field>
+
+						<md-outlined-select clamp-menu-width no-asterisk label="Select the brand" id="contributeUpdatePriceBrandSelect" name="brand" required>
+							<md-select-option value="Pepsi">
+								<div slot="headline">Pespi</div>
+							</md-select-option>
+							<md-select-option value="Coca-cola">
+								<div slot="headline">Coca Cola</div>
+							</md-select-option>
+							<md-select-option value="Fanta">
+								<div slot="headline">Fanta</div>
+							</md-select-option>
+						</md-outlined-select>
+						<md-outlined-select clamp-menu-width no-asterisk label="Select the name" id="contributeUpdatePriceNameSelect" name="name" required>
+							<md-select-option value="pepsi">
+								<div slot="headline">Pespi</div>
+							</md-select-option>
+							<md-select-option value="coca-cola">
+								<div slot="headline">Coca Cola</div>
+							</md-select-option>
+							<md-select-option value="fanta">
+								<div slot="headline">Fanta</div>
+							</md-select-option>
+						</md-outlined-select>
+						<div class="inRowFlavLitters">
+							<md-outlined-select style="flex-grow: 1;" clamp-menu-width no-asterisk label="Select the flavor" id="contributeUpdatePriceFlavorSelect" name="flavor" required>
+								<md-select-option value="original">
+									<div slot="headline">Original</div>
+								</md-select-option>
+								<md-select-option value="twist">
+									<div slot="headline">Twist</div>
+								</md-select-option>
+								<md-select-option value="sugar0">
+									<div slot="headline">Zero Sugar</div>
+								</md-select-option>
+								<md-select-option value="sugar0Max">
+									<div slot="headline">Zero Sugar Max Taste</div>
+								</md-select-option>
+							</md-outlined-select>
+							<md-outlined-select style="max-width: 120px; min-width: 85px;" clamp-menu-width no-asterisk label="L" id="contributeUpdatePriceCapacitySelect" name="capacity" required>
+								<md-select-option value="0.2L">
+									<div slot="headline">0.2 L</div>
+								</md-select-option>
+								<md-select-option value="0.33L">
+									<div slot="headline">0.33 L</div>
+								</md-select-option>
+								<md-select-option value="0.5L">
+									<div slot="headline">0.5 L</div>
+								</md-select-option>
+								<md-select-option value="1L">
+									<div slot="headline">1 L</div>
+								</md-select-option>
+								<md-select-option value="1.25L">
+									<div slot="headline">1.25 L</div>
+								</md-select-option>
+								<md-select-option value="2L">
+									<div slot="headline">300 g</div>
+								</md-select-option>
+								<md-select-option value="2.5L">
+									<div slot="headline">2.5 L</div>
+								</md-select-option>
+							</md-outlined-select>
+						</div>
+						<div id="contributeUpdatePriceFields">
+							<b class="contributeFormSpecificActionHeadline">Price:</b>
+							<div id="contributeUpdatePriceFieldsOld" >
+								<md-outlined-text-field name="priceOLD" type="number" label="Old price:" value="12.99" suffix-text="RON" inputmode="decimal" id="contributeUpdatePriceFieldsOldPrice" disabled></md-outlined-text-field>
+
+								<md-outlined-text-field name="sourceOLD" label="Source:" value="Shelf" id="contributeUpdatePriceFieldsOldSource" disabled>
+									<md-icon slot="leading-icon">shelves</md-icon>
+								</md-outlined-text-field>
+							</div>
+							<sup style="margin-bottom: 8px; align-self: flex-start;">Last updated: 19:40 - 27/01/2026; By: $username$</sup>
+							
+							<md-icon style="margin-bottom: 16px;">south</md-icon>
+
+							<div id="contributeUpdatePriceFieldsNew">
+								<md-outlined-text-field no-asterisk name="price" type="number" label="Enter the new price:" value="12.99" suffix-text="RON"  id="contributeUpdatePriceFieldsNewPrice" min="0" max="999.99" size="4" step="0.01" inputmode="decimal" required></md-outlined-text-field>
+
+								<md-outlined-select has-leading-icon no-asterisk label="Source:" value="Cashout" selected id="contributeUpdatePriceFieldsNewSource" name="sourceOLD" required>
+									<md-icon slot="leading-icon">shelves</md-icon>
+									<md-select-option value="Official">
+										<md-icon slot="start">cloud_download</md-icon>
+										<div slot="headline">Official</div>		<!-- IDK needs other name -->
+									</md-select-option>
+									<md-select-option value="Shelf">
+										<md-icon slot="start">shelves</md-icon>
+										<div slot="headline">Shelf</div>
+									</md-select-option>
+									<md-select-option value="Cashout">
+										<md-icon slot="start">point_of_sale</md-icon>
+										<div slot="headline">Cashout</div>
+									</md-select-option>
+								</md-outlined-select>
+							</div>
+							<sup style="align-self: flex-start;">Example: <b>5</b> ; <b>6.50</b> ; <b>12,05</b> ; <b>8.4</b> ; <b>123,99</b></sup>
+						</div>
+						<div class="contributeSubmitButton">
+							<md-filled-button type="submit" disabled>
+								<md-icon slot="icon">check_circle</md-icon>
+								Submit
+							</md-filled-button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<md-switch ></md-switch>
+			<md-switch icons ><md-icon slot="icon">shelves</md-icon></md-switch>
+
+			<md-switch icons show-only-selected-icon></md-switch>
+			<md-switch icons show-only-selected-icon selected></md-switch>
+
+
+			
+
+			<div id="contribute">
+				<md-list id="contributeActions">
+					<md-list-item type="button" >
+						<img slot="start" src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300" alt="Image 1">
+						<div slot="headline">Update a price</div>
+						
+							<md-icon slot="end">arrow_forward_ios</md-icon>
+						
+					</md-list-item>
+					<md-list-item type="button" >
+						<img slot="start" src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300" alt="Image 1">
+						<div slot="headline">Announce a discount</div>
+						<md-icon slot="end">arrow_forward_ios</md-icon>
+					</md-list-item>
+					<md-list-item type="button" disabled>
+						<img slot="start" src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300" alt="Image 1">
+						<div slot="headline">Correct a product details</div>
+						<md-icon slot="end">arrow_forward_ios</md-icon>
+					</md-list-item>
+					<md-list-item type="button" disabled>
+						<img slot="start" src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300" alt="Image 1">
+						<div slot="headline">Correct a shop page info</div>
+						<md-icon slot="end">arrow_forward_ios</md-icon>
+					</md-list-item>
+					<md-list-item type="button" href="/contact">
+						<md-icon slot="start" style="--md-icon-size: 40px">sentiment_sad</md-icon>
+						<div slot="headline">For the time being these features are not available in-app, you have to contact me directly</div>
+						<md-icon slot="end" style="--md-icon-size: 28px">open_in_new</md-icon>
+					</md-list-item>	
+					<md-list-item type="button" disabled>
+						<img slot="start" src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300" alt="Image 1">
+						<div slot="headline">Sugest a product</div>
+						<md-icon slot="end">arrow_forward_ios</md-icon>
+					</md-list-item>
+					<md-list-item type="button" disabled>
+						<img slot="start" src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300" alt="Image 1">
+						<div slot="headline">Suggest a shop</div>
+						<md-icon slot="end">arrow_forward_ios</md-icon>
+					</md-list-item>
+					<md-list-item type="button" >
+						<img slot="start" src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300" alt="Image 1">
+						<div slot="headline">Help with the App Development</div>
+						<md-icon slot="end" style="--md-icon-size: 28px;">open_in_new</md-icon>
+					</md-list-item>
+				</md-list>
+			</div>
+
+			<br>
+			<br>
+			<md-divider></md-divider>
+
+			<link rel="stylesheet" type="text/css" href="../static/styles/shopPage.css">
+
+			<div id="shopPage">
+				<div id="carouselTest">
+
+					<div class="shopGalery">
+						<div class="shopGaleryImages">
+							<div class="shopGaleryPhoto"><img src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300" alt="Image 1"></div>
+							<div class="shopGaleryPhoto"><img src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300" alt="Image 2"></div>
+							<div class="shopGaleryPhoto"><img src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300" alt="Image 3"></div>
+						</div>
+						<div class="shopGaleryNavigation">
+							<md-filled-icon-button class="prev">
+								<md-icon>arrow_back_ios_new</md-icon>
+							</md-filled-icon-button>
+							<md-filled-icon-button class="next">
+								<md-icon>arrow_forward_ios</md-icon>
+							</md-filled-icon-button>
+						</div>
+						<div class="shopGaleryDots">
+							<span class="shopGaleryDot active"></span>
+							<span class="shopGaleryDot"></span>
+							<span class="shopGaleryDot"></span>
+						</div>
+					</div>
+
+				</div>
+				<div id="shopInfo">
+					<md-list-item id="shopDescription">
+						<div slot="headline">Georgi</div>
+						<em slot="supporting-text">Formerly known as: </em>
+						<md-filled-icon-button slot="end" class="shopFavBtn" >		<!-- ADD: toggle disabled -->
+							<md-icon class="material-symbols-outlined">favorite</md-icon>
+							<md-icon slot="selected" class="material-symbols-outlined">favorite</md-icon>
+						</md-filled-icon-button>
+					</md-list-item>
+					<md-list-item class="shopRating" type="button">
+						<div slot="start">
+							<md-icon id="ratingStar1" style="font-variation-settings: 'FILL' 1;" class="ratingStars material-symbols-outlined">star_rate</md-icon>
+							<md-icon id="ratingStar2" style="font-variation-settings: 'FILL' 1;" class="ratingStars material-symbols-outlined">star_rate</md-icon>
+							<md-icon id="ratingStar3" style="font-variation-settings: 'FILL' 1;" class="ratingStars material-symbols-outlined">star_rate_half</md-icon>
+							<md-icon id="ratingStar4" style="font-variation-settings: 'FILL' 0;" class="ratingStars material-symbols-outlined">star_rate</md-icon>
+							<md-icon id="ratingStar5" style="font-variation-settings: 'FILL' 0;" class="ratingStars material-symbols-outlined">star_rate</md-icon>
+						</div>
+						<span slot="headline">2.5</span>
+						<md-icon slot="end">reviews</md-icon>
+					</md-list-item>
+					<md-list-item id="shopLocation" role="link" href="geo:48.501516, 9.126556">
+						<md-icon slot="start" class="material-symbols-outlined">location_on</md-icon>
+						<div slot="headline">Str. Gheaba, Nr. 67</div>
+						<div slot="supporting-text">48°30'05.5"N 9°07'35.6"E</div>
+						<md-icon slot="end">open_in_new</md-icon>
+					</md-list-item>
+					
+					
+					<div id="shopCataloguePreview">
+						<span id="shopCataloguePreviewHeadline">Check out the store's catalogue</span>
+						<div id="shopCataloguePreviewItems">
+							<div class="shopCataloguePreviewGridItem">
+								<img src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300">
+								
+								<span class="shopCataloguePreviewGridHeadline">brand nume flavor capacity</span>
+								<div class="shopCataloguePreviewGridPrice">
+									<span>19</span>
+									<sub>.99</sub>
+									<div>RON</div>
+								</div>
+							</div>
+							<div class="shopCataloguePreviewGridItem">
+								<img src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300">
+								
+								<span class="shopCataloguePreviewGridHeadline">brand nume flavor capacity</span>
+								<div class="shopCataloguePreviewGridPrice">
+									<span>19</span>
+									<sub>.99</sub>
+									<div>RON</div>
+								</div>
+							</div>
+							<div class="shopCataloguePreviewGridItem">
+								<img src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300">
+								
+								<span class="shopCataloguePreviewGridHeadline">brand nume flavor capacity</span>
+								<div class="shopCataloguePreviewGridPrice">
+									<span>19</span>
+									<sub>.99</sub>
+									<div>RON</div>
+								</div>
+							</div>
+							<div class="shopCataloguePreviewGridItem viewAllBtn">
+								<div class="shopCataloguePreviewViewAll">
+									<md-filled-tonal-icon-button>
+										<md-icon>list</md-icon>
+									</md-filled-tonal-icon-button>
+									<span>View All</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="shopPageManagerProgram">
+						<span class="details">Do you happend to live near this shop?<br>Asign yourself as this shop's "manager" and handle details about it's well being</span>
+						<md-filled-button href="/manager?$ShopName$" class="managerProgramRedirect">
+							<md-icon slot="icon">engineering</md-icon>
+							Manager programe
+						</md-filled-button>
+					</div>
+				</div>
+			</div>
+
+
+			<link rel="stylesheet" type="text/css" href="../static/styles/productPage.css">
+
+			<div id="productPage">
+				<div id="testTemplateItem">
+					<div id="productHeadline">
+						<img src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300">
+						<md-divider></md-divider>
+						<span id="productDescription">
+							brand nume flnd nume fly braavor capacipacity brand nund nume flavor capacity brame flavor caavor capacity 
+						</span>
+					</div>
+					<div id="productActions">
+						<md-filled-icon-button class="productFavBtn" >		<!-- ADD: toggle disabled -->
+							<md-icon class="material-symbols-outlined">favorite</md-icon>
+							<md-icon slot="selected" class="material-symbols-outlined">favorite</md-icon>
+						</md-filled-icon-button>
+						<md-outlined-button id="productAddCartBtn" >		<!-- ADD: disabled -->
+							<span id="productAddCartBtnIcon" slot="icon" class="material-symbols-outlined "></span>
+							Add to cart
+						</md-outlined-button>
+					</div>
+
+					<md-list id="productShopsList">
+						<md-list-item class="productShopCard" type="link">
+							<img slot="start" src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300">
+							<div slot="headline">Georgi</div>
+							<div slot="supporting-text">Ella Store</div>
+							<div slot="end" class="productPrice">
+								<div>
+									<md-icon>shelves</md-icon>
+									<span>19</span>
+									<sub>.99</sub>
+								</div>
+								<div class="dateUpdated">24/02</div>
+							</div>
+						</md-list-item>
+						<md-list-item class="productShopCard" type="link">
+							<img slot="start" src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300">
+							<div slot="headline">Georgi</div>
+							<div slot="supporting-text">Ella Store</div>
+							<div slot="end" class="productPrice">
+								<div>
+									<md-icon>point_of_sale</md-icon>
+									<span>19</span>
+									<sub>.99</sub>
+								</div>
+								<div class="dateUpdated">24/02</div>
+							</div>
+						</md-list-item>
+						<md-list-item class="productShopCard" type="link">
+							<img slot="start" src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300">
+							<div slot="headline">Georgi</div>
+							<div slot="supporting-text">Ella Store</div>
+							<div slot="end" class="productPrice">
+								<div>
+									<md-icon>cloud_download</md-icon>
+									<span>19</span>
+									<sub>.99</sub>
+								</div>
+								<div class="dateUpdated">24/02</div>
+							</div>
+						</md-list-item>
+						<md-list-item class="productShopCard" type="link">
+							<img slot="start" src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300">
+							<div slot="headline">Georgi</div>
+							<div slot="supporting-text">Ella Store</div>
+							<div slot="end" class="productPrice">
+								<div>
+									<md-icon>shelves</md-icon>
+									<span>19</span>
+									<sub>.99</sub>
+								</div>
+								<div class="dateUpdated">24/02</div>
+							</div>
+						</md-list-item>
+						<md-text-button>
+							<u>Show All</u>
+						</md-text-button>
+					</md-list>
+				</div>
+			</div>
+
+															<!-- PAGE PAGE PAGE -->
+
+			<link rel="stylesheet" type="text/css" href="../static/styles/pageGridX2.css">
+
+			<div id="pageGridX2">
+				<div class="gridItem">
+					<img src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300">
+					<md-icon-button class="productFavBtn" >		<!-- ADD: toggle disabled -->
+						<md-icon class="material-symbols-outlined">favorite</md-icon>
+						<md-icon slot="selected" class="material-symbols-outlined">favorite</md-icon>
+					</md-icon-button>
+					<span class="gridProductHeadline">brand nume flavor capacity</span>
+					<div>
+						<div class="gridProductPrice">
+							<span>19</span>
+							<sup>99</sup>
+							<div>RON</div>
+						</div>
+						<md-filled-icon-button class="addToBasketBtn" >		<!-- ADD: toggle disabled -->
+							<md-icon>add_shopping_cart</md-icon>
+							<md-icon slot="selected">check</md-icon>
+						</md-filled-icon-button>
+					</div>
+				</div>
+				<div class="gridItem">
+					<img src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300">
+					<md-icon-button class="productFavBtn" >		<!-- ADD: toggle disabled -->
+						<md-icon class="material-symbols-outlined">favorite</md-icon>
+						<md-icon slot="selected" class="material-symbols-outlined">favorite</md-icon>
+					</md-icon-button>
+					<span class="gridProductHeadline">brand nume flavor capacity</span>
+					<div>
+						<div class="gridProductPrice">
+							<span>19</span>
+							<sup>99</sup>
+							<div>RON</div>
+						</div>
+						<md-filled-icon-button class="addToBasketBtn" >		<!-- ADD: toggle disabled -->
+							<md-icon>add_shopping_cart</md-icon>
+							<md-icon slot="selected">check</md-icon>
+						</md-filled-icon-button>
+					</div>
+				</div>
+				<div class="gridItem">
+					<img src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300">
+					<md-icon-button class="productFavBtn" >		<!-- ADD: toggle disabled -->
+						<md-icon class="material-symbols-outlined">favorite</md-icon>
+						<md-icon slot="selected" class="material-symbols-outlined">favorite</md-icon>
+					</md-icon-button>
+					<span class="gridProductHeadline">brand nume flavor capacity</span>
+					<div>
+						<div class="gridProductPrice">
+							<span>19</span>
+							<sup>99</sup>
+							<div>RON</div>
+						</div>
+						<md-filled-icon-button class="addToBasketBtn" >		<!-- ADD: toggle disabled -->
+							<md-icon>add_shopping_cart</md-icon>
+							<md-icon slot="selected">check</md-icon>
+						</md-filled-icon-button>
+					</div>
+				</div>
+				<div class="gridItem">
+					<img src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300">
+					<md-icon-button class="productFavBtn" >		<!-- ADD: toggle disabled -->
+						<md-icon class="material-symbols-outlined">favorite</md-icon>
+						<md-icon slot="selected" class="material-symbols-outlined">favorite</md-icon>
+					</md-icon-button>
+					<span class="gridProductHeadline">brand nume flavor capacity</span>
+					<div>
+						<div class="gridProductPrice">
+							<span>19</span>
+							<sup>99</sup>
+							<div>RON</div>
+						</div>
+						<md-filled-icon-button class="addToBasketBtn" >		<!-- ADD: toggle disabled -->
+							<md-icon>add_shopping_cart</md-icon>
+							<md-icon slot="selected">check</md-icon>
+						</md-filled-icon-button>
+					</div>
+				</div>
+				<div class="gridItem">
+					<img src="https://static.mega-image.ro/medias/sys_master/h01/hba/9280617840670.jpg?buildNumber=cb7fdbea3c2688daa9f54fabf22999fc81b2d9e55068ada907625ac6a61dc804&imwidth=300" onclick="window.location.href='#';">
+					<md-icon-button class="productFavBtn" >		<!-- ADD: toggle disabled -->
+						<md-icon class="material-symbols-outlined">favorite</md-icon>
+						<md-icon slot="selected" class="material-symbols-outlined">favorite</md-icon>
+					</md-icon-button>
+					<span class="gridProductHeadline" onclick="window.location.href='#';">brand nume flavor capacity</span>
+					<div>
+						<div class="gridProductPrice">
+							<span>19</span>
+							<sup>99</sup>
+							<div>RON</div>
+						</div>
+						<md-filled-icon-button class="addToBasketBtn" >		<!-- ADD: toggle disabled -->
+							<md-icon>add_shopping_cart</md-icon>
+							<md-icon slot="selected">check</md-icon>
+						</md-filled-icon-button>
+					</div>
+				</div>
+			</div>
+
+			
+
+		</div>
+        <script src="../static/app.js"></script>
+    </body>
+</html>
