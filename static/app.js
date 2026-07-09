@@ -16,6 +16,14 @@ navDrawerAction.forEach(action => {
 
 const searchViewWindowAction = document.querySelectorAll('.searchViewWindowAction');
 const searchViewWindowAnimation = document.querySelectorAll('.searchViewWindowAnimation');
+const searchFAB = document.getElementById('searchFAB');
+
+searchFAB.addEventListener("click", () => {
+    searchViewWindowAnimation.forEach(anim => {
+        anim.classList.add("open");
+    });
+})
+
 searchViewWindowAction.forEach(btn => {
     btn.addEventListener("click", () => {
         searchViewWindowAnimation.forEach(anim => {
@@ -36,8 +44,7 @@ locationAriaBtn.addEventListener('click', () => {
 
 
 const switchFilterToggle = document.getElementById('switchFilterToggle');
-const filtersFAB = document.getElementById('filtersFAB')
-const searchFAB = document.getElementById('searchFAB');
+const filtersFAB = document.getElementById('filtersFAB');
 
 switchFilterToggle.addEventListener('change', (event) => {
     const isSelected = event.target.selected;
