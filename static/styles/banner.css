@@ -13,6 +13,11 @@
     display: flex;
     gap: 1px;
 }
+#banner .topRowIcons{
+    --_icon-size: 26px;
+    height: 56px;
+    width: 56px;
+}
 #searchBar{
 	display: flex;
     flex-grow: 1;
@@ -21,11 +26,6 @@
 	background-color: red;
 	align-items: center;
     justify-content: center
-}
-.topRowIcons{
-    --_icon-size: 26px;
-    height: 56px;
-    width: 56px;
 }
 
 #searchViewWindow{
