@@ -61,7 +61,7 @@ accountCloseBtn.addEventListener('click', () => {
     /* END BANNER */
 
 
-    /* PAGE LOGIC */
+    /* PAGE LOGIC 
 
 const productAddCartBtn = document.getElementById('productAddCartBtn');
 const productAddCartBtnIcon = document.getElementById('productAddCartBtnIcon');
@@ -71,7 +71,7 @@ productAddCartBtn.addEventListener('click', () => {
     productAddCartBtnIcon.classList.toggle("active");
 });
 
-    /* END PAGE */
+    END PAGE */
 
 
     /* filters-FAB ACTIONS */

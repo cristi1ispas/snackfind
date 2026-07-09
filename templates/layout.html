@@ -9,8 +9,9 @@
 		<link rel="stylesheet" type="text/css" href="../static/style.css">
 		<link rel="stylesheet" type="text/css" href="../static/styles/contributePage.css">
 		<link rel="stylesheet" type="text/css" href="../static/styles/categoryChips.css">
-		<link rel="stylesheet" type="text/css" href="../static/styles/filterToggleTO-BE-DEPRICATED.css">
+		<link rel="stylesheet" type="text/css" href="../static/filterToggleTO-BE-DEPRICATED.css">
 		<link rel="stylesheet" type="text/css" href="../static/styles/filtersFAB.css">
+		<link rel="stylesheet" type="text/css" href="../static/styles/accountCenter.css">
 
 		
 		<!-- Material Web -->
@@ -71,22 +72,11 @@
 					<span id="searchBtnText">Search in products</span>
 				</div>
 
-				<md-icon-button id="threeDotBtn" class="topRowIcons threeDotMenuComponentAction">
-					<md-icon>more_vert</md-icon>
+				<md-icon-button id="account" class="threeDotMenuComponentAction">
+					<md-icon>account_circle</md-icon>
 				</md-icon-button>
 
-				<md-menu menu-corner="start-end" anchor-corner="end-start" has-overflow positioning="popover" id="threeDotMenu" anchor="threeDotBtn" x-offset="-36" y-offset="-14">
-					<md-menu-item href="https://www.github.com/cristi1ispas/comprixglob" target="_blank">
-						<md-icon slot="start">code</md-icon>
-						<div slot="headline">GitHub</div>
-						<md-icon slot="end">open_in_new</md-icon>
-					</md-menu-item>
-
-					<md-menu-item>
-						<md-icon slot="start">info</md-icon>
-						<div slot="headline">About</div>
-					</md-menu-item>
-				</md-menu>
+				
 			</div>
 			<div id="ribbonRow">
 				<md-filled-tonal-button id="locationAriaBtn">
@@ -198,9 +188,38 @@
 					</md-menu-item>
 				</md-menu>
 			</md-sub-menu>
-			<md-menu-item>
-				<div slot="headline">Cucumber</div>
-			</md-menu-item>
+			<md-sub-menu menu-corner="start-start" anchor-corner="end-end">
+				<md-menu-item slot="item">
+					<div slot="headline">Prahova</div>
+					<md-icon slot="end">arrow_drop_down</md-icon>
+				</md-menu-item>
+				<md-menu slot="menu" has-overflow positioning="popover" x-offset="-40" y-offset="-12">
+					<md-menu-item>
+						<div slot="headline">Ploiesti</div>
+						<div slot="supporting-text">Shops: 56</div>
+					</md-menu-item>
+					<md-menu-item>
+						<div slot="headline">Campina</div>
+						<div slot="supporting-text">Shops: 23</div>
+					</md-menu-item>
+					<md-menu-item>
+						<div slot="headline">Valenii de munte</div>
+						<div slot="supporting-text">Shops: 18</div>
+					</md-menu-item>
+					<md-menu-item>
+						<div slot="headline">Breaza</div>
+						<div slot="supporting-text">Shops: 17</div>
+					</md-menu-item>
+					<md-menu-item>
+						<div slot="headline">Blejoi</div>
+						<div slot="supporting-text">Shops: 14</div>
+					</md-menu-item>
+					<md-menu-item>
+						<div slot="headline">Maneciu</div>
+						<div slot="supporting-text">Shops: 10</div>
+					</md-menu-item>
+				</md-menu>
+			</md-sub-menu>
 		</md-menu>
 
 		
@@ -238,15 +257,6 @@
 					<md-icon slot="start">engineering</md-icon>
 					Manager program
 				</md-list-item>
-				<md-divider></md-divider>
-				<md-list-item type="button" class="navDrawerListItem" href="/settings">
-					<md-icon slot="start">settings</md-icon>
-					Settings
-				</md-list-item>
-				<md-list-item type="button" class="navDrawerListItem" href="/help">
-					<md-icon slot="start">help</md-icon>
-					Help & feedback
-				</md-list-item>
 			</md-list>
 			<div>build 00:37 - 31/01</div>
 			
@@ -256,6 +266,59 @@
 		
 		<!-- END OF navDrawer -->
 
+		<!-- BEGIN accountCenter -->
+
+		<div id="accountCenter">
+			
+			<md-icon-button id="accountCloseBtn">
+				<md-icon>close</md-icon>
+			</md-icon-button>
+			
+				<div id="accountPreview">
+					<img id="accountPreviewIMG" src="https://static.mega-image.ro/medias/sys_master/products/h68/h99/9541402787870.jpg">
+					
+					<b>$PROFILE NAME$</b>
+					<sup>$username$</sup>
+					<br>
+				</div>
+			
+			<md-list id="accountSettingsList">
+				<md-list-item type="button">
+					<div slot="headline">Profile</div>
+					<md-icon slot="end">account_circle</md-icon>
+				</md-list-item>
+				<md-list-item type="button">
+					<div slot="headline">Achivements</div>
+					<div slot="supporting-text">Score: 443</div>
+					<md-icon slot="end">trophy</md-icon>
+				</md-list-item>
+				<md-list-item type="button" class="settingsTheme">
+					<label for="themeSwitch">
+						Theme MOVE IN SETTINGS 
+						<div class="iconsAndThemeSwitch">
+							<md-icon>light_mode</md-icon>
+							<md-switch id="themeSwitch"></md-switch>
+							<md-icon>mode_night</md-icon>
+						</div>
+					</label>
+				</md-list-item>
+				<md-list-item type="button">
+					<div slot="headline">Settings</div>
+					<md-icon slot="end">settings</md-icon>
+				</md-list-item>
+				<md-list-item type="button">
+					<div slot="headline">Help</div>
+					<md-icon slot="end">help</md-icon>
+				</md-list-item>
+				<md-list-item type="button">
+					<div slot="headline">Feedback</div>
+					<md-icon slot="end">feedback</md-icon>
+				</md-list-item>
+
+			</md-list>
+		</div>
+
+		<!-- END OF accountCenter -->
 
 		<!-- BEGIN NAVIGATION-->
 
@@ -320,62 +383,61 @@
 			<md-icon slot="icon">search</md-icon>
 		</md-fab>
 
-		<div>
-			<md-fab id="filtersConfirmFAB" class="filtersFabMenuAnimation filtersFabMenuAction filtersFabAction" label="Apply">
-				<md-icon slot="icon">check</md-icon>
-			</md-fab>  
+	
+		<md-fab id="filtersConfirmFAB" class="filtersFabMenuAnimation filtersFabMenuAction filtersFabAction" label="Apply">
+			<md-icon slot="icon">check</md-icon>
+		</md-fab>  
 
-			<!-- Remove and replace with <md-icon-button> -->
+		<!-- Remove and replace with <md-icon-button> -->
 
-			<md-elevated-button id="filtersFAB" class="filtersFabAnimation filtersFabAction filtersFabMenuAction filtersFabMenuAnimation">
-				<md-icon >tune</md-icon>
-				
-			</md-elevated-button>
-
-			<md-icon-button id="filtersFabIconBtnClose" class="filtersFabMenuAnimation filtersFabMenuAction filtersFabAction" toggle>
-				<md-icon>close</md-icon>
-			</md-icon-button>
-
+		<md-elevated-button id="filtersFAB" class="filtersFabAnimation filtersFabAction filtersFabMenuAction filtersFabMenuAnimation">
+			<md-icon >tune</md-icon>
 			
-			<div id="filtersFabMenuWraper" class="filtersFabMenuAnimation">
-				<md-filled-tonal-button id="filterBrandBtn" trailing-icon>
-					Brand
-					<md-icon slot="icon">arrow_drop_down</md-icon>
-				</md-filled-tonal-button>
-				
-				<md-filled-tonal-button id="filterFlavorBtn" trailing-icon>
-					Flavor
-					<md-icon slot="icon">arrow_drop_down</md-icon>
-				</md-filled-tonal-button>
+		</md-elevated-button>
 
-				<md-filled-tonal-button trailing-icon>
-					Capacity
-					<md-icon slot="icon">arrow_drop_down</md-icon>
-				</md-filled-tonal-button>
-				<div>
-					<div class="filterOrderStack">
-						<md-filled-icon-button id="filterDefaultOrderPrice" toggle class="filterDefaultOrder">
-							<md-icon>height</md-icon>
-							<md-icon slot="selected"> </md-icon>
-						</md-filled-icon-button>
-						<md-filled-tonal-icon-button id="filterOrderPrice" toggle class="filterOrder">
-							<md-icon>arrow_upward</md-icon>
-							<md-icon slot="selected">arrow_downward</md-icon>
-						</md-filled-tonal-icon-button>
-					</div>
-					
-					<md-filled-tonal-button id="filterPriceBtn" trailing-icon>
-						price
-						<md-icon slot="icon">arrow_drop_down</md-icon>
-					</md-filled-tonal-button>
+		<md-icon-button id="filtersFabIconBtnClose" class="filtersFabMenuAnimation filtersFabMenuAction filtersFabAction" toggle>
+			<md-icon>close</md-icon>
+		</md-icon-button>
+
+		
+		<div id="filtersFabMenuWraper" class="filtersFabMenuAnimation">
+			<md-filled-tonal-button id="filterBrandBtn" trailing-icon>
+				Brand
+				<md-icon slot="icon">arrow_drop_down</md-icon>
+			</md-filled-tonal-button>
+			
+			<md-filled-tonal-button id="filterFlavorBtn" trailing-icon>
+				Flavor
+				<md-icon slot="icon">arrow_drop_down</md-icon>
+			</md-filled-tonal-button>
+
+			<md-filled-tonal-button trailing-icon>
+				Capacity
+				<md-icon slot="icon">arrow_drop_down</md-icon>
+			</md-filled-tonal-button>
+			<div>
+				<div class="filterOrderStack">
+					<md-filled-icon-button id="filterDefaultOrderPrice" toggle class="filterDefaultOrder">
+						<md-icon>height</md-icon>
+						<md-icon slot="selected"> </md-icon>
+					</md-filled-icon-button>
+					<md-filled-tonal-icon-button id="filterOrderPrice" toggle class="filterOrder">
+						<md-icon>arrow_upward</md-icon>
+						<md-icon slot="selected">arrow_downward</md-icon>
+					</md-filled-tonal-icon-button>
 				</div>
-				<md-filled-tonal-button id="filterTESTBtn" trailing-icon>
-					Completeggggg
+				
+				<md-filled-tonal-button id="filterPriceBtn" trailing-icon>
+					price
 					<md-icon slot="icon">arrow_drop_down</md-icon>
 				</md-filled-tonal-button>
-				
-
 			</div>
+			<md-filled-tonal-button id="filterTESTBtn" trailing-icon>
+				Completeggggg
+				<md-icon slot="icon">arrow_drop_down</md-icon>
+			</md-filled-tonal-button>
+			
+
 		</div>
 
 		<div>
@@ -392,7 +454,18 @@
 
 				<md-list>
 
-					{% block filterBrand %}{% endblock %}
+					<md-list-item type="button">
+						<label>
+							<span>{{ brand }}</span>
+							<md-checkbox value="g"></md-checkbox>
+						</label>
+					</md-list-item>
+					<md-list-item type="button">
+						<label>
+							<span>{{ brand }}</span>
+							<md-checkbox value="g"></md-checkbox>
+						</label>
+					</md-list-item>
 					
 				</md-list>
 			</div>
