@@ -114,8 +114,8 @@ filtersConfirmFAB.addEventListener('click', () =>{
 
 const filterBrandBtn = document.getElementById('filterBrandBtn');
 const filterBrandMenu = document.getElementById('filterBrandMenu');
-const filterFlavorBtn = document.getElementById('filterFlavorBtn');
-const filterFlavorMenu = document.getElementById('filterFlavorMenu');
+const filterflavourBtn = document.getElementById('filterflavourBtn');
+const filterflavourMenu = document.getElementById('filterflavourMenu');
 const filterPriceBtn = document.getElementById('filterPriceBtn');
 const filterPriceMenu = document.getElementById('filterPriceMenu');
 const filterMenuListsBlur = document.getElementById('filterMenuListsBlur');
@@ -125,8 +125,8 @@ filterBrandBtn.addEventListener('click', () => {
     filterBrandMenu.classList.add("open");
     filterMenuListsBlur.classList.add("open");
 });
-filterFlavorBtn.addEventListener('click', () => {
-    filterFlavorMenu.classList.add("open");
+filterflavourBtn.addEventListener('click', () => {
+    filterflavourMenu.classList.add("open");
     filterMenuListsBlur.classList.add("open");
 });
 filterPriceBtn.addEventListener('click', () => {
@@ -135,7 +135,7 @@ filterPriceBtn.addEventListener('click', () => {
 });
 filterMenuListsClose.forEach(filterMenuListsCloseElement => {
     filterMenuListsCloseElement.addEventListener('click', () => {
-        filterFlavorMenu.classList.remove("open");
+        filterflavourMenu.classList.remove("open");
         filterBrandMenu.classList.remove("open");
         filterPriceMenu.classList.remove("open");
         filterMenuListsBlur.classList.remove("open");
@@ -157,27 +157,27 @@ function getSelectedBrands() {
 
     return brands;
 }
-function getSelectedFlavors() {
+function getSelectedflavours() {
     const checkboxes = document.querySelectorAll(
-        '#filterFlavorMenu md-checkbox'
+        '#filterflavourMenu md-checkbox'
     );
 
-    const flavors = [];
+    const flavours = [];
 
     checkboxes.forEach(cb => {
         if (cb.checked) {
-            flavors.push(cb.value);
+            flavours.push(cb.value);
         }
     });
 
-    return flavors;
+    return flavours;
 }
 
 const applyFiltersBtn = document.getElementById('filtersConfirmFAB');
 
 applyFiltersBtn.addEventListener('click', () => {
     const brands = getSelectedBrands();
-    const flavors = getSelectedFlavors();
+    const flavours = getSelectedflavours();
     
     const minPrice = filterPriceSlider.valueStart;
     const maxPrice = filterPriceSlider.valueEnd;
@@ -186,7 +186,7 @@ applyFiltersBtn.addEventListener('click', () => {
     // Build query params for URL
     const params = new URLSearchParams();
     brands.forEach(b => params.append("brand", b));
-    flavors.forEach(f => params.append("flavor", f));
+    flavours.forEach(f => params.append("flavour", f));
 
     params.append("min_price", minPrice);
     params.append("max_price", maxPrice);
@@ -199,6 +199,7 @@ applyFiltersBtn.addEventListener('click', () => {
 
 
 let filterOrderPriceState = 0;      //state of ordering var
+    console.log("price:", filterOrderPriceState);
 
 const filterDefaultOrderPrice = document.getElementById('filterDefaultOrderPrice');
 const filterOrderPrice = document.getElementById('filterOrderPrice');
@@ -206,7 +207,7 @@ const filterOrderPrice = document.getElementById('filterOrderPrice');
     console.log("price:", filterOrderPriceState);
 filterDefaultOrderPrice.addEventListener('click', () => {       //css moves it out the way
     filterOrderPrice.selected = false;          //making sure it gets the right state;
-    filterOrderPriceState = 1;
+    filterOrderPriceState = -1;
     console.log("price:", filterOrderPriceState);
 });
 filterOrderPrice.addEventListener('click', () => {          //the md-icon-button sets itself [selected]

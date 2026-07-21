@@ -204,6 +204,7 @@
 	position: fixed;
 	bottom: 0;
 	left: 0;
+	max-height: 75vh; /*idk*/
 	width: 100vw;
 	z-index: 1200;
 	transform: translateY(80%);
@@ -228,8 +229,9 @@
 	width: 58px;
 	--_icon-size: 32px;
 }
-md-divider{
-	padding: 0 5%;
+.filterMenuListsWraper md-list{
+	max-height: 65vh;
+	overflow-y: scroll;
 }
 .filterMenuListsWraper md-list md-list-item{
 	--md-list-item-top-space: 0;

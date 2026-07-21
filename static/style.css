@@ -12,7 +12,9 @@
 	color: inherit;
 }
 
-
+md-divider{
+	padding: 0 5%;
+}
 
 #searchFAB{
 	position: fixed;
