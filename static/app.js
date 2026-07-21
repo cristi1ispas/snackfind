@@ -298,7 +298,7 @@ shopGaleryDot.forEach((dot, index) => {
     });
 });
 
-// Optional: Touch dragging (basic version)
+// Touch dragging (basic version)
 let startX, endX;
 
 shopGalery.addEventListener('touchstart', (e) => {
