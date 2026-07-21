@@ -1,4 +1,7 @@
+:root{
+	--mdFilterButtonsMaxWidth: 135px; /* if text dont fit */
 
+}
 
 #discardFiltersDialog{
 	max-width: 200px;
@@ -138,7 +141,7 @@
 	transform: translateX(-116px);
 }
 #filtersFabMenuWraper.open md-filled-tonal-button{
-	max-width: 180px;
+	max-width: var(--mdFilterButtonsMaxWidth, 150px);
 	opacity: 1;
 	transition: max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }

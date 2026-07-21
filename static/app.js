@@ -199,7 +199,6 @@ applyFiltersBtn.addEventListener('click', () => {
 
 
 let filterOrderPriceState = 0;      //state of ordering var
-    console.log("price:", filterOrderPriceState);
 
 const filterDefaultOrderPrice = document.getElementById('filterDefaultOrderPrice');
 const filterOrderPrice = document.getElementById('filterOrderPrice');
