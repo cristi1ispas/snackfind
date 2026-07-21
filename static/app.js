@@ -109,13 +109,13 @@ filtersFabMenuAction.forEach(FabMenuAction => {
 const filtersConfirmFAB = document.getElementById('filtersConfirmFAB');
 
 filtersConfirmFAB.addEventListener('click', () =>{
-    advancedFAB.selected = false;
+    filtersFAB.selected = false;
 });
 
 const filterBrandBtn = document.getElementById('filterBrandBtn');
 const filterBrandMenu = document.getElementById('filterBrandMenu');
-const filterflavourBtn = document.getElementById('filterflavourBtn');
-const filterflavourMenu = document.getElementById('filterflavourMenu');
+const filterFlavourBtn = document.getElementById('filterFlavourBtn');
+const filterFlavourMenu = document.getElementById('filterFlavourMenu');
 const filterPriceBtn = document.getElementById('filterPriceBtn');
 const filterPriceMenu = document.getElementById('filterPriceMenu');
 const filterMenuListsBlur = document.getElementById('filterMenuListsBlur');
@@ -125,8 +125,8 @@ filterBrandBtn.addEventListener('click', () => {
     filterBrandMenu.classList.add("open");
     filterMenuListsBlur.classList.add("open");
 });
-filterflavourBtn.addEventListener('click', () => {
-    filterflavourMenu.classList.add("open");
+filterFlavourBtn.addEventListener('click', () => {
+    filterFlavourMenu.classList.add("open");
     filterMenuListsBlur.classList.add("open");
 });
 filterPriceBtn.addEventListener('click', () => {
@@ -135,7 +135,7 @@ filterPriceBtn.addEventListener('click', () => {
 });
 filterMenuListsClose.forEach(filterMenuListsCloseElement => {
     filterMenuListsCloseElement.addEventListener('click', () => {
-        filterflavourMenu.classList.remove("open");
+        filterFlavourMenu.classList.remove("open");
         filterBrandMenu.classList.remove("open");
         filterPriceMenu.classList.remove("open");
         filterMenuListsBlur.classList.remove("open");
@@ -157,9 +157,9 @@ function getSelectedBrands() {
 
     return brands;
 }
-function getSelectedflavours() {
+function getSelectedFlavours() {
     const checkboxes = document.querySelectorAll(
-        '#filterflavourMenu md-checkbox'
+        '#filterFlavourMenu md-checkbox'
     );
 
     const flavours = [];
@@ -177,7 +177,7 @@ const applyFiltersBtn = document.getElementById('filtersConfirmFAB');
 
 applyFiltersBtn.addEventListener('click', () => {
     const brands = getSelectedBrands();
-    const flavours = getSelectedflavours();
+    const flavours = getSelectedFlavours();
     
     const minPrice = filterPriceSlider.valueStart;
     const maxPrice = filterPriceSlider.valueEnd;
