@@ -1,6 +1,8 @@
 
 
-
+body{
+	margin: 0px; font-family: 'Roboto Variable', sans-serif; background-color: antiquewhite;
+}
 
 #page{
 	margin-top: 150px;
