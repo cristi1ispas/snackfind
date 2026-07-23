@@ -1,11 +1,10 @@
 
 			    
     /* BANNER */
-
-import { navDrawerAnimation } from "./navDrawerAnimation";
-
                 
 const navDrawerAction = document.querySelectorAll('.navDrawerAction');
+const navDrawerAnimation = document.querySelectorAll('.navDrawerAnimation');
+
 navDrawerAction.forEach(action => {
     action.addEventListener("click", () => {
         navDrawerAnimation.forEach(anim =>{
