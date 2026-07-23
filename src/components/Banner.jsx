@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function NavDrawer() {
+function Banner() {
   const [count, setCount] = useState(0)
   
   return (
@@ -10,4 +10,4 @@ function NavDrawer() {
   )
 }
 
-export default NavDrawer
+export default Banner
