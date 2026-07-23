@@ -16,7 +16,8 @@
     "@material/web": "^2.5.0",
     "@supabase/supabase-js": "^2.110.8",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "react-router-dom": "^7.18.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
