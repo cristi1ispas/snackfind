@@ -1,48 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import Banner from './components/Banner';
+import NavDrawer from './components/NavDrawer';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false)
+  const toggleNavDrawer = () => {
+    setIsNavDrawerOpen(!isNavDrawerOpen);
+  }
   
+  const [isAccountCenterOpen, setIsAccountCenterOpen] = useState(false)
+  const toggleAccountCenter = () => {
+    setIsAccountCenterOpen(!isAccountCenterOpen);
+  }
+
   return (
     <>
+
+      <Banner onMenuClick={toggleNavDrawer} onAccountClick={toggleAccountCenter} />
 		{/* END OF BANNER
 
 		    BEGIN navDrawer */}
 
 		
-		<div className="navDrawerAnimation navDrawerStyle">
-			<div style="font-size: 24px; padding: 24px;">project Mushroom</div>
-			<md-divider style="padding: 0;"></md-divider>
-			<md-list>
-				
-				<md-list-item type="button" className="navDrawerListItem" href="./news.html">
-					<md-icon slot="start">newspaper</md-icon>
-					News
-				</md-list-item>
-				
-				<md-list-item type="button" className="navDrawerListItem" href="./discounts.html">
-					<md-icon slot="start">percent</md-icon>
-					Discounts
-				</md-list-item>
-
-				<md-list-item type="button" className="navDrawerListItem" href="./shops.html">
-					<md-icon slot="start">store</md-icon>
-					Shops
-				</md-list-item>
-				<md-list-item type="button" className="navDrawerListItem" href="./compare.html">
-					<md-icon slot="start">compare_arrows</md-icon>
-					Compare
-				</md-list-item>
-				<md-list-item type="button" className="navDrawerListItem" href="./manager.html">
-					<md-icon slot="start">engineering</md-icon>
-					Manager program
-				</md-list-item>
-			</md-list>
-			<div>fluffy sheep</div>
-			
-		</div>
-
-		<div id="navDrawerBlur" className="navDrawerAnimation navDrawerAction"></div>
 		
 		{/* END OF navDrawer
 
