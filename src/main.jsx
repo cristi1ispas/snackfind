@@ -1,10 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import '@material/web/all.js'
 import '@fontsource-variable/roboto/wght.css'
 import '@fontsource-variable/roboto/wght-italic.css'
-import '@fontsource-variable/material-symbols-outlined';
 
 import './styles/accountCenter.css'
 import './styles/banner.css'

@@ -1,7 +1,31 @@
 
 
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: block;
+  src: url('/node_modules/@fontsource-variable/material-symbols-outlined/files/material-symbols-outlined-latin-wght-normal.woff2') format('woff2');
+}
+
+
+
+
 body{
 	margin: 0px; font-family: 'Roboto Variable', sans-serif; background-color: antiquewhite;
+}
+ 
+div:not(.material-symbols-outlined), 
+span:not(.material-symbols-outlined), 
+button:not(.material-symbols-outlined), 
+input:not(.material-symbols-outlined) {
+  font-family: 'Roboto Variable', sans-serif !important;
+}
+
+*:not(md-icon)::part(label), 
+*:not(md-icon)::part(headline), 
+*:not(md-icon)::part(supporting-text) {
+  font-family: 'Roboto Variable', sans-serif !important;
 }
 
 #page{
@@ -37,3 +61,15 @@ md-divider{
 
 
 
+md-icon, .material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}

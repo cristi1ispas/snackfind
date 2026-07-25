@@ -1,17 +1,14 @@
 import React, { useState } from 'react'
 
-function Banner() {
-
-  const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false)
-	const toggleNavDrawer = () => {
-		setIsNavDrawerOpen(!isNavDrawerOpen);
-	}
+function Banner({ onMenuClick, onAccountClick}) {
   
+
+
   return (
     <>
 			<div id="banner">
 				<div id="topRow">
-					<md-icon-button onClick={toggleNavDrawer} className="topRowIcons">
+					<md-icon-button onClick={onMenuClick} className="topRowIcons">
 						<md-icon>menu</md-icon>
 					</md-icon-button>
 
@@ -28,12 +25,12 @@ function Banner() {
 				<div id="ribbonRow">
 					<md-filled-tonal-button id="locationAriaBtn">
 						<span slot="icon" className="material-symbols-outlined">near_me</span>
-						Kirchentellinsfurt
+						<span style={{fontFamily: "'Roboto Variable', sans-serif"}}>Kirchentellinsfurt</span>
 					</md-filled-tonal-button>
 
 					{/* Advanced */}
 					<div id="filterToggle">
-						<label for="switchFilterToggle">Filters</label>
+						<label htmlFor="switchFilterToggle">Filters</label>
 						<md-switch id="switchFilterToggle" icons></md-switch>
 					</div>
 				</div>

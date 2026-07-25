@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 
-function NavDrawer() {
-  const [count, setCount] = useState(0)
-  
+function NavDrawer({isOpen, onClose}) {
+
+
+	
   return (
     <>
-      <div className="navDrawerAnimation navDrawerStyle">
-				<div style="font-size: 24px; padding: 24px;">project Mushroom</div>
-				<md-divider style="padding: 0;"></md-divider>
+      <div className={` navDrawerStyle ${isOpen? 'open' : ''}`}>
+				<div style={{fontSize: '24px', padding: '24px'}}>project Mushroom</div>
+				<md-divider style={{padding: '0'}}></md-divider>
 				<md-list>
 					
 					<md-list-item type="button" className="navDrawerListItem" href="./news.html">

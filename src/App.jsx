@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Banner from './components/Banner';
 import NavDrawer from './components/NavDrawer';
 
@@ -22,7 +22,7 @@ function App() {
 
 		    BEGIN navDrawer */}
 
-		
+			<NavDrawer isOpen={isNavDrawerOpen} onClose={toggleNavDrawer} />
 		
 		{/* END OF navDrawer
 
@@ -53,7 +53,7 @@ function App() {
 					<md-icon slot="end">trophy</md-icon>
 				</md-list-item>
 				<md-list-item type="button" className="settingsTheme">
-					<label for="themeSwitch">
+					<label htmlFor="themeSwitch">
 						Theme MOVE IN SETTINGS 
 						<div className="iconsAndThemeSwitch">
 							<md-icon>light_mode</md-icon>
