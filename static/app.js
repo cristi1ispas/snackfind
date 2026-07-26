@@ -12,6 +12,7 @@ navDrawerAction.forEach(action => {
         });
     });
 });
+/* DONE App.jsx ln 8 */
 
 
 const searchViewWindowAction = document.querySelectorAll('.searchViewWindowAction');

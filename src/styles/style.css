@@ -59,7 +59,9 @@ md-divider{
 	transform: translateX(80px) translateY(-112px);
 }
 
-
+md-menu{
+  --md-menu-container-shape: 8px;
+}
 
 md-icon, .material-symbols-outlined {
   font-family: 'Material Symbols Outlined';

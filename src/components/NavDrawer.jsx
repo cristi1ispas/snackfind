@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
-function NavDrawer({isOpen, onClose}) {
+function NavDrawer({ isOpen, onClose }) {
 
 
 	
@@ -13,32 +13,35 @@ function NavDrawer({isOpen, onClose}) {
 					
 					<md-list-item type="button" className="navDrawerListItem" href="./news.html">
 						<md-icon slot="start">newspaper</md-icon>
-						News
+						<span>News</span>
 					</md-list-item>
 					
 					<md-list-item type="button" className="navDrawerListItem" href="./discounts.html">
 						<md-icon slot="start">percent</md-icon>
-						Discounts
+						<span>Discounts</span>
 					</md-list-item>
 
 					<md-list-item type="button" className="navDrawerListItem" href="./shops.html">
 						<md-icon slot="start">store</md-icon>
-						Shops
+						<span>Shops</span>
 					</md-list-item>
+
 					<md-list-item type="button" className="navDrawerListItem" href="./compare.html">
 						<md-icon slot="start">compare_arrows</md-icon>
-						Compare
+						<span>Compare</span>
 					</md-list-item>
+
 					<md-list-item type="button" className="navDrawerListItem" href="./manager.html">
 						<md-icon slot="start">engineering</md-icon>
-						Manager program
+						<span>Manager program</span>
 					</md-list-item>
+
 				</md-list>
 				<div>fluffy sheep</div>
 				
 			</div>
 
-		<div id="navDrawerBlur" className="navDrawerAnimation navDrawerAction"></div>
+			<div id="navDrawerBlur" onClick={onClose} className={` ${isOpen? 'open' : ''}`}></div>
 		
     </>
   )
