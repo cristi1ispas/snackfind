@@ -35,7 +35,6 @@ function Banner({ onMenuClick, onAccountClick }) {
 						<span>Kirchentellinsfurt</span>
 					</md-filled-tonal-button>
 
-					{/* Advanced */}
 					<div id="filterToggle">
 						<label htmlFor="switchFilterToggle">Filters</label>
 						<md-switch id="switchFilterToggle" icons></md-switch>
