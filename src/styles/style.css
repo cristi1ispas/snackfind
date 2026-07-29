@@ -28,9 +28,8 @@ input:not(.material-symbols-outlined) {
   font-family: 'Roboto Variable', sans-serif !important;
 }
 
-#page{
-	margin-top: 150px;
-	margin-bottom: 136px;
+md-filter-chip{
+  --md-filter-chip-label-text-font: 'Roboto Variable', sans-serif;
 }
 
 .no-color{

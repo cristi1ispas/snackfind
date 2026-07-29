@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 function NavDrawer({ isOpen, onClose }) {
 
+  const navigate = useNavigate();
 
 	
   return (
@@ -11,27 +13,27 @@ function NavDrawer({ isOpen, onClose }) {
 				<md-divider style={{padding: '0'}}></md-divider>
 				<md-list>
 					
-					<md-list-item type="button" className="navDrawerListItem" href="./news.html">
+					<md-list-item type="button" className="navDrawerListItem" onClick={() => navigate('/news')}>
 						<md-icon slot="start">newspaper</md-icon>
 						<span>News</span>
 					</md-list-item>
 					
-					<md-list-item type="button" className="navDrawerListItem" href="./discounts.html">
+					<md-list-item type="button" className="navDrawerListItem" onClick={() => navigate('/discounts')}>
 						<md-icon slot="start">percent</md-icon>
 						<span>Discounts</span>
 					</md-list-item>
 
-					<md-list-item type="button" className="navDrawerListItem" href="./shops.html">
+					<md-list-item type="button" className="navDrawerListItem" onClick={() => navigate('/shops')}>
 						<md-icon slot="start">store</md-icon>
 						<span>Shops</span>
 					</md-list-item>
 
-					<md-list-item type="button" className="navDrawerListItem" href="./compare.html">
+					<md-list-item type="button" className="navDrawerListItem" onClick={() => navigate('/compare')}>
 						<md-icon slot="start">compare_arrows</md-icon>
 						<span>Compare</span>
 					</md-list-item>
 
-					<md-list-item type="button" className="navDrawerListItem" href="./manager.html">
+					<md-list-item type="button" className="navDrawerListItem" onClick={() => navigate('/manager')}>
 						<md-icon slot="start">engineering</md-icon>
 						<span>Manager program</span>
 					</md-list-item>
