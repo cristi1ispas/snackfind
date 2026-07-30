@@ -4,9 +4,9 @@ function CartContainer() {
 
   return(
     <>
-      <span style={{textAlign = "center", fontSize = "32px"}}>
+      <div style={{textAlign: 'center', fontSize: '32px'}}>
         Coming soon!
-      </span>
+      </div>
     </>
   )
 }

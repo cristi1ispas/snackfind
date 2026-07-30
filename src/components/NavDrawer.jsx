@@ -1,9 +1,6 @@
 import { useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
 
 function NavDrawer({ isOpen, onClose }) {
-
-  const navigate = useNavigate();
 
 	
   return (

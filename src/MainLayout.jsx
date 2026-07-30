@@ -1,10 +1,12 @@
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { useState } from "react";
 import Banner from './components/Banner';
 import NavDrawer from './components/NavDrawer';
 import AccountCenter from './components/AccountCenter';
 import NavBar from './components/NavBar';
 import ExploreContainer from './components/ExploreContainer';
+import FavouriteContainer from './components/FavouriteContainer';
+import CartContainer from './components/CartContainer';
+import ContributeContainer from './components/ContributeContainer';
 
 function MainLayout() {
 
@@ -18,6 +20,8 @@ function MainLayout() {
     setIsAccountCenterOpen(!isAccountCenterOpen);
   }
 
+  const [activeTab, setActiveTab] = useState('explore')
+
   return (
     <>
 
@@ -29,6 +33,9 @@ function MainLayout() {
 
       <div id='page'>
         <ExploreContainer />
+        <FavouriteContainer />
+        <CartContainer />
+        <ContributeContainer />
       </div>
 
       <NavBar />
