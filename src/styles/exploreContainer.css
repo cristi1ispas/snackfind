@@ -1,12 +1,11 @@
-
-#pageGridX2 {
+#productGrid {
     display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	padding: 8px;
 	column-gap: 8px;
 	row-gap: 12px;
 }
-#pageGridX2 .gridItem{
+#productGrid .productGridItem{
 	position: relative;
 	padding: 8px;
 	border-radius: 8px;
@@ -15,13 +14,13 @@
 	box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.25);
 	background-color: aqua;
 }
-#pageGridX2 .gridItem .productFavBtn{
+#productGrid .productGridItem .productFavBtn{
 	position: absolute;
 	top: 8px;
 	right: 8px;
 	--md-sys-color-primary: red;
 }
-#pageGridX2 .gridItem .productFavBtn md-icon{
+#productGrid .productGridItem .productFavBtn md-icon{
 	font-variation-settings: 
         'FILL' 0,
         'wght' 400,
@@ -29,14 +28,14 @@
         'opsz' 24;
 	transition: all 0.3s ease-in-out;
 }
-#pageGridX2 .gridItem .productFavBtn md-icon[slot="selected"]{
+#productGrid .productGridItem .productFavBtn md-icon[slot="selected"]{
 	font-variation-settings: 
         'FILL' 1,
         'wght' 400,
         'GRAD' 0,
         'opsz' 24;
 }
-#pageGridX2 .gridItem img{
+#productGrid .productGridItem img{
 	background-color: lightgreen;
 	width: 100%;
 	height: auto;
@@ -44,7 +43,7 @@
 	border-radius: 8px;
 	cursor: pointer;
 }
-#pageGridX2 .gridItem .gridProductHeadline{
+#productGrid .productGridItem .gridProductHeadline{
 	display: -webkit-box;
 	overflow: hidden;
 	line-clamp: 2;
@@ -55,37 +54,37 @@
 	line-height: 1.5em;
 	cursor: pointer;
 }
-#pageGridX2 .gridItem .gridProductHeadline:after {
+#productGrid .productGridItem .gridProductHeadline:after {
     content: "..."; 
     visibility: hidden;
 }
 
-#pageGridX2 .gridItem div{
+#productGrid .productGridItem div{
 	display: flex;
 	flex: 1;
 	justify-content: space-between;
 	align-items: center;
 }
-#pageGridX2 .gridItem div div.gridProductPrice{
+#productGrid .productGridItem div div.gridProductPrice{
 	display: inline-flex;
 	align-items: baseline;
 	justify-content: flex-start;
 }
-#pageGridX2 .gridItem div div.gridProductPrice span{
+#productGrid .productGridItem div div.gridProductPrice span{
 	font-size: 24px;
 	font-weight: 800;
 }
-#pageGridX2 .gridItem div div.gridProductPrice sup{
+#productGrid .productGridItem div div.gridProductPrice sup{
 	font-size: 12px;
 	font-weight: 800;
 	align-self: start;
 }
-#pageGridX2 .gridItem div div.gridProductPrice div{
+#productGrid .productGridItem div div.gridProductPrice div{
 	font-size: 12px;
 	font-weight: 400;
 }
 
-#pageGridX2 .gridItem div .addToBasketBtn{
+#productGrid .productGridItem div .addToBasketBtn{
 	--_container-shape-start-start: 8px;
 	--_container-shape-start-end: 8px;
 	--_container-shape-end-start: 8px;

@@ -31,8 +31,10 @@ function MainLayout() {
 		
 			<AccountCenter isOpen={isAccountCenterOpen} onClose={toggleAccountCenter}/>
 
-      <div id='page'>
-        <ExploreContainer />
+      <div id="page">
+        <div id="explore">
+          <ExploreContainer />
+        </div>
         <FavouriteContainer />
         <CartContainer />
         <ContributeContainer />

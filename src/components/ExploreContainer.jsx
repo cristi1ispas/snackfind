@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ProductGridItem from './ProductGridItem'
 
 function ExploreContainer() {
 	
@@ -29,124 +30,15 @@ function ExploreContainer() {
 					</md-filter-chip>
 				</md-chip-set>
 			</div>
-      <div id="pageGridX2">
-        <div className="gridItem">
-          <img src="https://static.mega-image.ro/medias/sys_master/products/h68/h99/9541402787870.jpg" />
-          <md-icon-button className="productFavBtn">
-            {/*ADD: toggle disabled*/}
-            <md-icon className="material-symbols-outlined">favorite</md-icon>
-            <md-icon slot="selected" className="material-symbols-outlined">
-              favorite
-            </md-icon>
-          </md-icon-button>
-          <span className="gridProductHeadline">brand nume flavor capacity</span>
-          <div>
-            <div className="gridProductPrice">
-              <span>19</span>
-              <sup>99</sup>
-              <div>RON</div>
-            </div>
-            <md-filled-icon-button className="addToBasketBtn">
-              {/* ADD: toggle disabled */}
-              <md-icon>add_shopping_cart</md-icon>
-              <md-icon slot="selected">check</md-icon>
-            </md-filled-icon-button>
-          </div>
-        </div>
-        <div className="gridItem">
-          <img src="https://static.mega-image.ro/medias/sys_master/products/h68/h99/9541402787870.jpg" />
-          <md-icon-button className="productFavBtn">
-            {/* ADD: toggle disabled */}
-            <md-icon className="material-symbols-outlined">favorite</md-icon>
-            <md-icon slot="selected" className="material-symbols-outlined">
-              favorite
-            </md-icon>
-          </md-icon-button>
-          <span className="gridProductHeadline">brand nume flavor capacity</span>
-          <div>
-            <div className="gridProductPrice">
-              <span>19</span>
-              <sup>99</sup>
-              <div>RON</div>
-            </div>
-            <md-filled-icon-button className="addToBasketBtn">
-              {/* ADD: toggle disabled */}
-              <md-icon>add_shopping_cart</md-icon>
-              <md-icon slot="selected">check</md-icon>
-            </md-filled-icon-button>
-          </div>
-        </div>
-        <div className="gridItem">
-          <img src="https://static.mega-image.ro/medias/sys_master/products/h68/h99/9541402787870.jpg" />
-          <md-icon-button className="productFavBtn">
-            {/* ADD: toggle disabled */}
-            <md-icon className="material-symbols-outlined">favorite</md-icon>
-            <md-icon slot="selected" className="material-symbols-outlined">
-              favorite
-            </md-icon>
-          </md-icon-button>
-          <span className="gridProductHeadline">brand nume flavor capacity</span>
-          <div>
-            <div className="gridProductPrice">
-              <span>19</span>
-              <sup>99</sup>
-              <div>RON</div>
-            </div>
-            <md-filled-icon-button className="addToBasketBtn">
-              {/* ADD: toggle disabled */}
-              <md-icon>add_shopping_cart</md-icon>
-              <md-icon slot="selected">check</md-icon>
-            </md-filled-icon-button>
-          </div>
-        </div>
-        <div className="gridItem">
-          <img src="https://static.mega-image.ro/medias/sys_master/products/h68/h99/9541402787870.jpg" />
-          <md-icon-button className="productFavBtn">
-            {/* ADD: toggle disabled */}
-            <md-icon className="material-symbols-outlined">favorite</md-icon>
-            <md-icon slot="selected" className="material-symbols-outlined">
-              favorite
-            </md-icon>
-          </md-icon-button>
-          <span className="gridProductHeadline">brand nume flavor capacity</span>
-          <div>
-            <div className="gridProductPrice">
-              <span>19</span>
-              <sup>99</sup>
-              <div>RON</div>
-            </div>
-            <md-filled-icon-button className="addToBasketBtn">
-              {/* ADD: toggle disabled */}
-              <md-icon>add_shopping_cart</md-icon>
-              <md-icon slot="selected">check</md-icon>
-            </md-filled-icon-button>
-          </div>
-        </div>
-        <div className="gridItem">
-          <img src="https://static.mega-image.ro/medias/sys_master/products/h68/h99/9541402787870.jpg" />
-          <md-icon-button className="productFavBtn">
-            {"{"}/*ADD: toggle disabled */{"}"}
-            <md-icon className="material-symbols-outlined">favorite</md-icon>
-            <md-icon slot="selected" className="material-symbols-outlined">
-              favorite
-            </md-icon>
-          </md-icon-button>
-          <span className="gridProductHeadline" >
-            brand nume flavor capacity
-          </span>
-          <div>
-            <div className="gridProductPrice">
-              <span>19</span>
-              <sup>99</sup>
-              <div>RON</div>
-            </div>
-            <md-filled-icon-button className="addToBasketBtn">
-              {/* ADD: toggle disabled */}
-              <md-icon>add_shopping_cart</md-icon>
-              <md-icon slot="selected">check</md-icon>
-            </md-filled-icon-button>
-          </div>
-        </div>
+      <div id="productGrid">
+        <ProductGridItem />
+        <ProductGridItem />
+        <ProductGridItem />
+        <ProductGridItem />
+        <ProductGridItem />
+        <ProductGridItem />
+        <ProductGridItem />
+        
       </div>
 
 
