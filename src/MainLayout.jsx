@@ -3,10 +3,10 @@ import Banner from './components/Banner';
 import NavDrawer from './components/NavDrawer';
 import AccountCenter from './components/AccountCenter';
 import NavBar from './components/NavBar';
-import ExploreContainer from './components/ExploreContainer';
-import FavouriteContainer from './components/FavouriteContainer';
-import CartContainer from './components/CartContainer';
-import ContributeContainer from './components/ContributeContainer';
+import ExploreScreen from './components/ExploreScreen';
+import FavouriteScreen from './components/FavouriteScreen';
+import CartScreen from './components/CartScreen';
+import ContributeScreen from './components/ContributeScreen';
 
 function MainLayout() {
 
@@ -20,7 +20,7 @@ function MainLayout() {
     setIsAccountCenterOpen(!isAccountCenterOpen);
   }
 
-  const [activeTab, setActiveTab] = useState('explore')
+  const [activeScreen, setActiveScreen] = useState('explore')
 
   return (
     <>
@@ -32,12 +32,18 @@ function MainLayout() {
 			<AccountCenter isOpen={isAccountCenterOpen} onClose={toggleAccountCenter}/>
 
       <div id="page">
-        <div id="explore">
-          <ExploreContainer />
+        <div id="explore" className={`styleScreen ${activeScreen === 'explore' ? 'activeScreen' : 'exitScreen'}`}>
+          <ExploreScreen />
         </div>
-        <FavouriteContainer />
-        <CartContainer />
-        <ContributeContainer />
+        <div id="favourite" className={`styleScreen ${activeScreen === 'favourite' ? 'activeScreen' : 'exitScreen'}`}>
+          <FavouriteScreen />
+        </div>
+        <div id="cart" className={`styleScreen ${activeScreen === 'cart' ? 'activeScreen' : 'exitScreen'}`}>
+          <CartScreen />
+        </div>
+        <div id="contribute" className={`styleScreen ${activeScreen === 'contribute' ? 'activeScreen' : 'exitScreen'}`}>
+          <ContributeScreen />
+        </div>
       </div>
 
       <NavBar />

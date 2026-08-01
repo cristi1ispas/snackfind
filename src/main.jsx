@@ -21,7 +21,7 @@ import './styles/style.css'
 import './styles/threeDotMenu.css'
 import './styles/topSearchField.css'
 
-import './styles/exploreContainer.css'
+import './styles/exploreScreen.css'
 
 import App from './App.jsx'
 
