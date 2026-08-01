@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function FavouriteContainer() {
+function FavouriteScreen() {
 
   return(
     <>
@@ -11,4 +11,4 @@ function FavouriteContainer() {
   )
 }
 
-export default FavouriteContainer
+export default FavouriteScreen

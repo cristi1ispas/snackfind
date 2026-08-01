@@ -1,5 +1,5 @@
 
-#banner{
+#topAppBar{
     position: fixed;
     top: 0;
     left: 0;
@@ -7,13 +7,14 @@
     padding-bottom: 0;
     width: 100vw;
     box-sizing: border-box; 
-	background-color: rgb(54, 195, 54);	
+	background-color: rgb(54, 195, 54);
+    z-index: 500;
 }
 #topRow{
     display: flex;
     gap: 1px;
 }
-#banner .topRowIcons{
+#topAppBar .topRowIcons{
     --_icon-size: 26px;
     height: 56px;
     width: 56px;

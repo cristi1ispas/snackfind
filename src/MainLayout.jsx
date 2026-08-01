@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Banner from './components/Banner';
+import TopAppBar from './components/TopAppBar';
 import NavDrawer from './components/NavDrawer';
 import AccountCenter from './components/AccountCenter';
 import NavBar from './components/NavBar';
@@ -7,6 +7,7 @@ import ExploreScreen from './components/ExploreScreen';
 import FavouriteScreen from './components/FavouriteScreen';
 import CartScreen from './components/CartScreen';
 import ContributeScreen from './components/ContributeScreen';
+import Search from "./components/Search";
 
 function MainLayout() {
 
@@ -25,13 +26,15 @@ function MainLayout() {
   return (
     <>
 
-      <Banner onMenuClick={toggleNavDrawer} onAccountClick={toggleAccountCenter} />
+      <TopAppBar onMenuClick={toggleNavDrawer} onAccountClick={toggleAccountCenter} />
+
+      <Search />
 
 			<NavDrawer isOpen={isNavDrawerOpen} onClose={toggleNavDrawer} />
 		
 			<AccountCenter isOpen={isAccountCenterOpen} onClose={toggleAccountCenter}/>
 
-      <div id="page">
+      <main id="screen">
         <div id="explore" className={`styleScreen ${activeScreen === 'explore' ? 'activeScreen' : 'exitScreen'}`}>
           <ExploreScreen />
         </div>
@@ -44,9 +47,9 @@ function MainLayout() {
         <div id="contribute" className={`styleScreen ${activeScreen === 'contribute' ? 'activeScreen' : 'exitScreen'}`}>
           <ContributeScreen />
         </div>
-      </div>
+      </main>
 
-      <NavBar />
+      <NavBar onScreenChange={setActiveScreen} activeScreen={activeScreen}/>
     </>
   )
 }

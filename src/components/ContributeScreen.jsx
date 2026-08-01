@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function ContributeContainer() {
+function ContributeScreen() {
 
   return(
     <>
@@ -54,4 +54,4 @@ function ContributeContainer() {
   )
 }
 
-export default ContributeContainer
+export default ContributeScreen

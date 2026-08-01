@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function CartContainer() {
+function CartScreen() {
 
   return(
     <>
@@ -11,4 +11,4 @@ function CartContainer() {
   )
 }
 
-export default CartContainer
+export default CartScreen
