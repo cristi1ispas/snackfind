@@ -5,10 +5,11 @@
 }
 #categoryChips{
     padding: 8px;
+    scrollbar-width: none;
+    display: flex !important;
     flex-wrap: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
-    scrollbar-width: none;
     mask-image: linear-gradient(
         to right,
         transparent,
@@ -16,4 +17,10 @@
         black calc(100% - 16px),
         transparent
     );
+}
+#categoryChips::-webkit-scrollbar {
+  display: none;
+}
+#categoryChips md-filter-chip[selected]{
+    order: -1;
 }

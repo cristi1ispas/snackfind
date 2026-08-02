@@ -8,6 +8,8 @@ import FavouriteScreen from './components/FavouriteScreen';
 import CartScreen from './components/CartScreen';
 import ContributeScreen from './components/ContributeScreen';
 import Search from "./components/Search";
+import SearchFAB from "./components/SearchFAB";
+import FiltersFAB from "./components/FiltersFAB"
 
 function MainLayout() {
 
@@ -46,6 +48,10 @@ function MainLayout() {
         </div>
         <div id="contribute" className={`styleScreen ${activeScreen === 'contribute' ? 'activeScreen' : 'exitScreen'}`}>
           <ContributeScreen />
+        </div>
+        <div id="FABs">
+          <SearchFAB />
+          <FiltersFAB />
         </div>
       </main>
 
