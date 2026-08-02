@@ -13,24 +13,26 @@ import FiltersFAB from "./components/FiltersFAB"
 
 function MainLayout() {
 
-  const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false)
+  const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false);
   const toggleNavDrawer = () => {
     setIsNavDrawerOpen(!isNavDrawerOpen);
   }
+
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   
-  const [isAccountCenterOpen, setIsAccountCenterOpen] = useState(false)
+  const [isAccountCenterOpen, setIsAccountCenterOpen] = useState(false);
   const toggleAccountCenter = () => {
     setIsAccountCenterOpen(!isAccountCenterOpen);
   }
 
-  const [activeScreen, setActiveScreen] = useState('explore')
+  const [activeScreen, setActiveScreen] = useState('explore');
 
   return (
     <>
 
-      <TopAppBar onMenuClick={toggleNavDrawer} onAccountClick={toggleAccountCenter} />
+      <TopAppBar onMenuClick={toggleNavDrawer} onSearchClick={setIsSearchOpen} onAccountClick={toggleAccountCenter} />
 
-      <Search />
+      <Search isOpen={isSearchOpen} onClose={setIsSearchOpen} />
 
 			<NavDrawer isOpen={isNavDrawerOpen} onClose={toggleNavDrawer} />
 		
@@ -50,7 +52,7 @@ function MainLayout() {
           <ContributeScreen />
         </div>
         <div id="FABs">
-          <SearchFAB />
+          <SearchFAB activeScreen={activeScreen} onClick={setIsSearchOpen} />
           <FiltersFAB />
         </div>
       </main>

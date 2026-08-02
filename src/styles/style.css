@@ -31,8 +31,8 @@ input:not(.material-symbols-outlined) {
   font-family: 'Roboto Variable', sans-serif !important;
 }
 
-md-filter-chip{
-  --md-filter-chip-label-text-font: 'Roboto Variable', sans-serif;
+md-filter-chip, md-filled-text-field{
+  --md-ref-typeface-plain: 'Roboto Variable', sans-serif;
 }
 
 .no-color{

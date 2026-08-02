@@ -6,14 +6,26 @@
 	margin: 0 16px 16px 0;
 	z-index: 1100;
 	--_icon-size: 24px;
-	transform: translateX(0) translateY(0);
-	transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+	translate: 0 0;
+	scale: 1;
+	opacity: 1;
+	pointer-events: auto;
+	will-change: translate, scale, opacity;
+	transition: 
+		translate 0.3s cubic-bezier(0.2, 0, 0, 1), 
+		scale 0.3s cubic-bezier(0.2, 0, 0, 1), 
+		opacity 0.3s cubic-bezier(0.2, 0, 0, 1);
 }
 #searchFAB.suspended{
-	transform: translateY(-112px);
+	translate: 0 -112px;
 }
 #searchFAB.open{
-	transform: translateX(80px) translateY(-112px);
+	translate: 80px -112px;
+}
+#searchFAB.exit{
+	opacity: 0;
+	scale: 0.1;
+	pointer-events: none;
 }
 
 #productGrid {

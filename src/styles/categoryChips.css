@@ -21,6 +21,11 @@
 #categoryChips::-webkit-scrollbar {
   display: none;
 }
+
+
+
+/* idk */
+
 #categoryChips md-filter-chip[selected]{
     order: -1;
 }

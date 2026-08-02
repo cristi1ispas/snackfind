@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-function SearchFAB() {
+function SearchFAB({ activeScreen, onClick }) {
 
   return(
     <>
-      <md-fab id="searchFAB" className="filtersFabMenuAnimation ">
+      <md-fab id="searchFAB" onClick={() => onClick(true)} className={`filtersFabMenuAnimation ${activeScreen !== 'explore' ? 'exit' : ''}`}>
         <md-icon slot="icon">search</md-icon>
       </md-fab>
     </>

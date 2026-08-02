@@ -18,10 +18,10 @@ import './styles/productPage.css'
 import './styles/shopPage.css'
 import './styles/style.css'
 import './styles/threeDotMenu.css'
-import './styles/topSearchField.css'
 
 import './styles/exploreScreen.css'
 import './styles/screen.css'
+import './styles/search.css'
 
 import App from './App.jsx'
 

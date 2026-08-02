@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import Locations from './Locations';
 
-function TopAppBar({ onMenuClick, onAccountClick }) {
+function TopAppBar({ onMenuClick, onSearchClick, onAccountClick }) {
   
 	const locationAriaMenuRef = useRef(null);
 
@@ -19,7 +19,7 @@ function TopAppBar({ onMenuClick, onAccountClick }) {
 						<md-icon>menu</md-icon>
 					</md-icon-button>
 
-					<div id="searchBar" className="searchViewWindowAction">
+					<div id="searchBar" onClick={() => onSearchClick(true)}>
 						<span id="searchBtnText">Search in products</span>
 					</div>
 
