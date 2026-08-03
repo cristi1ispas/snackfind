@@ -15,7 +15,7 @@ function TopAppBar({ onMenuClick, onSearchClick, onAccountClick }) {
     <>
 			<div id="topAppBar">
 				<div id="topRow">
-					<md-icon-button onClick={onMenuClick} className="topRowIcons">
+					<md-icon-button onClick={() => onMenuClick(true)} className="topRowIcons">
 						<md-icon>menu</md-icon>
 					</md-icon-button>
 
@@ -23,7 +23,7 @@ function TopAppBar({ onMenuClick, onSearchClick, onAccountClick }) {
 						<span id="searchBtnText">Search in products</span>
 					</div>
 
-					<md-icon-button onClick={onAccountClick} id="account">
+					<md-icon-button onClick={() => onAccountClick(true)} id="account">
 						<md-icon>account_circle</md-icon>
 					</md-icon-button>
 

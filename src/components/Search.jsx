@@ -14,27 +14,6 @@ function Search({ isOpen, onClose }) {
 						<md-icon>close</md-icon>
 					</md-icon-button>
 				</md-filled-text-field>
-				<md-list className="autocompleteSearch">
-					<md-list-item type="button">
-						<div slot="headline">in brands:</div>
-					</md-list-item>
-					<md-list-item type="button">
-						<div slot="headline">by flavours:</div>
-					</md-list-item>
-					<md-list-item type="button">
-						<div slot="headline">for quantity:</div>
-					</md-list-item>
-					<md-list-item type="button">
-						<div slot="headline">in brands:</div>
-					</md-list-item>
-					<md-list-item type="button">
-						<div slot="headline">in brands:</div>
-					</md-list-item>
-				</md-list>
-			</div>
-
-			<div id="searchViewWindow" className={` ${isOpen === true ? 'open' : ''}`}>
-
 			</div>
     </>
   )

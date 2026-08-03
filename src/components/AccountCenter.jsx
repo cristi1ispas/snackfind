@@ -8,7 +8,7 @@ function AccountCenter({ isOpen ,onClose }) {
     <>
       <div id="accountCenter" className={` ${isOpen? 'open' : ''}`}>
         
-        <md-icon-button onClick={onClose} id="accountCloseBtn">
+        <md-icon-button onClick={() => onClose(false)} id="accountCloseBtn">
           <md-icon>close</md-icon>
         </md-icon-button>
         

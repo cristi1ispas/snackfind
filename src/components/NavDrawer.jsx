@@ -1,8 +1,8 @@
 import { useState } from 'react'
+import News from './subPages/NewsSubPage';
 
-function NavDrawer({ isOpen, onClose }) {
+function NavDrawer({ isOpen, onClose, onNavigate }) {
 
-	
   return (
     <>
       <div className={` navDrawerStyle ${isOpen? 'open' : ''}`}>
@@ -10,37 +10,43 @@ function NavDrawer({ isOpen, onClose }) {
 				<md-divider style={{padding: '0'}}></md-divider>
 				<md-list>
 					
-					<md-list-item type="button" className="navDrawerListItem" onClick={() => navigate('/news')}>
+					<md-list-item type="button" className="navDrawerListItem" onClick={() => { onClose(false); onNavigate("News", <News />); }}>
 						<md-icon slot="start">newspaper</md-icon>
 						<span>News</span>
 					</md-list-item>
 					
-					<md-list-item type="button" className="navDrawerListItem" onClick={() => navigate('/discounts')}>
+					<md-list-item type="button" className="navDrawerListItem" onClick={() => { onClose(false); onNavigate("Discounts", <Disconts />); }}>
 						<md-icon slot="start">percent</md-icon>
 						<span>Discounts</span>
 					</md-list-item>
 
-					<md-list-item type="button" className="navDrawerListItem" onClick={() => navigate('/shops')}>
+					<md-list-item type="button" className="navDrawerListItem" onClick={() => { onClose(false); onNavigate("Shops", <Shops />); }}>
 						<md-icon slot="start">store</md-icon>
 						<span>Shops</span>
 					</md-list-item>
 
-					<md-list-item type="button" className="navDrawerListItem" onClick={() => navigate('/compare')}>
+					<md-list-item type="button" className="navDrawerListItem" onClick={() => { onClose(false); onNavigate("Compare", <Compare />); }}>
 						<md-icon slot="start">compare_arrows</md-icon>
 						<span>Compare</span>
 					</md-list-item>
 
-					<md-list-item type="button" className="navDrawerListItem" onClick={() => navigate('/manager')}>
+					<md-list-item type="button" className="navDrawerListItem" onClick={() => { onClose(false); onNavigate("Statistics", <Statistics />); }}>
+						<md-icon slot="start">finance_mode</md-icon>
+						<span>Statistics</span>
+					</md-list-item>
+
+					<md-list-item type="button" className="navDrawerListItem" onClick={() => { onClose(false); onNavigate("Manager", <Manager />); }}>
 						<md-icon slot="start">engineering</md-icon>
 						<span>Manager program</span>
 					</md-list-item>
 
 				</md-list>
-				<div>fluffy sheep</div>
+				<br />
+				<div>giant watermelon</div>
 				
 			</div>
 
-			<div id="navDrawerBlur" onClick={onClose} className={` ${isOpen? 'open' : ''}`}></div>
+			<div id="navDrawerBlur" onClick={() => onClose(false)} className={` ${isOpen? 'open' : ''}`}></div>
 		
     </>
   )

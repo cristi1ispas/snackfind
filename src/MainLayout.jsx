@@ -10,33 +10,50 @@ import ContributeScreen from './components/ContributeScreen';
 import Search from "./components/Search";
 import SearchFAB from "./components/SearchFAB";
 import FiltersFAB from "./components/FiltersFAB"
+import SubPageLayout from "./components/SubPageLayout";
 
 function MainLayout() {
 
   const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false);
-  const toggleNavDrawer = () => {
-    setIsNavDrawerOpen(!isNavDrawerOpen);
-  }
+  
+  const [isSubPageRendered, setIsSubPageRendered] = useState(false);
+	const [isSubPageOpen, setIsSubPageOpen] = useState(false);
+  const [subPageTitle, setSubPageTitle] = useState("");
+  const [subPageContent, setSubPageContent] = useState(null);
+
+	const renderSubPage = (title, children) => {
+    setSubPageTitle(title);
+    setSubPageContent(children);
+		setIsSubPageRendered(true);
+		setTimeout(() => setIsSubPageOpen(true), 10);
+	}
+
+	const closeSubPage = () => {
+		setIsSubPageOpen(false);
+		setTimeout(() => setIsSubPageRendered(false), 300);
+	}
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   
   const [isAccountCenterOpen, setIsAccountCenterOpen] = useState(false);
-  const toggleAccountCenter = () => {
-    setIsAccountCenterOpen(!isAccountCenterOpen);
-  }
-
+  
   const [activeScreen, setActiveScreen] = useState('explore');
 
   return (
     <>
 
-      <TopAppBar onMenuClick={toggleNavDrawer} onSearchClick={setIsSearchOpen} onAccountClick={toggleAccountCenter} />
+      <TopAppBar onMenuClick={setIsNavDrawerOpen} onSearchClick={setIsSearchOpen} onAccountClick={setIsAccountCenterOpen} />
 
       <Search isOpen={isSearchOpen} onClose={setIsSearchOpen} />
 
-			<NavDrawer isOpen={isNavDrawerOpen} onClose={toggleNavDrawer} />
+			<NavDrawer isOpen={isNavDrawerOpen} onClose={setIsNavDrawerOpen} onNavigate={renderSubPage} />
+      {isSubPageRendered && (
+        <SubPageLayout title={subPageTitle} isOpen={isSubPageOpen} onClose={closeSubPage}>
+          {subPageContent}
+        </SubPageLayout>
+      )}      
 		
-			<AccountCenter isOpen={isAccountCenterOpen} onClose={toggleAccountCenter}/>
+			<AccountCenter isOpen={isAccountCenterOpen} onClose={setIsAccountCenterOpen}/>
 
       <main id="screen">
         <div id="explore" className={`styleScreen ${activeScreen === 'explore' ? 'activeScreen' : 'exitScreen'}`}>

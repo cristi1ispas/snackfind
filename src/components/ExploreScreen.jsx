@@ -1,15 +1,6 @@
 import { useState } from 'react'
 import ProductGridItem from './ProductGridItem'
 
-const CATEGORIES = [
-  { id: 1, label: 'Sodas', icon: 'cleaning' },
-  { id: 2, label: 'Chips', icon: 'money_bag' },
-  { id: 3, label: 'Sweets', icon: 'cookie' },
-  { id: 4, label: 'Crackers', icon: 'pet_supplies' },
-  { id: 5, label: 'Grill', icon: 'outdoor_grill' },
-  { id: 6, label: 'Beverages', icon: 'liquor' },
-];
-
 function ExploreScreen() {
 	
   return (
