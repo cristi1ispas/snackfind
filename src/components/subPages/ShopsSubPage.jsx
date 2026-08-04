@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Compare() {
+function Shops() {
 
   return(
     <>
@@ -9,4 +9,4 @@ function Compare() {
   )
 }
 
-export default Compare
+export default Shops

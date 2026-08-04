@@ -1,11 +1,16 @@
 import { useState } from 'react'
 import News from './subPages/NewsSubPage';
+import Discounts from './subPages/DiscountsSubPage';
+import Shops from './subPages/ShopsSubPage';
+import Compare from './subPages/CompareSubPage';
+import Statistics from './subPages/StatisticsSubPage';
+import Manager from './subPages/ManagerSubPage';
 
 function NavDrawer({ isOpen, onClose, onNavigate }) {
 
   return (
     <>
-      <div className={` navDrawerStyle ${isOpen? 'open' : ''}`}>
+      <div id='navDrawer' className={` ${isOpen? 'open' : ''}`}>
 				<div style={{fontSize: '24px', padding: '24px'}}>project Mushroom</div>
 				<md-divider style={{padding: '0'}}></md-divider>
 				<md-list>
@@ -15,7 +20,7 @@ function NavDrawer({ isOpen, onClose, onNavigate }) {
 						<span>News</span>
 					</md-list-item>
 					
-					<md-list-item type="button" className="navDrawerListItem" onClick={() => { onClose(false); onNavigate("Discounts", <Disconts />); }}>
+					<md-list-item type="button" className="navDrawerListItem" onClick={() => { onClose(false); onNavigate("Discounts", <Discounts />); }}>
 						<md-icon slot="start">percent</md-icon>
 						<span>Discounts</span>
 					</md-list-item>

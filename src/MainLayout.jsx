@@ -33,6 +33,8 @@ function MainLayout() {
 		setTimeout(() => setIsSubPageRendered(false), 300);
 	}
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   
   const [isAccountCenterOpen, setIsAccountCenterOpen] = useState(false);
@@ -42,7 +44,7 @@ function MainLayout() {
   return (
     <>
 
-      <TopAppBar onMenuClick={setIsNavDrawerOpen} onSearchClick={setIsSearchOpen} onAccountClick={setIsAccountCenterOpen} />
+      <TopAppBar onMenuClick={setIsNavDrawerOpen} onSearchClick={setIsSearchOpen} onAccountClick={setIsAccountCenterOpen} isLoggedIn={isLoggedIn}/>
 
       <Search isOpen={isSearchOpen} onClose={setIsSearchOpen} />
 

@@ -1,0 +1,46 @@
+#subPageScreen{
+  background-color: #f0ffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.92);
+  opacity: 0;
+  z-index: 9999;
+  will-change: transform, opacity;
+  transition:  transform 0.3s cubic-bezier(0.2, 0, 0, 1), opacity 0.3s cubic-bezier(0.2, 0, 0, 1);;
+}
+#subPageScreen.open{
+  transform: scale(1);
+  opacity: 1;
+}
+#subPageRibbon{
+  background-color: antiquewhite;
+  --md-list-item-leading-icon-size: 24px;
+  --md-list-item-trailing-icon-size: 24px;
+  gap: 4px;
+  --md-list-item-top-space: 8px;
+  --md-list-item-bottom-space: 8px;
+  --md-list-item-leading-space: 4px;
+  --md-list-item-trailing-space: 4px;
+}
+#subPageRibbon > md-icon-button{
+  --_icon-size: 28px;
+  height: 48px;
+  width: 48px;
+}
+#subPageRibbon > div[slot='headline']{
+  font-size: 22px;
+  font-weight: 400;
+}
+#subPageContent{
+  flex-grow: 1;
+  overflow-x: hidden;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	-webkit-font-smoothing: antialiased;
+  scrollbar-width: none;
+}

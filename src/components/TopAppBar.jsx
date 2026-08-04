@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import Locations from './Locations';
 
-function TopAppBar({ onMenuClick, onSearchClick, onAccountClick }) {
+function TopAppBar({ onMenuClick, onSearchClick, onAccountClick, isLoggedIn, userProfilePic }) {
   
 	const locationAriaMenuRef = useRef(null);
 
@@ -15,16 +15,20 @@ function TopAppBar({ onMenuClick, onSearchClick, onAccountClick }) {
     <>
 			<div id="topAppBar">
 				<div id="topRow">
-					<md-icon-button onClick={() => onMenuClick(true)} className="topRowIcons">
+					<md-icon-button onClick={() => onMenuClick(true)}>
 						<md-icon>menu</md-icon>
 					</md-icon-button>
 
 					<div id="searchBar" onClick={() => onSearchClick(true)}>
-						<span id="searchBtnText">Search in products</span>
+						<span>Search Products</span>
 					</div>
 
-					<md-icon-button onClick={() => onAccountClick(true)} id="account">
-						<md-icon>account_circle</md-icon>
+					<md-icon-button id="account" onClick={() => onAccountClick(true)}>
+						{isLoggedIn && userProfilePic ? ( 
+							<img src={userProfilePic} alt='Profile'/>
+						) : (
+							<md-icon>account_circle</md-icon>
+						)}
 					</md-icon-button>
 
 					

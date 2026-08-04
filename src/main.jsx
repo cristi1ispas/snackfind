@@ -22,6 +22,7 @@ import './styles/threeDotMenu.css'
 import './styles/exploreScreen.css'
 import './styles/screen.css'
 import './styles/search.css'
+import './styles/subPageScreen.css'
 
 import App from './App.jsx'
 

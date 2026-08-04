@@ -10,7 +10,7 @@
 #navDrawerListItemActive{
 	background-color: rgba(0, 238, 255, 0.25);
 }
-.navDrawerStyle{
+#navDrawer{
     position: fixed;
     top: 0;
     left: -70vw;
@@ -22,7 +22,7 @@
     transition: transform 0.3s ease;
     z-index: 900;
 }
-.navDrawerStyle.open {
+#navDrawer.open {
     transform: translateX(100%);
 }
 #navDrawerBlur{
