@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import TopAppBar from './components/TopAppBar';
 import NavDrawer from './components/NavDrawer';
 import AccountCenter from './components/AccountCenter';
@@ -36,6 +36,13 @@ function MainLayout() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const searchInputRef = useRef(null);
+  const focusSearchInput = () => {
+    setIsSearchOpen(true);
+    if(searchInputRef.current){
+      searchInputRef.current.focus();
+    }
+  }
   
   const [isAccountCenterOpen, setIsAccountCenterOpen] = useState(false);
   
@@ -44,9 +51,9 @@ function MainLayout() {
   return (
     <>
 
-      <TopAppBar onMenuClick={setIsNavDrawerOpen} onSearchClick={setIsSearchOpen} onAccountClick={setIsAccountCenterOpen} isLoggedIn={isLoggedIn}/>
+      <TopAppBar onMenuClick={setIsNavDrawerOpen} onSearchClick={focusSearchInput} onAccountClick={setIsAccountCenterOpen} isLoggedIn={isLoggedIn}/>
 
-      <Search isOpen={isSearchOpen} onClose={setIsSearchOpen} />
+      <Search isOpen={isSearchOpen} onClose={setIsSearchOpen} searchInputRef={searchInputRef}/>
 
 			<NavDrawer isOpen={isNavDrawerOpen} onClose={setIsNavDrawerOpen} onNavigate={renderSubPage} />
       {isSubPageRendered && (
@@ -71,7 +78,7 @@ function MainLayout() {
           <ContributeScreen />
         </div>
         <div id="FABs">
-          <SearchFAB activeScreen={activeScreen} onClick={setIsSearchOpen} />
+          <SearchFAB activeScreen={activeScreen} onClick={focusSearchInput} />
           <FiltersFAB />
         </div>
       </main>

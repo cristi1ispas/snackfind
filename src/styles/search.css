@@ -6,7 +6,7 @@
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	transform: scale(0.92);
+	transform: translateY(-12%) scale(0.75);
 	opacity: 0;
 	z-index: 9001;
 	pointer-events: none;
@@ -15,7 +15,7 @@
 }
 #searchView.open{
 	opacity: 1;
-	transform: scale(1);
+	transform: translateY(0) scale(1);
 	pointer-events: auto;
 }
 #searchTextField{

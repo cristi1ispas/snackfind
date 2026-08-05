@@ -28,7 +28,7 @@ function ContributeScreen() {
 						<div slot="headline">Correct a shop page info</div>
 						<md-icon slot="end">arrow_forward_ios</md-icon>
 					</md-list-item>
-					<md-list-item type="button" href="/contact">
+					<md-list-item type="button" href="mailto:cristi1ispas@tutanota.com">
 						<md-icon slot="start" style={{"--md-icon-size": '40px'}}>sentiment_sad</md-icon>
 						<div slot="headline">For the time being these features are not available in-app, you have to contact me directly</div>
 						<md-icon slot="end" style={{"--md-icon-size": '28px'}}>open_in_new</md-icon>
@@ -43,7 +43,7 @@ function ContributeScreen() {
 						<div slot="headline">Suggest a shop</div>
 						<md-icon slot="end">arrow_forward_ios</md-icon>
 					</md-list-item>
-					<md-list-item type="button" >
+					<md-list-item type="button" href="https://codeberg.org/cristi1ispas/snackfind">
 						<img slot="start" src="https://static.mega-image.ro/medias/sys_master/products/h68/h99/9541402787870.jpg" alt="Image 1" />
 						<div slot="headline">Help with the App Development</div>
 						<md-icon slot="end" style={{"--md-icon-size": '28px'}}>open_in_new</md-icon>

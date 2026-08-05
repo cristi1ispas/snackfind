@@ -4,7 +4,10 @@ function Statistics() {
 
   return(
     <>
-    
+      <div className='temporaryStyle'>
+        <md-icon>finance_mode</md-icon>
+        <div>Coming soon!</div>
+      </div>
     </>
   )
 }

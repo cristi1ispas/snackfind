@@ -4,7 +4,10 @@ function News() {
 
   return(
     <>
-    
+      <div className='temporaryStyle'>
+        <md-icon>newspaper</md-icon>
+        <div>Coming soon!</div>
+      </div>
     </>
   )
 }

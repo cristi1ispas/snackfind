@@ -60,3 +60,21 @@ md-icon, .material-symbols-outlined {
   white-space: nowrap;
   direction: ltr;
 }
+
+
+
+
+.temporaryStyle{
+	display: flex;
+  flex-direction: column;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+}
+.temporaryStyle > md-icon{
+	--md-icon-size: 60vw;
+	opacity: 0.3;
+}
+.temporaryStyle > div{
+  font-size: 32px;
+}

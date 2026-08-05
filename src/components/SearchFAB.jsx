@@ -4,7 +4,7 @@ function SearchFAB({ activeScreen, onClick }) {
 
   return(
     <>
-      <md-fab id="searchFAB" onClick={() => onClick(true)} className={`filtersFabMenuAnimation ${activeScreen !== 'explore' ? 'exit' : ''}`}>
+      <md-fab id="searchFAB" onClick={onClick} className={`filtersFabMenuAnimation ${activeScreen !== 'explore' ? 'exit' : ''}`}>
         <md-icon slot="icon">search</md-icon>
       </md-fab>
     </>

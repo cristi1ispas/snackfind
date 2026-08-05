@@ -1,4 +1,3 @@
-
 #navBar{
 	display: flex;
 	position: fixed;
@@ -11,7 +10,7 @@
 	height: 52px;
 	z-index: 10;
 }
-#navBar .navItem{
+#navBar > .navItem{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -21,33 +20,49 @@
 	padding: 0;
 	flex-grow: 1;
 }
-#navBar .navItem .navItemIcon{
+#navBar > .navItem > .navItemIcon{
 	display: flex;
-	flex-direction: column;
+	position: relative;
 	justify-content: center;
 	align-items: center;
 	flex-grow: 0;
-	background-color: rgba(0, 0, 0, 0);
 	height: 32px;
 	width: 56px;
+}
+#navBar > .navItem > .navItemIcon::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0);
 	border-radius: 16px;
+	z-index: -1;
+	transform: scaleX(0.57); 
+	will-change: transform, background-color;
+	transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), background-color 0.3s cubic-bezier(0.2, 0, 0, 1);
 }
-#navBar .navItem:active .navItemIcon{
-	background-color: rgba(0, 0, 0, 0.2);
-}
-#navBar .navItem .navItemIcon.active{
+#navBar .navItem .navItemIcon.active::before{
 	background-color: rgba(0, 0, 0, 0.25);
+	transform: scaleX(1);
 }
-#navBar .navItem .navItemIcon md-icon{
+#navBar .navItem .navItemIcon > md-icon{
 	height: 32px;
+	width: 32px;
+	z-index: 1;
 }
-#navBar .navItem .navItemIcon.active md-icon.material-symbols-outlined{
-	font-variation-settings: 
-        'FILL' 1,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24;
-}
-#navBar .navItem span{
+#navBar > .navItem > .navItemName{
 	line-height: 16px;
+}
+#navBar > .navItem > .navItemName.active{
+	font-weight: 600;
+}
+#navItemIconContribute{
+	font-size: 28px;
+	width: 28px;
+	font-weight: 400;
+}
+#navBar .navItem .navItemIcon.active #navItemIconContribute{
+	font-weight: 600;
 }

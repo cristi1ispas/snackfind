@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-function Search({ isOpen, onClose }) {
+function Search({ isOpen, onClose, searchInputRef }) {
 
   return(
     <>
       <div id="searchView" className={` ${isOpen === true ? 'open' : ''} `}>
-				<md-filled-text-field type="search" placeholder="Search..." id="searchTextField">
+				<md-filled-text-field ref={searchInputRef} type="search" placeholder="Search..." id="searchTextField">
 					<md-icon-button slot="leading-icon" onClick={() => onClose(false)}>
 						<md-icon>arrow_back</md-icon>
 					</md-icon-button>

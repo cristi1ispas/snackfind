@@ -4,7 +4,10 @@ function Shops() {
 
   return(
     <>
-    
+      <div className='temporaryStyle'>
+        <md-icon>store</md-icon>
+        <div>Coming soon!</div>
+      </div>
     </>
   )
 }

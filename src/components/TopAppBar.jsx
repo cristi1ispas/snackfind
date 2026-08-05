@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import Locations from './Locations';
 
 function TopAppBar({ onMenuClick, onSearchClick, onAccountClick, isLoggedIn, userProfilePic }) {
@@ -19,7 +19,7 @@ function TopAppBar({ onMenuClick, onSearchClick, onAccountClick, isLoggedIn, use
 						<md-icon>menu</md-icon>
 					</md-icon-button>
 
-					<div id="searchBar" onClick={() => onSearchClick(true)}>
+					<div id="searchBar" onClick={onSearchClick}>
 						<span>Search Products</span>
 					</div>
 

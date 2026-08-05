@@ -4,8 +4,9 @@ function CartScreen() {
 
   return(
     <>
-      <div style={{textAlign: 'center', fontSize: '32px'}}>
-        Coming soon!
+      <div className='temporaryStyle'>
+        <md-icon>add_shopping_cart</md-icon>
+        <div>Coming soon!</div>
       </div>
     </>
   )

@@ -4,8 +4,9 @@ function FavouriteScreen() {
 
   return(
     <>
-      <div style={{textAlign: 'center', fontSize: '32px'}}>
-        Coming soon!
+      <div className='temporaryStyle'>
+        <md-icon>heart_plus</md-icon>
+        <div>Coming soon!</div>
       </div>
     </>
   )
