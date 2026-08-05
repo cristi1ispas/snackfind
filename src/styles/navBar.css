@@ -56,7 +56,7 @@
 	line-height: 16px;
 }
 #navBar > .navItem > .navItemName.active{
-	font-weight: 600;
+	font-weight: 500;
 }
 #navItemIconContribute{
 	font-size: 28px;
