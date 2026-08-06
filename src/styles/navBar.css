@@ -4,7 +4,7 @@
 	bottom: 0;
 	left: 0;
 	justify-content: space-evenly;
-	background-color: rgb(197, 0, 0);
+	background-color: #f9faef;
 	width: 100vw;
 	padding: 6px 0;
 	height: 52px;
@@ -54,6 +54,7 @@
 }
 #navBar > .navItem > .navItemName{
 	line-height: 16px;
+	transition: font-weight 0.3s cubic-bezier(0.2, 0, 0, 1);
 }
 #navBar > .navItem > .navItemName.active{
 	font-weight: 500;

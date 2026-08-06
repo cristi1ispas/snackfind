@@ -7,9 +7,6 @@
 	--md-list-item-leading-icon-color: black;
 	transition: background-color 0.3s ease;
 }
-#navDrawerListItemActive{
-	background-color: rgba(0, 238, 255, 0.25);
-}
 #navDrawer{
     position: fixed;
     top: 0;

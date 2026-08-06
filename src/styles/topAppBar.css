@@ -10,7 +10,7 @@
     z-index: 500;
 }
 #topRow{
-    background-color: rgb(54, 195, 54);
+    background-color: #f9faef;
     display: flex;
     gap: 4px;
     padding: 4px;
@@ -35,14 +35,14 @@
     flex-grow: 1;
 	height: 56px;
 	border-radius: 28px;
-	background-color: red;
+	background-color: #dadbd0;
 	align-items: center;
     justify-content: center
 }
 
 
 #ribbonRow{
-	background-color: rgb(29, 107, 29);
+	background-color: var(--color-scheme-surface);
     display: flex;
 	justify-content: space-between;
     padding: 4px 6px;

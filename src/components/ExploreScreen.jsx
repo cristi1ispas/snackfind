@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ProductGridItem from './ProductGridItem'
+import { MOCK_PRODUCTS } from '../data/productsMock'
 
 function ExploreScreen() {
 	
@@ -28,13 +29,9 @@ function ExploreScreen() {
 				</md-chip-set>
 			</div>
       <div id="productGrid">
-        <ProductGridItem />
-        <ProductGridItem />
-        <ProductGridItem />
-        <ProductGridItem />
-        <ProductGridItem />
-        <ProductGridItem />
-        <ProductGridItem />
+        {MOCK_PRODUCTS.map((product) => (
+          <ProductGridItem key={product.id} product={product} />
+        ))}
         
       </div>
 

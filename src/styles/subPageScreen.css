@@ -1,5 +1,5 @@
 #subPageScreen{
-  background-color: #f0ffff;
+  background-color: var(--color-scheme-background);
   position: fixed;
   top: 0;
   left: 0;
@@ -18,7 +18,7 @@
   opacity: 1;
 }
 #subPageRibbon{
-  background-color: antiquewhite;
+  background-color: var(--color-scheme-surface);
   --md-list-item-leading-icon-size: 24px;
   --md-list-item-trailing-icon-size: 24px;
   gap: 4px;

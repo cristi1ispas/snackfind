@@ -25,7 +25,7 @@
 	--md-filled-text-field-with-trailing-icon-trailing-space: 16px;
 }
 #searchSuggestion{
-	background-color: honeydew;
+	background-color: var(--color-scheme-background);
 	flex-grow: 1;
 	overflow-x: hidden;
 	overflow-y: auto;

@@ -1,4 +1,27 @@
 
+/* colors */
+
+:root {
+  --color-scheme-primary: #4c662b;
+  --color-scheme-on-primary: #ffffff;
+  --color-scheme-primary-container: #cdeda3;
+  --color-scheme-on-primary-container: #354e16;
+
+  --color-scheme-secondary: #586249;
+  --color-scheme-on-secondary: #ffffff;
+  --color-scheme-secondary-container: #d6e7b7;
+  --color-scheme-on-secondary-container: #404a33;
+
+  --color-scheme-tertiary: #386663;
+  --color-scheme-on-tertiary: #ffffff;
+  --color-scheme-tertiary-container: #bcece7;
+  --color-scheme-on-tertiary-container: #1f4e4b;
+
+  --color-scheme-background: #eef8e4;
+  --color-scheme-on-background: #191c18;
+  --color-scheme-surface: #d6e3ca;
+  --color-scheme-on-surface: #191c18;
+}
 
 @font-face {
   font-family: 'Material Symbols Outlined';
@@ -15,7 +38,8 @@ img{
 }
 
 body{
-	margin: 0px; font-family: 'Roboto Variable', sans-serif; background-color: antiquewhite;
+	margin: 0px; 
+  font-family: 'Roboto Variable', sans-serif; 
 }
  
 div:not(.material-symbols-outlined), 
