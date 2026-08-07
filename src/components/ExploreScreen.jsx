@@ -17,6 +17,9 @@ function ExploreScreen() {
 					<md-filter-chip label="Sweets">
 						<md-icon slot="icon">cookie</md-icon>
 					</md-filter-chip>
+          <md-filter-chip label="Pastries">
+						<md-icon slot="icon">bakery_dining</md-icon>
+					</md-filter-chip>
 					<md-filter-chip label="Crackers">
 						<md-icon slot="icon">pet_supplies</md-icon>
 					</md-filter-chip>

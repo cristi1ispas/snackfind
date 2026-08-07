@@ -4,7 +4,7 @@
 	bottom: 0;
 	left: 0;
 	justify-content: space-evenly;
-	background-color: #f9faef;
+	background-color: var(--color-scheme-surface-container);
 	width: 100vw;
 	padding: 6px 0;
 	height: 52px;
@@ -36,7 +36,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0);
+	background-color: rgba(76, 102, 43, 0);
 	border-radius: 16px;
 	z-index: -1;
 	transform: scaleX(0.57); 
@@ -44,7 +44,7 @@
 	transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), background-color 0.3s cubic-bezier(0.2, 0, 0, 1);
 }
 #navBar .navItem .navItemIcon.active::before{
-	background-color: rgba(0, 0, 0, 0.25);
+	background-color: rgba(76, 102, 43, 0.25);
 	transform: scaleX(1);
 }
 #navBar .navItem .navItemIcon > md-icon{

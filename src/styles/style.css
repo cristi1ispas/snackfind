@@ -9,7 +9,7 @@
 
   --color-scheme-secondary: #586249;
   --color-scheme-on-secondary: #ffffff;
-  --color-scheme-secondary-container: #d6e7b7;
+  --color-scheme-secondary-container: #dce7c8;
   --color-scheme-on-secondary-container: #404a33;
 
   --color-scheme-tertiary: #386663;
@@ -17,10 +17,27 @@
   --color-scheme-tertiary-container: #bcece7;
   --color-scheme-on-tertiary-container: #1f4e4b;
 
-  --color-scheme-background: #eef8e4;
-  --color-scheme-on-background: #191c18;
-  --color-scheme-surface: #d6e3ca;
-  --color-scheme-on-surface: #191c18;
+  --color-scheme-surface: #f9faef;
+  --color-scheme-surface-dim: #dadbd0;
+  --color-scheme-on-surface: #1a1c16;
+  --color-scheme-on-surface-variant: #44483d;
+  --color-scheme-surface-container-low: #f3f4e9;
+  --color-scheme-outline: #75796c;
+  --color-scheme-surface-container: #eeefe3;
+  --color-scheme-surface-container-highest: #e2e3d8;
+
+
+  --md-sys-color-surface: var(--color-scheme-surface);
+  --md-sys-color-on-surface: var(--color-scheme-on-surface);
+  --md-sys-color-surface-container: var(--color-scheme-surface-container);
+  --md-sys-color-secondary-container: var(--color-scheme-secondary-container);
+  --md-sys-color-on-secondary-container: var(--color-scheme-on-secondary-container);
+  --md-sys-color-on-surface-variant: var(--color-scheme-on-surface-variant);
+  --md-sys-color-surface-container-low: var(--color-scheme-surface-container-low);
+  --md-sys-color-outline: var(--color-scheme-outline);
+  --md-sys-color-primary: var(--color-scheme-primary);
+  --md-sys-color-surface-container-highest: var(--color-scheme-surface-container-highest);
+  --md-sys-color-on-primary: var(--color-scheme-on-primary);
 }
 
 @font-face {

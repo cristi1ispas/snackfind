@@ -29,7 +29,7 @@ function ProductGridItem({ product }) {
             <sup>99</sup>
             <div>RON</div>
           </div>
-          <md-filled-icon-button className="addToBasketBtn" toggle disabled>
+          <md-filled-icon-button className="addToBasketBtn" toggle >
             <md-icon>add_shopping_cart</md-icon>
             <md-icon slot="selected">check</md-icon>
           </md-filled-icon-button>
