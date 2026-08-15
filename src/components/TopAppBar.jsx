@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import Locations from './Locations';
 
-function TopAppBar({ onMenuClick, onSearchClick, onAccountClick, isLoggedIn, userProfilePic }) {
+function TopAppBar({ onMenuClick, onSearchClick, onAccountClick, isLoggedIn, userDetails }) {
   
 	const locationAriaMenuRef = useRef(null);
 
@@ -23,9 +23,9 @@ function TopAppBar({ onMenuClick, onSearchClick, onAccountClick, isLoggedIn, use
 						<span>Search Products</span>
 					</div>
 
-					<md-icon-button id="account" onClick={() => onAccountClick(true)}>
-						{isLoggedIn && userProfilePic ? ( 
-							<img src={userProfilePic} alt='Profile'/>
+					<md-icon-button id="account" onClick={() => onAccountClick(true)} disabled>
+						{isLoggedIn && userDetails.pfp ? ( 
+							<img src={userDetails.pfp} alt='Profile'/>
 						) : (
 							<md-icon>account_circle</md-icon>
 						)}
@@ -35,8 +35,8 @@ function TopAppBar({ onMenuClick, onSearchClick, onAccountClick, isLoggedIn, use
 				</div>
 				<div id="ribbonRow">
 					<md-filled-tonal-button onClick={toggleLocationAriaMenu} id="locationAriaBtn">
-						<span slot="icon" className="material-symbols-outlined">near_me</span>
-						<span>Kirchentellinsfurt</span>
+						<md-icon slot="icon">near_me</md-icon>
+						<span>Prahova</span>
 					</md-filled-tonal-button>
 
 					<div id="filterToggle">

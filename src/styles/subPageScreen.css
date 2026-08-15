@@ -43,4 +43,5 @@
 	-webkit-overflow-scrolling: touch;
 	-webkit-font-smoothing: antialiased;
   scrollbar-width: none;
+  background-color: var(--color-scheme-surface-container);
 }

@@ -1,37 +1,35 @@
-
-.navDrawerListItem {
-	display: flex;
-	height: 44px;
-	align-items: center;
-	padding: 6px 0;
-	--md-list-item-leading-icon-color: black;
-	transition: background-color 0.3s ease;
-}
 #navDrawer{
-    position: fixed;
-    top: 0;
-    left: -70vw;
-    transform: translateX(0);
-    width: 70vw;
-    height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	transform: translateX(-70vw);
+	width: 70vw;
+	height: 100vh;
 	border-top-right-radius: 16px;
-    background: white;
-    transition: transform 0.3s ease;
-    z-index: 900;
+	background: var(--color-scheme-surface);
+	transition: transform 0.3s ease;
+	z-index: 900;
 }
 #navDrawer.open {
-    transform: translateX(100%);
+	transform: translateX(0);
+}
+#navDrawer > img{
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: center;
+	height: 72px;
+	width: auto;
 }
 #navDrawerBlur{
 	position: fixed;
 	top: 0;
-    left: 0;     
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.0);
+	left: 0;     
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.0);
 	pointer-events: none;
-    z-index: 899;
-    transition: background-color 0.3s ease-out;
+	z-index: 899;
+	transition: background-color 0.3s ease-out;
 }
 #navDrawerBlur.open{
 	pointer-events: auto;
