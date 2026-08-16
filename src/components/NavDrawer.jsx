@@ -12,7 +12,7 @@ function NavDrawer({ isOpen, onClose, onNavigate }) {
   return (
     <>
       <div id='navDrawer' className={` ${isOpen? 'open' : ''}`}>
-				<img src='../src/assets/navDrawerLogo.png'/>
+				<img src='src/assets/navDrawerLogo.png'/>
 				<md-divider style={{padding: '0'}}></md-divider>
 				<md-list>
 					

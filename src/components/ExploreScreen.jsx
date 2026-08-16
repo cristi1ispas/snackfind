@@ -10,22 +10,10 @@ function ExploreScreen() {
     const chipCategory = Number(e.target.dataset.category);
     const isChipSelected = e.target.selected;
     if(isChipSelected) {
-      console.log(`isChipSelected = true ? ${isChipSelected} ; item ? ${chipCategory}`)
-
       setSelectedCategories([...selectedCategories, chipCategory]);
-
-      console.log(`selectedCateg = add ? ${selectedCategories}`)
-
     } else {
-      console.log(`isChipSelected = false ? ${isChipSelected} ; item ? ${chipCategory}`)
-
       setSelectedCategories(selectedCategories.filter((category) => category !== chipCategory))
-
-      console.log(`selectedCateg = removal ? ${selectedCategories}`)
-
     }
-
-    console.log(`selectedCateg = afterIF ? ${selectedCategories}`)
   }
 	
   return (
@@ -53,7 +41,6 @@ function ExploreScreen() {
 					<md-filter-chip label="Beverages" data-category="7" onClick={handleChipClick}>
 						<md-icon slot="icon">liquor</md-icon>
 					</md-filter-chip>
-          {console.log(`selectedCateg = afterIF ? ${selectedCategories}`)}
 				</md-chip-set>
 			</div>
       <div id="productGrid">

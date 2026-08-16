@@ -43,6 +43,8 @@ function MainLayout() {
       searchInputRef.current.focus();
     }
   }
+
+  const [searchValue, setSearchValue] = useState('');
   
   const [isAccountCenterOpen, setIsAccountCenterOpen] = useState(false);
   
@@ -51,9 +53,9 @@ function MainLayout() {
   return (
     <>
 
-      <TopAppBar onMenuClick={setIsNavDrawerOpen} onSearchClick={focusSearchInput} onAccountClick={setIsAccountCenterOpen} isLoggedIn={isLoggedIn}/>
+      <TopAppBar searchBar={searchValue} onMenuClick={setIsNavDrawerOpen} onSearchClick={focusSearchInput} onAccountClick={setIsAccountCenterOpen} isLoggedIn={isLoggedIn}/>
 
-      <Search isOpen={isSearchOpen} onClose={setIsSearchOpen} searchInputRef={searchInputRef}/>
+      <Search searchValue={searchValue} setSearchValue={setSearchValue} isOpen={isSearchOpen} onClose={setIsSearchOpen} searchInputRef={searchInputRef} onClearClick={focusSearchInput} />
 
 			<NavDrawer isOpen={isNavDrawerOpen} onClose={setIsNavDrawerOpen} onNavigate={renderSubPage} />
       {isSubPageRendered && (
