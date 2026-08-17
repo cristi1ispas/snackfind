@@ -1,4 +1,6 @@
-
+#exploreContainer{
+	position: relative;
+}
 #searchFAB{
 	position: fixed;
 	bottom: 64px;

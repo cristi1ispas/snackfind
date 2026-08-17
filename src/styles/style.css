@@ -78,7 +78,7 @@ input:not(.material-symbols-outlined) {
   font-family: 'Roboto Variable', sans-serif !important;
 }
 
-md-filter-chip, md-filled-text-field{
+md-filter-chip, md-filled-text-field, md-outlined-button, md-text-button{
   --md-ref-typeface-plain: 'Roboto Variable', sans-serif;
 }
 
