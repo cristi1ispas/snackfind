@@ -2,7 +2,7 @@ import { useState } from 'react'
 import ProductGridItem from './ProductGridItem'
 import { MOCK_PRODUCTS } from '../data/productsMock'
 
-function ExploreScreen() {
+function ExploreScreen({ searchValue }) {
 
   const [selectedCategories, setSelectedCategories] = useState([]);
 
@@ -15,6 +15,16 @@ function ExploreScreen() {
       setSelectedCategories(selectedCategories.filter((category) => category !== chipCategory))
     }
   }
+
+  const normalizeText = (text) => {
+  if (!text) return '';
+  return text
+    .toString()
+    .toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/,/g, ".")
+    .replace(/['`’\-]/g, "");
+};
 	
   return (
     <>
@@ -49,6 +59,13 @@ function ExploreScreen() {
             return true; 
           }
           return selectedCategories.includes(product.category);
+        }).filter((product) => {
+          if (searchValue.length === 0) return true;
+          const searchWords = normalizeText(searchValue).split(' ').filter(w => w !== ''); /* array of searched words */
+          const unit = [1, 7].includes(product.category) ? 'l' : 'g' ;
+          const quantAndUnit = `${product.quant}${unit}`
+          const productDetails = normalizeText(`${product.brand} ${product.name} ${product.flavour} ${product.quant} ${quantAndUnit}`);
+          return searchWords.every(word => productDetails.includes(word))
         }).map((product) => (
           <ProductGridItem key={product.id} product={product} />
         ))}

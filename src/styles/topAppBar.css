@@ -40,7 +40,6 @@
     justify-content: center
 }
 
-
 #ribbonRow{
 	background-color: var(--color-scheme-surface);
     display: flex;

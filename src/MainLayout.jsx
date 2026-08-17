@@ -68,7 +68,7 @@ function MainLayout() {
 
       <main id="screen">
         <div id="explore" className={`styleScreen ${activeScreen === 'explore' ? 'activeScreen' : 'exitScreen'}`}>
-          <ExploreScreen />
+          <ExploreScreen searchValue={searchValue} />
         </div>
         <div id="favourite" className={`styleScreen ${activeScreen === 'favourite' ? 'activeScreen' : 'exitScreen'}`}>
           <FavouriteScreen />
