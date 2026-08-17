@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import ProductGridItem from './ProductGridItem'
 import { MOCK_PRODUCTS } from '../data/productsMock'
 
@@ -17,15 +17,36 @@ function ExploreScreen({ searchValue }) {
   }
 
   const normalizeText = (text) => {
-  if (!text) return '';
-  return text
-    .toString()
-    .toLowerCase()
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    .replace(/k/g, "c")
-    .replace(/,/g, ".")
-    .replace(/['`’\-]/g, "");
-};
+    if (!text) return '';
+    return text
+      .toString()
+      .toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/k/g, "c")
+      .replace(/,/g, ".")
+      .replace(/['`’\-]/g, "");
+  };
+
+  const filteredProducts = useMemo(() => {
+    return MOCK_PRODUCTS.filter((product) => {
+      if (selectedCategories.length === 0)
+        return true;
+      return selectedCategories.includes(product.category);
+    })
+    .filter((product) => {
+      if (searchValue.length === 0)
+        return true;
+      const searchWords = normalizeText(searchValue).split(' ').filter(w => w !== ''); /* array of searched words */
+      const unit = [1, 7].includes(product.category) ? 'l' : 'g' ;
+      const quantAndUnit = `${product.quant}${unit}`;
+      const productDetails = normalizeText(`${product.brand} ${product.name} ${product.flavour}`);
+      return searchWords.every(word => {
+        if(word === quantAndUnit || word === product.quant.toString())
+          return true;
+        return productDetails.includes(word);
+      });
+    });
+  }, [searchValue, selectedCategories]);
 	
   return (
     <>
@@ -55,23 +76,7 @@ function ExploreScreen({ searchValue }) {
 				</md-chip-set>
 			</div>
       <div id="productGrid">
-        {MOCK_PRODUCTS.filter((product) => {
-          if (selectedCategories.length === 0) {
-            return true; 
-          }
-          return selectedCategories.includes(product.category);
-        }).filter((product) => {
-          if (searchValue.length === 0) return true;
-          const searchWords = normalizeText(searchValue).split(' ').filter(w => w !== ''); /* array of searched words */
-          const unit = [1, 7].includes(product.category) ? 'l' : 'g' ;
-          const quantAndUnit = `${product.quant}${unit}`;
-          const productDetails = normalizeText(`${product.brand} ${product.name} ${product.flavour}`);
-          return searchWords.every(word => {
-            if(word === quantAndUnit || word === product.quant.toString()) return true;
-
-            return productDetails.includes(word);
-          });
-        }).map((product) => (
+        {filteredProducts.map((product) => (
           <ProductGridItem key={product.id} product={product} />
         ))}
         

@@ -1,69 +1,69 @@
 
 #topAppBar{
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    box-sizing: border-box; 
-    z-index: 500;
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	box-sizing: border-box; 
+	z-index: 500;
 }
 #topRow{
-    background-color: var(  --color-scheme-surface);
-    display: flex;
-    gap: 4px;
-    padding: 4px;
+	background-color: var(  --color-scheme-surface);
+	display: flex;
+	gap: 4px;
+	padding: 4px;
 }
 #topRow > md-icon-button{
-    --_icon-size: 26px;
-    height: 56px;
-    width: 56px;
+	--_icon-size: 26px;
+	height: 56px;
+	width: 56px;
 }
 #topRow > #account{
-    --_icon-size: 30px;
+	--_icon-size: 30px;
 }
 #topRow > #account > img{
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	object-fit: cover;
 }
 
 #searchBar{
 	display: flex;
-    flex-grow: 1;
+	flex-grow: 1;
 	height: 56px;
 	border-radius: 28px;
 	background-color: var(--color-scheme-surface-container-highest);
 	align-items: center;
-    justify-content: center
+	justify-content: center
 }
 
 #ribbonRow{
 	background-color: var(--color-scheme-surface);
-    display: flex;
+	display: flex;
 	justify-content: space-between;
-    padding: 4px 6px;
+	padding: 4px 6px;
 }
 
 #filterToggle{
-    display: flex;
-    gap: 6px;
-    align-self: center;
-    align-items: center;
+	display: flex;
+	gap: 6px;
+	align-self: center;
+	align-items: center;
 }
 #filterToggle label{
-    font-size: large;
+	font-size: large;
 }
 
 
 #locationAriaBtn {
-    --md-filled-tonal-button-icon-size: 20px;
+  --md-filled-tonal-button-icon-size: 20px;
 }
 
 md-menu#locationAriaMenu, 
 md-menu#locationAriaMenu md-sub-menu md-menu[slot="menu"]
 {
-    max-height: 350px;
+  max-height: 350px;
 }
