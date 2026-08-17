@@ -22,6 +22,7 @@ function ExploreScreen({ searchValue }) {
     .toString()
     .toLowerCase()
     .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/k/g, "c")
     .replace(/,/g, ".")
     .replace(/['`’\-]/g, "");
 };
@@ -63,9 +64,13 @@ function ExploreScreen({ searchValue }) {
           if (searchValue.length === 0) return true;
           const searchWords = normalizeText(searchValue).split(' ').filter(w => w !== ''); /* array of searched words */
           const unit = [1, 7].includes(product.category) ? 'l' : 'g' ;
-          const quantAndUnit = `${product.quant}${unit}`
-          const productDetails = normalizeText(`${product.brand} ${product.name} ${product.flavour} ${product.quant} ${quantAndUnit}`);
-          return searchWords.every(word => productDetails.includes(word))
+          const quantAndUnit = `${product.quant}${unit}`;
+          const productDetails = normalizeText(`${product.brand} ${product.name} ${product.flavour}`);
+          return searchWords.every(word => {
+            if(word === quantAndUnit || word === product.quant.toString()) return true;
+
+            return productDetails.includes(word);
+          });
         }).map((product) => (
           <ProductGridItem key={product.id} product={product} />
         ))}
