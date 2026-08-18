@@ -11,6 +11,7 @@ import Search from "./components/Search";
 import SearchFAB from "./components/SearchFAB";
 import FiltersFAB from "./components/FiltersFAB"
 import SubPageLayout from "./components/SubPageLayout";
+import ProductPageLayout from './components/ProductPageLayout';
 
 function MainLayout() {
 
@@ -50,6 +51,9 @@ function MainLayout() {
   
   const [activeScreen, setActiveScreen] = useState('explore');
 
+  const [isProductPageRendered, setIsProductPageRendered] = useState(false);
+	const [isProductPageOpen, setIsProductPageOpen] = useState(false);
+
   return (
     <>
 
@@ -69,6 +73,9 @@ function MainLayout() {
       <main id="screen">
         <div id="explore" className={`styleScreen ${activeScreen === 'explore' ? 'activeScreen' : 'exitScreen'}`}>
           <ExploreScreen searchValue={searchValue} />
+          {isProductPageRendered && (
+            <ProductPageLayout />
+          )}
         </div>
         <div id="favourite" className={`styleScreen ${activeScreen === 'favourite' ? 'activeScreen' : 'exitScreen'}`}>
           <FavouriteScreen />
@@ -80,7 +87,7 @@ function MainLayout() {
           <ContributeScreen />
         </div>
         <div id="FABs">
-          <SearchFAB activeScreen={activeScreen} onClick={focusSearchInput} />
+          <SearchFAB isProductPageOpen={isProductPageOpen} activeScreen={activeScreen} onClick={focusSearchInput} />
           <FiltersFAB />
         </div>
       </main>

@@ -44,6 +44,7 @@
   --md-sys-color-on-primary: var(--color-scheme-on-primary);
   --md-sys-color-inverse-surface: var(--color-scheme-inverse-surface);
   --md-sys-color-inverse-on-surface: var(--color-scheme-inverse-on-surface);
+  --md-sys-color-outline-variant: var(--color-scheme-outline-variant);
 }
 
 @font-face {
@@ -85,10 +86,6 @@ md-filter-chip, md-filled-text-field, md-outlined-button, md-text-button{
 .no-color{
 	text-decoration: none;
 	color: inherit;
-}
-
-md-divider{
-	padding: 0 5%;
 }
 
 md-menu{

@@ -1,19 +1,39 @@
 
 
-#productPage{
-	position: absolute;
+.productPage{
+	background-color: var(--color-scheme-primary-container);
+	position: fixed;
 	top: 0;
 	left: 0;
+	height: 100vh;
+	width: 100vw;
+	padding-top: 114px;
+	padding-bottom: 63px;
+	box-sizing: border-box;
+	overflow-x: hidden;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	-webkit-font-smoothing: antialiased;
+	scrollbar-width: none;
 	display: flex;
 	flex-direction: column;
 }
+.productPage > md-list-item.productPageRibbon{
+	padding: 0;
+	--md-list-item-one-line-container-height: 32px;
+	--md-list-item-bottom-space: 0;
+	--md-list-item-top-space: 0;
+}
+md-list-item.productPageRibbon > md-icon{
+	--md-icon-size: 28px;
+}
 
-#testTemplateItem{
+.productPageContent{
+
     display: flex;
     flex-direction: column;
 }
-#testTemplateItem #productHeadline{
-    background-color: blueviolet;
+.productPageContent #productHeadline{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -21,7 +41,7 @@
     align-items: center;
     padding: 6px 12px;
 }
-#testTemplateItem #productHeadline img{
+.productPageContent #productHeadline img{
     background-color: lightgreen;
     box-sizing: border-box;
 	width: 60vw;
@@ -31,7 +51,7 @@
 	cursor: pointer;
     margin-top: 32px;
 }
-#testTemplateItem #productHeadline #productDescription{
+.productPageContent #productHeadline #productDescription{
     text-align: center;
     font-size: x-large;
 }
@@ -41,7 +61,7 @@
 
 
 
-#testTemplateItem #productActions{
+.productPageContent #productActions{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -51,7 +71,7 @@
     background-color: orange;
 }
 /*fav btn*/
-#testTemplateItem #productActions .productFavBtn{
+.productPageContent #productActions .productFavBtn{
 	--md-sys-color-primary: red;
 	--_container-shape-start-start: 8px;
 	--_container-shape-start-end: 8px;
@@ -59,7 +79,7 @@
 	--_container-shape-end-end: 8px;
 }
 /* it's icon */
-#testTemplateItem #productActions .productFavBtn md-icon{
+.productPageContent #productActions .productFavBtn md-icon{
 	font-variation-settings: 
         'FILL' 0,
         'wght' 400,
@@ -67,7 +87,7 @@
         'opsz' 24;
 	transition: all 0.3s ease-in-out;
 }
-#testTemplateItem #productActions .productFavBtn md-icon[slot="selected"]{
+.productPageContent #productActions .productFavBtn md-icon[slot="selected"]{
 	font-variation-settings: 
         'FILL' 1,
         'wght' 400,
@@ -75,7 +95,7 @@
         'opsz' 24;
 }
 /* Cart Btn */
-#testTemplateItem #productActions #productAddCartBtn{
+.productPageContent #productActions #productAddCartBtn{
     display: flex;
     flex-grow: 1;
     --_outline-width: 1px;
@@ -86,13 +106,13 @@
 	--_container-shape-end-end: 8px;
     --_icon-size: ;     /* DO NOT ADD VALUE */
 }
-#testTemplateItem #productActions #productAddCartBtn.active{
+.productPageContent #productActions #productAddCartBtn.active{
     --_outline-width: 0;
     --_container-color: #6750a4;
 	--md-sys-color-primary: white;
 }
 /* it's icon */
-#testTemplateItem #productActions #productAddCartBtn #productAddCartBtnIcon.material-symbols-outlined{
+.productPageContent #productActions #productAddCartBtn #productAddCartBtnIcon.material-symbols-outlined{
     font-variation-settings: 
         'FILL' 0,
         'wght' 300,
@@ -100,16 +120,16 @@
         'opsz' 24;
     font-size: 24px;
 }
-#testTemplateItem #productActions #productAddCartBtn #productAddCartBtnIcon::after{
+.productPageContent #productActions #productAddCartBtn #productAddCartBtnIcon::after{
     content: 'add_shopping_cart';
     font-family: 'Material Symbols Outlined', sans-serif;
 }
-#testTemplateItem #productActions #productAddCartBtn #productAddCartBtnIcon.active::after{
+.productPageContent #productActions #productAddCartBtn #productAddCartBtnIcon.active::after{
     content: 'check';
     font-family: 'Material Symbols Outlined', sans-serif;
     color: rgb(255, 255, 255);       /*icon color*/
 }
-#testTemplateItem #productActions #productAddCartBtn #productAddCartBtnIcon.material-symbols-outlined.active{
+.productPageContent #productActions #productAddCartBtn #productAddCartBtnIcon.material-symbols-outlined.active{
     font-variation-settings: 
         'FILL' 1,
         'wght' 600,
@@ -124,14 +144,14 @@
 
 
 
-#testTemplateItem #productShopsList{
+.productPageContent #productShopsList{
     gap: 8px;
     background-color: green;
     padding: 6px 12px;
 }
 
 /* md-list */
-#testTemplateItem #productShopsList .productShopCard{
+.productPageContent #productShopsList .productShopCard{
     display: flex;
     flex-grow: 1;
     border-radius: 14px;
@@ -150,7 +170,7 @@
     --md-list-item-trailing-icon-color: black;
 }
 /* img [slot="start"] */
-#testTemplateItem #productShopsList .productShopCard img{
+.productPageContent #productShopsList .productShopCard img{
     background-color: lightgreen;
 	width: auto;
 	height: 18vw;
@@ -159,7 +179,7 @@
 	cursor: pointer;
 }
 /* [slot="end"] price details */
-#testTemplateItem #productShopsList .productShopCard div.productPrice{
+.productPageContent #productShopsList .productShopCard div.productPrice{
 	display: flex;
     flex-direction: column;
     align-items: center;
@@ -167,22 +187,22 @@
     padding: 6px 0 0 0;
 }
 /* price itself */
-#testTemplateItem #productShopsList .productShopCard div.productPrice div{
+.productPageContent #productShopsList .productShopCard div.productPrice div{
 	display: inline-flex;
 	align-items: baseline;
 }
 /* full */
-#testTemplateItem #productShopsList .productShopCard div.productPrice div span{
+.productPageContent #productShopsList .productShopCard div.productPrice div span{
 	font-size: 32px;
 	font-weight: 800;
 }
 /* decimal */ 
-#testTemplateItem #productShopsList .productShopCard div.productPrice div sub{
+.productPageContent #productShopsList .productShopCard div.productPrice div sub{
 	font-size: 20px;
 	font-weight: 600;
 }
 /* date updated */
-#testTemplateItem #productShopsList .productShopCard div.productPrice div.dateUpdated{
+.productPageContent #productShopsList .productShopCard div.productPrice div.dateUpdated{
     align-self: flex-end;
 	font-size: 12px;
 	font-weight: 500;

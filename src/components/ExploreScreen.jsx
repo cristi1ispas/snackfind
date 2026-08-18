@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react'
 import ProductGridItem from './ProductGridItem'
-import ProductPageLayout from './ProductPageLayout';
 import { MOCK_PRODUCTS } from '../data/productsMock'
 
 function ExploreScreen({ searchValue }) {
@@ -48,12 +47,9 @@ function ExploreScreen({ searchValue }) {
       });
     });
   }, [searchValue, selectedCategories]);
-
-  const [isProductPageRendered, setIsProductPageRendered] = useState(false);
-	const [isProductPageOpen, setIsProductPageOpen] = useState(false);
 	
   return (
-    <div id="exploreContainer">
+    <div id="exploreContainer" className='screenContainers'>
       <div id="categoryChipsWraper">
 				<md-chip-set id="categoryChips">
 					<md-filter-chip label="Sodas" data-category="1" onClick={handleChipClick}>
@@ -84,10 +80,6 @@ function ExploreScreen({ searchValue }) {
           <ProductGridItem key={product.id} product={product} />
         ))}
       </div>
-
-      {isProductPageRendered && (
-        <ProductPageLayout />
-      )}
 
       <md-dialog id="discardFiltersDialog" type="alert">
         <div slot="headline">

@@ -5,7 +5,7 @@
   overflow: hidden;
 }
 
-#screen .styleScreen{
+#screen > .styleScreen{
 	background-color: white;
 	position: absolute;
 	top: 0;
@@ -13,25 +13,36 @@
 	width: 100vw;
 	height: 100vh;
 	padding-top: 114px;
-	padding-bottom: 128px;
+	padding-bottom: 64px;
 	box-sizing: border-box;
-	overflow-x: hidden;
-	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
 	-webkit-font-smoothing: antialiased;
   scrollbar-width: none;
 	will-change: transform, opacity;
 	transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), opacity 0.3s cubic-bezier(0.2, 0, 0, 1);
 }
-#screen .styleScreen::-webkit-scrollbar {
+#screen > .styleScreen > .screenContainers{
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	padding-bottom: 72px;
+	box-sizing: border-box;
+	overflow-x: hidden;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	-webkit-font-smoothing: antialiased;
+  scrollbar-width: none;
+}
+#screen > .styleScreen::-webkit-scrollbar {
   display: none;
 }
-#screen .styleScreen.activeScreen{
+#screen > .styleScreen.activeScreen{
 	opacity: 1;
 	transform: scale(1);
 	pointer-events: auto;
 }
-#screen .styleScreen.exitScreen{
+#screen > .styleScreen.exitScreen{
 	opacity: 0;
 	transform: scale(0.92);
 	pointer-events: none;
