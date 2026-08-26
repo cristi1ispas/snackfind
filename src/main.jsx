@@ -13,7 +13,6 @@ import './styles/subPageScreen.css'
 
 import './styles/accountCenter.css'
 import './styles/topAppBar.css'
-import './styles/categoryChips.css'
 import './styles/contributeAnounceDiscount.css'
 import './styles/contributePage.css'
 import './styles/contributeUpdatePrice.css'

@@ -37,16 +37,56 @@
 	border-radius: 28px;
 	background-color: var(--color-scheme-surface-container-highest);
 	align-items: center;
-	justify-content: center
+	justify-content: space-between;
+}
+#searchBar > span{
+	padding: 16px 16px 16px 26px;
+	flex-grow: 1;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+#searchBar > md-icon-button{
+	--md-icon-button-state-layer-width: 56px;
+	--md-icon-button-state-layer-height: 56px;
+	--_icon-size: 26px;
 }
 
 #ribbonRow{
 	background-color: var(--color-scheme-surface);
 	display: flex;
-	justify-content: space-between;
+	align-items: center;
 	padding: 4px 6px;
+	gap: 6px;
 }
 
+#categoryChipsWraper{
+	overflow-x: auto;
+	overflow-y: hidden;
+	box-sizing: border-box;
+}
+#categoryChips{
+	padding: 4px 8px;
+	scrollbar-width: none;
+	display: flex !important;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
+	mask-image: linear-gradient(
+		to right,
+		transparent,
+		black 16px,
+		black calc(100% - 16px),
+		transparent
+	);
+}
+#categoryChips::-webkit-scrollbar {
+  display: none;
+}
+#ribbonRow > .verticalDivider{
+	width: 1px;
+	height: 32px;
+	background-color: var(    --color-scheme-outline-variant);
+}
 #filterToggle{
 	display: flex;
 	gap: 6px;
@@ -55,15 +95,4 @@
 }
 #filterToggle label{
 	font-size: large;
-}
-
-
-#locationAriaBtn {
-  --md-filled-tonal-button-icon-size: 20px;
-}
-
-md-menu#locationAriaMenu, 
-md-menu#locationAriaMenu md-sub-menu md-menu[slot="menu"]
-{
-  max-height: 350px;
 }

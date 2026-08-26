@@ -9,9 +9,9 @@ function Locations({ isOpen, onClose }) {
       <md-sub-menu menu-corner="start-start" anchor-corner="end-end">
         <md-menu-item slot="item">
           <div slot="headline">Kusterdingen</div>
-          <md-icon slot="end">arrow_drop_down</md-icon>
+          <md-icon slot="end">arrow_drop_up</md-icon>
         </md-menu-item>
-        <md-menu slot="menu" has-overflow positioning="popover" x-offset="-40" y-offset="-12">
+        <md-menu slot="menu" has-overflow positioning="popover" x-offset="-32" y-offset="-18">
           <md-menu-item>
             <div slot="headline">Kusterdingen</div>
             <div slot="supporting-text">Shops: 15</div>
@@ -37,7 +37,7 @@ function Locations({ isOpen, onClose }) {
       <md-sub-menu menu-corner="start-start" anchor-corner="end-end">
         <md-menu-item slot="item">
           <div slot="headline">Kunszentmiklós</div>
-          <md-icon slot="end">arrow_drop_down</md-icon>
+          <md-icon slot="end">arrow_drop_up</md-icon>
         </md-menu-item>
         <md-menu slot="menu" has-overflow positioning="popover" x-offset="-40" y-offset="-12">
           <md-menu-item>
@@ -69,7 +69,7 @@ function Locations({ isOpen, onClose }) {
       <md-sub-menu menu-corner="start-start" anchor-corner="end-end">
         <md-menu-item slot="item">
           <div slot="headline">Prahova</div>
-          <md-icon slot="end">arrow_drop_down</md-icon>
+          <md-icon slot="end">arrow_drop_up</md-icon>
         </md-menu-item>
         <md-menu slot="menu" has-overflow positioning="popover" x-offset="-40" y-offset="-12">
           <md-menu-item>

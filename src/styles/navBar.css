@@ -4,7 +4,7 @@
 	bottom: 0;
 	left: 0;
 	justify-content: space-evenly;
-	background-color: var(--color-scheme-surface-container);
+	background-color: var(--color-scheme-surface);
 	width: 100vw;
 	padding: 6px 0;
 	height: 52px;

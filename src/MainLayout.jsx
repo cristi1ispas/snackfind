@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useMemo } from "react";
 import TopAppBar from './components/TopAppBar';
 import NavDrawer from './components/NavDrawer';
 import AccountCenter from './components/AccountCenter';
@@ -12,6 +12,7 @@ import SearchFAB from "./components/SearchFAB";
 import FiltersFAB from "./components/FiltersFAB"
 import SubPageLayout from "./components/SubPageLayout";
 import ProductPageLayout from './components/ProductPageLayout';
+import { MOCK_PRODUCTS } from './data/productsMock'
 
 function MainLayout() {
 
@@ -21,7 +22,6 @@ function MainLayout() {
 	const [isSubPageOpen, setIsSubPageOpen] = useState(false);
   const [subPageTitle, setSubPageTitle] = useState("");
   const [subPageContent, setSubPageContent] = useState(null);
-
 	const renderSubPage = (title, children) => {
     setSubPageTitle(title);
     setSubPageContent(children);
@@ -36,6 +36,42 @@ function MainLayout() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const [searchValue, setSearchValue] = useState('');
+
+  const normalizeText = (text) => {
+    if (!text) return '';
+    return text
+      .toString()
+      .toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/k/g, "c")
+      .replace(/,/g, ".")
+      .replace(/['`’\-]/g, "");
+  };
+	
+
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const filteredProducts = useMemo(() => {
+    return MOCK_PRODUCTS.filter((product) => {
+      if (selectedCategories.length === 0)
+        return true;
+      return selectedCategories.includes(product.category);
+    })
+    .filter((product) => {
+      if (searchValue.length === 0)
+        return true;
+      const searchWords = normalizeText(searchValue).split(' ').filter(w => w !== ''); /* array of searched words */
+      const unit = [1, 7].includes(product.category) ? 'l' : 'g' ;
+      const quantAndUnit = `${product.quant}${unit}`;
+      const productDetails = normalizeText(`${product.brand} ${product.name} ${product.flavour}`);
+      return searchWords.every(word => {
+        if(word === quantAndUnit || word === product.quant.toString())
+          return true;
+        return productDetails.includes(word);
+      });
+    });
+  }, [searchValue, selectedCategories]);
+
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const searchInputRef = useRef(null);
   const focusSearchInput = () => {
@@ -44,8 +80,6 @@ function MainLayout() {
       searchInputRef.current.focus();
     }
   }
-
-  const [searchValue, setSearchValue] = useState('');
   
   const [isAccountCenterOpen, setIsAccountCenterOpen] = useState(false);
   
@@ -57,7 +91,7 @@ function MainLayout() {
   return (
     <>
 
-      <TopAppBar searchBar={searchValue} onMenuClick={setIsNavDrawerOpen} onSearchClick={focusSearchInput} onAccountClick={setIsAccountCenterOpen} isLoggedIn={isLoggedIn}/>
+      <TopAppBar searchValue={searchValue} onMenuClick={setIsNavDrawerOpen} onSearchClick={focusSearchInput} onAccountClick={setIsAccountCenterOpen} isLoggedIn={isLoggedIn} selectedCategories={selectedCategories} setSelectedCategories={setSelectedCategories} />
 
       <Search searchValue={searchValue} setSearchValue={setSearchValue} isOpen={isSearchOpen} onClose={setIsSearchOpen} searchInputRef={searchInputRef} onClearClick={focusSearchInput} />
 
@@ -72,7 +106,7 @@ function MainLayout() {
 
       <main id="screen">
         <div id="explore" className={`styleScreen ${activeScreen === 'explore' ? 'activeScreen' : 'exitScreen'}`}>
-          <ExploreScreen searchValue={searchValue} />
+          <ExploreScreen filteredProducts={filteredProducts} searchValue={searchValue} />
           {isProductPageRendered && (
             <ProductPageLayout />
           )}

@@ -1,59 +1,45 @@
-import { useState, useRef } from 'react'
-import Locations from './Locations';
+import { useState } from 'react'
+import CategoryChips from './CategoryChips'
 
-function TopAppBar({ onMenuClick, searchBar, onSearchClick, onAccountClick, isLoggedIn, userDetails }) {
-  
-	const locationAriaMenuRef = useRef(null);
-
-	const toggleLocationAriaMenu = () => {
-		if(locationAriaMenuRef.current) {
-			locationAriaMenuRef.current.open = !locationAriaMenuRef.current.open;
-		}
-	};
+function TopAppBar({ onMenuClick, searchValue, onSearchClick, onAccountClick, isLoggedIn, userDetails, selectedCategories, setSelectedCategories }) {
 
   return (
-    <>
-			<div id="topAppBar">
-				<div id="topRow">
-					<md-icon-button onClick={() => onMenuClick(true)}>
-						<md-icon>menu</md-icon>
-					</md-icon-button>
+		<div id="topAppBar">
+			<div id="topRow">
+				<md-icon-button onClick={() => onMenuClick(true)}>
+					<md-icon>menu</md-icon>
+				</md-icon-button>
 
-					<div id="searchBar" onClick={onSearchClick}>
-						<span>
-							{searchBar
-								? searchBar
-								: `Search Products`
-							}
-						</span>
-					</div>
-
-					<md-icon-button id="account" onClick={() => onAccountClick(true)} disabled>
-						{isLoggedIn && userDetails.pfp
-							? (<img src={userDetails.pfp} alt='Profile'/>)
-							: (<md-icon>account_circle</md-icon>)
+				<div id="searchBar">
+					<span onClick={onSearchClick}>
+						{searchValue
+							? searchValue
+							: `Search Products`
 						}
+					</span>
+					<md-icon-button disabled>
+						<md-icon>barcode_scanner</md-icon>
 					</md-icon-button>
-
-					
 				</div>
-				<div id="ribbonRow">
-					<md-filled-tonal-button onClick={toggleLocationAriaMenu} id="locationAriaBtn">
-						<md-icon slot="icon">near_me</md-icon>
-						<span>Prahova</span>
-					</md-filled-tonal-button>
 
-					<div id="filterToggle">
-						<label htmlFor="switchFilterToggle">Filters</label>
-						<md-switch id="switchFilterToggle" icons disabled></md-switch>
-					</div>
+				<md-icon-button id="account" onClick={() => onAccountClick(true)} disabled>
+					{isLoggedIn && userDetails.pfp
+						? (<img src={userDetails.pfp} alt='Profile'/>)
+						: (<md-icon>account_circle</md-icon>)
+					}
+				</md-icon-button>
+
+				
+			</div>
+			<div id="ribbonRow">
+				<CategoryChips selectedCategories={selectedCategories} setSelectedCategories={setSelectedCategories} />
+				<div className='verticalDivider'></div>
+				<div id="filterToggle">
+					<label htmlFor="switchFilterToggle">Filters</label>
+					<md-switch id="switchFilterToggle" icons disabled></md-switch>
 				</div>
 			</div>
-			
-			<md-menu ref={locationAriaMenuRef} anchor="locationAriaBtn" has-overflow positioning="popover" id="locationAriaMenu">
-				<Locations />
-			</md-menu>			
-    </>
+		</div>
   )
 }
 

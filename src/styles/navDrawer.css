@@ -1,5 +1,8 @@
 #navDrawer{
 	position: fixed;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	top: 0;
 	left: 0;
 	transform: translateX(-70vw);
@@ -13,13 +16,30 @@
 #navDrawer.open {
 	transform: translateX(0);
 }
-#navDrawer > img{
+#navDrawer > div > img{
 	box-sizing: border-box;
 	align-items: center;
 	justify-content: center;
 	height: 72px;
 	width: auto;
 }
+
+#locationAria{
+	display: flex;
+	flex-direction: column;
+	padding: 24px;
+	padding-bottom: 48px;
+}
+#locationAriaBtn {
+  --md-filled-tonal-button-icon-size: 20px;
+}
+
+md-menu#locationAriaMenu, 
+md-menu#locationAriaMenu > md-sub-menu > md-menu[slot="menu"]
+{
+  max-height: 350px;
+}
+
 #navDrawerBlur{
 	position: fixed;
 	top: 0;

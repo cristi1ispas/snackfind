@@ -40,7 +40,7 @@
 	border-radius: 8px;
 	max-width: calc(50vw - 12px);
 	box-sizing: border-box;
-	background-color: var(--color-scheme-primary-container);
+	background-color: var(--color-scheme-secondary-container);
 	animation: fadeIn 0.3s cubic-bezier(0.2, 0, 0, 1) forwards;
 }
 @keyframes fadeIn {
