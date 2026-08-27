@@ -1,0 +1,93 @@
+export const MOCK_SHOPS = [
+  {
+    "id": 1,
+    "created_at": "2026-07-11 22:04:57.899636+00",
+    "is_chain": false,
+    "official": "Potica I. Maria Eliza",
+    "popular": "Potica",
+    "adress": "Sat. Gheaba, Nr. 735",
+    "latitude": 45.31018,
+    "longitute": 25.997842,
+    "rating": 500,
+    "area": "Maneciu",
+    "parent_chain_id": ""
+  },
+  {
+    "id": 2,
+    "created_at": "2026-07-11 22:08:10.567541+00",
+    "is_chain": false,
+    "official": "Ella Store Market S.R.L.",
+    "popular": "La Georgi",
+    "adress": "Sat. Gheaba, Nr. 273",
+    "latitude": 45.313235,
+    "longitute": 25.997663,
+    "rating": 250,
+    "area": "Maneciu",
+    "parent_chain_id": ""
+  },
+  {
+    "id": 4,
+    "created_at": "2026-07-11 22:22:46.111658+00",
+    "is_chain": true,
+    "official": "S.C. Mega Image S.R.L.",
+    "popular": "Mega",
+    "adress": "",
+    "latitude": "",
+    "longitute": "",
+    "rating": 300,
+    "area": "",
+    "parent_chain_id": ""
+  },
+  {
+    "id": 5,
+    "created_at": "2026-07-11 22:31:08.75357+00",
+    "is_chain": true,
+    "official": "S.C. Mega Image S.R.L.",
+    "popular": "Mega",
+    "adress": "Str. Garii, Nr. FN",
+    "latitude": 45.316375,
+    "longitute": 25.989784,
+    "rating": 250,
+    "area": "Maneciu",
+    "parent_chain_id": 4
+  },
+  {
+    "id": 6,
+    "created_at": "2026-07-23 10:14:47.290796+00",
+    "is_chain": true,
+    "official": "S.C. LIDL Discount S.R.L.",
+    "popular": "Lidl",
+    "adress": "",
+    "latitude": "",
+    "longitute": "",
+    "rating": 100,
+    "area": "",
+    "parent_chain_id": ""
+  },
+  {
+    "id": 7,
+    "created_at": "2026-07-23 10:25:46.617004+00",
+    "is_chain": true,
+    "official": "S.C. LIDL Discount S.R.L.",
+    "popular": "Lidl",
+    "adress": "Str. Ioan Slavici, Nr. 2",
+    "latitude": 44.986848,
+    "longitute": 26.012608,
+    "rating": 100,
+    "area": "Blejoi",
+    "parent_chain_id": 6
+  },
+  {
+    "id": 8,
+    "created_at": "2026-07-23 10:30:47.036076+00",
+    "is_chain": true,
+    "official": "S.C. LIDL Discount S.R.L.",
+    "popular": "Lidl",
+    "adress": "Bd. Nicolae Iorga, Nr. 41",
+    "latitude": 45.179116,
+    "longitute": 26.035322,
+    "rating": 100,
+    "area": "Vălenii de Munte",
+    "parent_chain_id": 6
+  }
+]

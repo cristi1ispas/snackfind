@@ -1,3 +1,6 @@
+#exploreContainer{
+	padding-top: 48px;
+}
 #searchFAB{
 	position: fixed;
 	bottom: 64px;
@@ -27,6 +30,8 @@
 	pointer-events: none;
 }
 
+
+
 #productGrid {
   display: grid;
 	grid-template-columns: repeat(2, 1fr);
@@ -34,9 +39,8 @@
 	column-gap: 8px;
 	row-gap: 8px;
 }
-#productGrid .productGridItem{
+#productGrid > .productGridItem{
 	position: relative;
-	padding: 8px;
 	border-radius: 8px;
 	max-width: calc(50vw - 12px);
 	box-sizing: border-box;
@@ -53,28 +57,31 @@
     transform: scale(1);
   }
 }
-#productGrid .productGridItem .productFavBtn{
-	position: absolute;
-	top: 8px;
-	right: 8px;
-	--md-sys-color-primary: red;
+.productGridItem > .productGridArea{
+	display: flex;
+	flex-direction: column;
+	padding: 8px;
 }
-#productGrid .productGridItem img{
+.productGridItem > .productGridArea span{
+	color: var(--color-scheme-on-secondary-container);
+}
+.productGridArea > img{
 	width: 100%;
 	height: auto;
-	aspect-ratio: 1 / 1;
+	aspect-ratio: 6 / 5;
+	object-fit: contain;
+	background-color: white;
 	border-radius: 8px;
 }
-#productGrid .productGridItem .gridProductHeadline{
+.productGridArea > .gridProductDetails{
 	display: flex;
   flex-direction: column;
-  height: 3em;
-  line-height: 1.5em;
   overflow: hidden;
 }
-.gridProductHeadline > .headlineFirstLine{
+.gridProductDetails > .headlineFirstLine{
 	display: flex;
   gap: 4px;
+  line-height: 1.5em;
   width: 100%;
   overflow: hidden;
 }
@@ -92,44 +99,51 @@
   flex-shrink: 0;
   font-weight: bold;
 }
-.gridProductHeadline > .headlineSecondLine {
+.gridProductDetails > .headlineSecondLine {
   display: block;
   white-space: nowrap;
+  line-height: 1.5em;
   text-overflow: ellipsis;
   overflow: hidden;
-  font-size: 0.9em;
-  opacity: 0.8;
 }
-
-/* has to be redone */
-
-#productGrid .productGridItem > div{
-	display: flex;
-	flex: 1;
-	justify-content: space-between;
-	align-items: center;
+.gridProductDetails > md-divider{
+	margin-bottom: 2px;
+	width: calc(100% - 48px);
+	--md-divider-thickness: 2px;
 }
-#productGrid .productGridItem > div div.gridProductPrice{
+.gridProductDetails > div.productDetailsPrice{
 	display: inline-flex;
 	align-items: baseline;
+	flex-direction: row;
 	justify-content: flex-start;
 }
-#productGrid .productGridItem > div div.gridProductPrice span{
+div.productDetailsPrice > span, div.productDetailsPrice > sup, div.productDetailsPrice > div{
+	color: var(--color-scheme-on-secondary-container);
+}
+div.productDetailsPrice > span{
 	font-size: 24px;
 	font-weight: 800;
 }
-#productGrid .productGridItem div div.gridProductPrice sup{
+div.productDetailsPrice > sup{
 	font-size: 12px;
 	font-weight: 800;
 	align-self: start;
 }
-#productGrid .productGridItem div div.gridProductPrice div{
+div.productDetailsPrice > div{
 	font-size: 12px;
 	font-weight: 400;
 }
 
-#productGrid .productGridItem div .addToBasketBtn{
-	
+.productGridItem > .productFavBtn{
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	--md-sys-color-primary: red;
+}
+.productGridItem > .addToBasketBtn{
+	position: absolute;
+	bottom: 8px;
+	right: 8px;
 	--md-outlined-icon-button-container-shape: 8px;
 	--md-outlined-icon-button-selected-container-color: var(--color-scheme-primary);
 }

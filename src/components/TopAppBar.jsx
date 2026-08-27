@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import CategoryChips from './CategoryChips'
 
-function TopAppBar({ onMenuClick, searchValue, onSearchClick, onAccountClick, isLoggedIn, userDetails, selectedCategories, setSelectedCategories }) {
+function TopAppBar({ onMenuClick, searchValue, onSearchClick, onAccountClick, isLoggedIn, userDetails, selectedCategories, setSelectedCategories, showRibbon }) {
 
   return (
 		<div id="topAppBar">
@@ -31,7 +31,7 @@ function TopAppBar({ onMenuClick, searchValue, onSearchClick, onAccountClick, is
 
 				
 			</div>
-			<div id="ribbonRow">
+			<div id="ribbonRow" className={` ${showRibbon === 'explore' ? 'open' : ''}`}>
 				<CategoryChips selectedCategories={selectedCategories} setSelectedCategories={setSelectedCategories} />
 				<div className='verticalDivider'></div>
 				<div id="filterToggle">

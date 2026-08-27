@@ -33,7 +33,7 @@ md-list-item.productPageRibbon > md-icon{
     display: flex;
     flex-direction: column;
 }
-.productPageContent #productHeadline{
+.productPageContent .productHeadline{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -41,7 +41,7 @@ md-list-item.productPageRibbon > md-icon{
     align-items: center;
     padding: 6px 12px;
 }
-.productPageContent #productHeadline img{
+.productPageContent .productHeadline > img{
     background-color: lightgreen;
     box-sizing: border-box;
 	width: 60vw;
@@ -51,17 +51,12 @@ md-list-item.productPageRibbon > md-icon{
 	cursor: pointer;
     margin-top: 32px;
 }
-.productPageContent #productHeadline #productDescription{
+.productPageContent .productHeadline .productDescription{
     text-align: center;
     font-size: x-large;
 }
 
-
-
-
-
-
-.productPageContent #productActions{
+.productPageContent .productActions{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -71,7 +66,7 @@ md-list-item.productPageRibbon > md-icon{
     background-color: orange;
 }
 /*fav btn*/
-.productPageContent #productActions .productFavBtn{
+.productPageContent .productActions .productFavBtn{
 	--md-sys-color-primary: red;
 	--_container-shape-start-start: 8px;
 	--_container-shape-start-end: 8px;
@@ -79,7 +74,7 @@ md-list-item.productPageRibbon > md-icon{
 	--_container-shape-end-end: 8px;
 }
 /* it's icon */
-.productPageContent #productActions .productFavBtn md-icon{
+.productPageContent .productActions .productFavBtn md-icon{
 	font-variation-settings: 
         'FILL' 0,
         'wght' 400,
@@ -87,7 +82,7 @@ md-list-item.productPageRibbon > md-icon{
         'opsz' 24;
 	transition: all 0.3s ease-in-out;
 }
-.productPageContent #productActions .productFavBtn md-icon[slot="selected"]{
+.productPageContent .productActions .productFavBtn md-icon[slot="selected"]{
 	font-variation-settings: 
         'FILL' 1,
         'wght' 400,
@@ -95,7 +90,7 @@ md-list-item.productPageRibbon > md-icon{
         'opsz' 24;
 }
 /* Cart Btn */
-.productPageContent #productActions #productAddCartBtn{
+.productPageContent .productActions .productAddCartBtn{
     display: flex;
     flex-grow: 1;
     --_outline-width: 1px;
@@ -106,52 +101,16 @@ md-list-item.productPageRibbon > md-icon{
 	--_container-shape-end-end: 8px;
     --_icon-size: ;     /* DO NOT ADD VALUE */
 }
-.productPageContent #productActions #productAddCartBtn.active{
-    --_outline-width: 0;
-    --_container-color: #6750a4;
-	--md-sys-color-primary: white;
-}
-/* it's icon */
-.productPageContent #productActions #productAddCartBtn #productAddCartBtnIcon.material-symbols-outlined{
-    font-variation-settings: 
-        'FILL' 0,
-        'wght' 300,
-        'GRAD' 0,
-        'opsz' 24;
-    font-size: 24px;
-}
-.productPageContent #productActions #productAddCartBtn #productAddCartBtnIcon::after{
-    content: 'add_shopping_cart';
-    font-family: 'Material Symbols Outlined', sans-serif;
-}
-.productPageContent #productActions #productAddCartBtn #productAddCartBtnIcon.active::after{
-    content: 'check';
-    font-family: 'Material Symbols Outlined', sans-serif;
-    color: rgb(255, 255, 255);       /*icon color*/
-}
-.productPageContent #productActions #productAddCartBtn #productAddCartBtnIcon.material-symbols-outlined.active{
-    font-variation-settings: 
-        'FILL' 1,
-        'wght' 600,
-        'GRAD' 0,
-        'opsz' 24;
-    font-size: 24px;
-}
 
 
-
-
-
-
-
-.productPageContent #productShopsList{
+.productPageContent .productShopsList{
     gap: 8px;
     background-color: green;
     padding: 6px 12px;
 }
 
 /* md-list */
-.productPageContent #productShopsList .productShopCard{
+.productPageContent .productShopsList .productShopCard{
     display: flex;
     flex-grow: 1;
     border-radius: 14px;
@@ -170,7 +129,7 @@ md-list-item.productPageRibbon > md-icon{
     --md-list-item-trailing-icon-color: black;
 }
 /* img [slot="start"] */
-.productPageContent #productShopsList .productShopCard img{
+.productPageContent .productShopsList .productShopCard img{
     background-color: lightgreen;
 	width: auto;
 	height: 18vw;
@@ -179,7 +138,7 @@ md-list-item.productPageRibbon > md-icon{
 	cursor: pointer;
 }
 /* [slot="end"] price details */
-.productPageContent #productShopsList .productShopCard div.productPrice{
+.productPageContent .productShopsList .productShopCard div.productPrice{
 	display: flex;
     flex-direction: column;
     align-items: center;
@@ -187,22 +146,22 @@ md-list-item.productPageRibbon > md-icon{
     padding: 6px 0 0 0;
 }
 /* price itself */
-.productPageContent #productShopsList .productShopCard div.productPrice div{
+.productPageContent .productShopsList .productShopCard div.productPrice div{
 	display: inline-flex;
 	align-items: baseline;
 }
 /* full */
-.productPageContent #productShopsList .productShopCard div.productPrice div span{
+.productPageContent .productShopsList .productShopCard div.productPrice div span{
 	font-size: 32px;
 	font-weight: 800;
 }
 /* decimal */ 
-.productPageContent #productShopsList .productShopCard div.productPrice div sub{
+.productPageContent .productShopsList .productShopCard div.productPrice div sub{
 	font-size: 20px;
 	font-weight: 600;
 }
 /* date updated */
-.productPageContent #productShopsList .productShopCard div.productPrice div.dateUpdated{
+.productPageContent .productShopsList .productShopCard div.productPrice div.dateUpdated{
     align-self: flex-end;
 	font-size: 12px;
 	font-weight: 500;

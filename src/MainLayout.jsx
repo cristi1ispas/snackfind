@@ -91,7 +91,7 @@ function MainLayout() {
   return (
     <>
 
-      <TopAppBar searchValue={searchValue} onMenuClick={setIsNavDrawerOpen} onSearchClick={focusSearchInput} onAccountClick={setIsAccountCenterOpen} isLoggedIn={isLoggedIn} selectedCategories={selectedCategories} setSelectedCategories={setSelectedCategories} />
+      <TopAppBar searchValue={searchValue} onMenuClick={setIsNavDrawerOpen} onSearchClick={focusSearchInput} onAccountClick={setIsAccountCenterOpen} isLoggedIn={isLoggedIn} selectedCategories={selectedCategories} setSelectedCategories={setSelectedCategories} showRibbon={activeScreen} />
 
       <Search searchValue={searchValue} setSearchValue={setSearchValue} isOpen={isSearchOpen} onClose={setIsSearchOpen} searchInputRef={searchInputRef} onClearClick={focusSearchInput} />
 

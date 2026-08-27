@@ -9,9 +9,9 @@ export const MOCK_PRODUCTS = [
     "name": "Pepsi",
     "flavour": "Original",
     "quant": 2,
-    "image": "https://static.mega-image.ro/medias/sys_master/products/h68/h99/9541402787870.jpg",
     "lim_edition": false,
-    "vegan": false
+    "vegan": false,
+    "image": "https://static.mega-image.ro/medias/sys_master/products/h68/h99/9541402787870.jpg"
   },
   {
     "id": 2,
@@ -23,9 +23,9 @@ export const MOCK_PRODUCTS = [
     "name": "Pepsi",
     "flavour": "Original",
     "quant": 1.25,
-    "image": "",
     "lim_edition": false,
-    "vegan": false
+    "vegan": false,
+    "image": ""
   },
   {
     "id": 3,
@@ -37,9 +37,9 @@ export const MOCK_PRODUCTS = [
     "name": "Doritos",
     "flavour": "Cheese",
     "quant": 160,
-    "image": "https://static.mega-image.ro/medias/sys_master/products/h32/ha6/9314651635742.jpg",
     "lim_edition": false,
-    "vegan": false
+    "vegan": false,
+    "image": "https://static.mega-image.ro/medias/sys_master/products/h32/ha6/9314651635742.jpg"
   },
   {
     "id": 4,
@@ -51,9 +51,9 @@ export const MOCK_PRODUCTS = [
     "name": "Pringles",
     "flavour": "Original",
     "quant": 165,
-    "image": "https://static.mega-image.ro/medias/sys_master/products/h75/h57/9373008494622.jpg",
     "lim_edition": false,
-    "vegan": false
+    "vegan": false,
+    "image": "https://static.mega-image.ro/medias/sys_master/products/h75/h57/9373008494622.jpg"
   },
   {
     "id": 5,
@@ -65,9 +65,9 @@ export const MOCK_PRODUCTS = [
     "name": "Snack",
     "flavour": "Cheese",
     "quant": 65,
-    "image": "https://static.mega-image.ro/medias/sys_master/products/h43/h51/9347500376094.jpg",
     "lim_edition": false,
-    "vegan": false
+    "vegan": false,
+    "image": "https://static.mega-image.ro/medias/sys_master/products/h43/h51/9347500376094.jpg"
   },
   {
     "id": 6,
@@ -79,9 +79,9 @@ export const MOCK_PRODUCTS = [
     "name": "Biskrem",
     "flavour": "Cocoa",
     "quant": 160,
-    "image": "https://www.klcfoods.com/wp-content/uploads/2022/11/ulkerbiskremposet.png",
     "lim_edition": false,
-    "vegan": false
+    "vegan": false,
+    "image": "https://www.klcfoods.com/wp-content/uploads/2022/11/ulkerbiskremposet.png"
   },
   {
     "id": 7,
@@ -93,9 +93,9 @@ export const MOCK_PRODUCTS = [
     "name": "Sprite",
     "flavour": "Original",
     "quant": 2,
-    "image": "https://static.mega-image.ro/medias/sys_master/products/h18/hf9/9473462075422.jpg",
     "lim_edition": false,
-    "vegan": false
+    "vegan": false,
+    "image": "https://static.mega-image.ro/medias/sys_master/products/h18/hf9/9473462075422.jpg"
   },
   {
     "id": 8,
@@ -107,9 +107,9 @@ export const MOCK_PRODUCTS = [
     "name": "Rosé",
     "flavour": "Half-dry",
     "quant": 0.75,
-    "image": "https://static.mega-image.ro/medias/sys_master/products/h5d/hf4/9542796738590.jpg",
     "lim_edition": false,
-    "vegan": false
+    "vegan": false,
+    "image": "https://static.mega-image.ro/medias/sys_master/products/h5d/hf4/9542796738590.jpg"
   },
   {
     "id": 9,
@@ -121,9 +121,9 @@ export const MOCK_PRODUCTS = [
     "name": "Mustard",
     "flavour": "Classic",
     "quant": 300,
-    "image": "https://static.mega-image.ro/medias/sys_master/products/he1/hd9/9349295341598.jpg",
     "lim_edition": false,
-    "vegan": false
+    "vegan": false,
+    "image": "https://static.mega-image.ro/medias/sys_master/products/he1/hd9/9349295341598.jpg"
   },
   {
     "id": 10,
@@ -135,9 +135,9 @@ export const MOCK_PRODUCTS = [
     "name": "Dr. Pepper",
     "flavour": "Original",
     "quant": 0.33,
-    "image": "https://static.mega-image.ro/medias/sys_master/products/h4b/h1e/9541284331550.jpg",
     "lim_edition": false,
-    "vegan": false
+    "vegan": false,
+    "image": "https://static.mega-image.ro/medias/sys_master/products/h4b/h1e/9541284331550.jpg"
   },
   {
     "id": 11,
@@ -149,9 +149,9 @@ export const MOCK_PRODUCTS = [
     "name": "Rosé",
     "flavour": "Sweet",
     "quant": 1.5,
-    "image": "https://static.mega-image.ro/medias/sys_master/products/h11/h32/9493910650910.jpg",
     "lim_edition": false,
-    "vegan": false
+    "vegan": false,
+    "image": "https://static.mega-image.ro/medias/sys_master/products/h11/h32/9493910650910.jpg"
   },
   {
     "id": 12,
@@ -163,9 +163,9 @@ export const MOCK_PRODUCTS = [
     "name": "Coca Cola",
     "flavour": "Original",
     "quant": 2,
-    "image": "https://static.mega-image.ro/medias/sys_master/products/h91/h69/9473482850334.jpg",
     "lim_edition": false,
-    "vegan": false
+    "vegan": false,
+    "image": "https://static.mega-image.ro/medias/sys_master/products/h91/h69/9473482850334.jpg"
   },
   {
     "id": 13,
@@ -177,9 +177,9 @@ export const MOCK_PRODUCTS = [
     "name": "Croissant",
     "flavour": "Cocoa",
     "quant": 85,
-    "image": "",
     "lim_edition": false,
-    "vegan": false
+    "vegan": false,
+    "image": ""
   },
   {
     "id": 16,
@@ -191,7 +191,241 @@ export const MOCK_PRODUCTS = [
     "name": "Mini Stars",
     "flavour": "Cocoa",
     "quant": 37.5,
-    "image": "https://static.mega-image.ro/medias/sys_master/products/hbc/h8b/9349086150686.jpg",
+    "lim_edition": false,
+    "vegan": false,
+    "image": "https://static.mega-image.ro/medias/sys_master/products/hbc/h8b/9349086150686.jpg"
+  },
+  {
+    "id": 17,
+    "created_at": "2026-08-24 10:28:40.207396+00",
+    "exclusive_prod": "",
+    "barcode": 7622201392291,
+    "category": 3,
+    "brand": "7Days",
+    "name": "Double Max",
+    "flavour": "Sour cherry",
+    "quant": 80,
+    "lim_edition": false,
+    "vegan": false
+  },
+  {
+    "id": 18,
+    "created_at": "2026-08-24 10:33:07.711386+00",
+    "exclusive_prod": 6,
+    "barcode": 20978549,
+    "category": 3,
+    "brand": "Maître Jean Pierre",
+    "name": "Croissant",
+    "flavour": "Cocoa",
+    "quant": 110,
+    "lim_edition": false,
+    "vegan": false
+  },
+  {
+    "id": 19,
+    "created_at": "2026-08-24 10:35:54.210916+00",
+    "exclusive_prod": 6,
+    "barcode": 20761912,
+    "category": 3,
+    "brand": "Sondey",
+    "name": "Oat Cookies",
+    "flavour": "Choco",
+    "quant": 210,
+    "lim_edition": false,
+    "vegan": false
+  },
+  {
+    "id": 20,
+    "created_at": "2026-08-24 10:39:39.948852+00",
+    "exclusive_prod": "",
+    "barcode": 5949040204274,
+    "category": 5,
+    "brand": "Alka",
+    "name": "Meteoritzi",
+    "flavour": "Glazed Barbecue",
+    "quant": 75,
+    "lim_edition": false,
+    "vegan": false
+  },
+  {
+    "id": 21,
+    "created_at": "2026-08-24 10:44:41.113043+00",
+    "exclusive_prod": "",
+    "barcode": 5906747318345,
+    "category": 3,
+    "brand": "Barni",
+    "name": "Barni",
+    "flavour": "Milk",
+    "quant": 30,
+    "lim_edition": false,
+    "vegan": false
+  },
+  {
+    "id": 22,
+    "created_at": "2026-08-24 10:57:26.796172+00",
+    "exclusive_prod": "",
+    "barcode": 5941353013765,
+    "category": 100,
+    "brand": "Fulg de Nea",
+    "name": "Înghețată pe băț",
+    "flavour": "Choco, Sour Cherry",
+    "quant": 60,
+    "lim_edition": false,
+    "vegan": false
+  },
+  {
+    "id": 23,
+    "created_at": "2026-08-24 11:00:11.175904+00",
+    "exclusive_prod": "",
+    "barcode": 5949040204726,
+    "category": 5,
+    "brand": "Alka",
+    "name": "Toortitzi",
+    "flavour": "Chili, Lime",
+    "quant": 80,
+    "lim_edition": false,
+    "vegan": true
+  },
+  {
+    "id": 24,
+    "created_at": "2026-08-24 11:02:06.615986+00",
+    "exclusive_prod": "",
+    "barcode": 5942204008275,
+    "category": 1,
+    "brand": "Pepsi",
+    "name": "Pepsi",
+    "flavour": "Rasberry",
+    "quant": 2,
+    "lim_edition": false,
+    "vegan": false
+  },
+  {
+    "id": 25,
+    "created_at": "2026-08-24 11:16:24.883017+00",
+    "exclusive_prod": "",
+    "barcode": "",
+    "category": 1,
+    "brand": "Fanta",
+    "name": "Fanta",
+    "flavour": "Orange",
+    "quant": 2.5,
+    "lim_edition": false,
+    "vegan": false
+  },
+  {
+    "id": 26,
+    "created_at": "2026-08-24 11:43:40.761668+00",
+    "exclusive_prod": "",
+    "barcode": "",
+    "category": 1,
+    "brand": "Monster",
+    "name": "Energy",
+    "flavour": "IDK",
+    "quant": 0.5,
+    "lim_edition": false,
+    "vegan": false
+  },
+  {
+    "id": 27,
+    "created_at": "2026-08-24 11:48:50.524893+00",
+    "exclusive_prod": "",
+    "barcode": "",
+    "category": 2,
+    "brand": "Doritos",
+    "name": "Doritos",
+    "flavour": "Sweet chili",
+    "quant": 90,
+    "lim_edition": false,
+    "vegan": false
+  },
+  {
+    "id": 28,
+    "created_at": "2026-08-24 11:56:50.266399+00",
+    "exclusive_prod": "",
+    "barcode": "",
+    "category": 1,
+    "brand": "Coca cola",
+    "name": "Coca cola",
+    "flavour": "Original",
+    "quant": 0.33,
+    "lim_edition": false,
+    "vegan": false
+  },
+  {
+    "id": 29,
+    "created_at": "2026-08-24 12:02:08.178494+00",
+    "exclusive_prod": "",
+    "barcode": "",
+    "category": 2,
+    "brand": "Pringles",
+    "name": "Pringles",
+    "flavour": "Turkish kebab",
+    "quant": 165,
+    "lim_edition": true,
+    "vegan": false
+  },
+  {
+    "id": 30,
+    "created_at": "2026-08-24 12:07:12.009769+00",
+    "exclusive_prod": "",
+    "barcode": "",
+    "category": 1,
+    "brand": "Pepsi",
+    "name": "Pepsi",
+    "flavour": "Original",
+    "quant": 1,
+    "lim_edition": false,
+    "vegan": false
+  },
+  {
+    "id": 31,
+    "created_at": "2026-08-24 12:13:21.029815+00",
+    "exclusive_prod": "",
+    "barcode": "",
+    "category": 5,
+    "brand": "Takis",
+    "name": "Volcano",
+    "flavour": "Cheese, Chili",
+    "quant": 55,
+    "lim_edition": false,
+    "vegan": false
+  },
+  {
+    "id": 32,
+    "created_at": "2026-08-24 12:17:14.426123+00",
+    "exclusive_prod": "",
+    "barcode": "",
+    "category": 7,
+    "brand": "Timișoreana",
+    "name": "Timișoreana",
+    "flavour": "Original",
+    "quant": 0.5,
+    "lim_edition": false,
+    "vegan": false
+  },
+  {
+    "id": 33,
+    "created_at": "2026-08-24 12:24:35.304281+00",
+    "exclusive_prod": "",
+    "barcode": "",
+    "category": 3,
+    "brand": "Magic",
+    "name": "Croissant",
+    "flavour": "Choco",
+    "quant": 90,
+    "lim_edition": false,
+    "vegan": false
+  },
+  {
+    "id": 34,
+    "created_at": "2026-08-24 12:35:16.539917+00",
+    "exclusive_prod": "",
+    "barcode": "",
+    "category": 3,
+    "brand": "Boromir",
+    "name": "Tortuleț biscuiți",
+    "flavour": "Choco",
+    "quant": 50,
     "lim_edition": false,
     "vegan": false
   }

@@ -10,31 +10,31 @@ function ProductPage({ product }) {
       </md-list-item>
       <div className="productPageContent">
          <md-divider />
-        <div id="productHeadline">
+        <div className="productHeadline">
           <img src="https://static.mega-image.ro/medias/sys_master/products/h68/h99/9541402787870.jpg" />
           <md-divider />
-          <span id="productDescription">
+          <span className="productDescription">
             brand nume flnd nume fly braavor capacipacity brand nund nume flavor
             capacity brame flavor caavor capacity
           </span>
         </div>
-        <div id="productActions">
+        <div className="productActions">
           <md-filled-icon-button className="productFavBtn" toggle>
             <md-icon className="material-symbols-outlined">favorite</md-icon>
             <md-icon slot="selected" className="material-symbols-outlined">
               favorite
             </md-icon>
           </md-filled-icon-button>
-          <md-outlined-button id="productAddCartBtn">
+          <md-outlined-button className="productAddCartBtn">
             <span
-              id="productAddCartBtnIcon"
+              className="productAddCartBtnIcon"
               slot="icon"
               className="material-symbols-outlined "
             />
             Add to cart
           </md-outlined-button>
         </div>
-        <md-list id="productShopsList">
+        <md-list className="productShopsList">
           <md-list-item className="productShopCard" type="link">
             <img
               slot="start"
