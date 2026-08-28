@@ -77,47 +77,71 @@
 	display: flex;
   flex-direction: column;
   overflow: hidden;
+	margin-bottom: 36px;
 }
-.gridProductDetails > .headlineFirstLine{
-	display: flex;
-  gap: 4px;
-  line-height: 1.5em;
-  width: 100%;
-  overflow: hidden;
-}
-.headlineFirstLine > .productBrandTag {
+.gridProductDetails > .productBrandTag {
   white-space: nowrap;
   text-overflow: ellipsis; 
   overflow: hidden;
   flex-shrink: 1;
   opacity: 0.8;
 }
-.headlineFirstLine > .productNameTag {
+.gridProductDetails > .productNameTag {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
   flex-shrink: 0;
   font-weight: bold;
 }
-.gridProductDetails > .headlineSecondLine {
+.gridProductDetails > .productFlavourTag {
   display: block;
   white-space: nowrap;
   line-height: 1.5em;
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.gridProductDetails > md-divider{
-	margin-bottom: 2px;
-	width: calc(100% - 48px);
-	--md-divider-thickness: 2px;
+
+.productGridItem > div.productLimEdAlert{
+	position: absolute;
+	top: 10px;
+	left: 6px;
+	background-color: var(--color-scheme-error-container);
+	padding: 4px;
+	border-radius: 8px;
+	display: flex;
+	gap: 2px;
+	align-items: center;
+	transform: rotate(-10deg);	
 }
-.gridProductDetails > div.productDetailsPrice{
+div.productLimEdAlert > md-icon{
+	--md-icon-size: 16px;
+}
+div.productLimEdAlert > span{
+	font-size: 12px;
+}
+.productGridItem > md-icon-button.productFavBtn{
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	--md-sys-color-primary: red;
+}
+.productGridItem > div.productDetailsPrice{
+	position: absolute;
+	bottom: 12px;
+	left: 8px;
 	display: inline-flex;
-	align-items: baseline;
+	align-items: flex-end;
 	flex-direction: row;
 	justify-content: flex-start;
 }
-div.productDetailsPrice > span, div.productDetailsPrice > sup, div.productDetailsPrice > div{
+.productGridItem > md-divider{
+	position: absolute;
+	bottom: 44px;
+	left: 8px;
+	width: calc(100% - 62px);
+	--md-divider-thickness: 2px;
+}
+div.productDetailsPrice > span, div.productDetailsPrice > sup{
 	color: var(--color-scheme-on-secondary-container);
 }
 div.productDetailsPrice > span{
@@ -125,26 +149,19 @@ div.productDetailsPrice > span{
 	font-weight: 800;
 }
 div.productDetailsPrice > sup{
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: 800;
 	align-self: start;
 }
-div.productDetailsPrice > div{
-	font-size: 12px;
-	font-weight: 400;
-}
-
-.productGridItem > .productFavBtn{
-	position: absolute;
-	top: 8px;
-	right: 8px;
-	--md-sys-color-primary: red;
-}
-.productGridItem > .addToBasketBtn{
+.productGridItem > md-outlined-icon-button.addToBasketBtn{
 	position: absolute;
 	bottom: 8px;
+	color: red;
 	right: 8px;
 	--md-outlined-icon-button-container-shape: 8px;
 	--md-outlined-icon-button-selected-container-color: var(--color-scheme-primary);
 }
-
+.productDetailsPrice > md-icon{
+	color: red;
+	margin-left: 4px;
+}

@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import ProductGridItem from './ProductGridItem'
 
-function ExploreScreen({ searchValue, filteredProducts }) {
+function ExploreScreen({ searchValue, filteredProducts, onProductClick }) {
 
 
   
@@ -9,7 +9,7 @@ function ExploreScreen({ searchValue, filteredProducts }) {
     <div id="exploreContainer" className='screenContainers'>
       <div id="productGrid">
         {filteredProducts.map((product) => (
-          <ProductGridItem key={product.id} product={product} />
+          <ProductGridItem key={product.id} product={product} selectProduct={onProductClick}/>
         ))}
       </div>
 

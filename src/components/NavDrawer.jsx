@@ -3,9 +3,10 @@ import News from './subPages/NewsSubPage';
 import Discounts from './subPages/DiscountsSubPage';
 import Shops from './subPages/ShopsSubPage';
 import Compare from './subPages/CompareSubPage';
+import BestValue from './subPages/BestValueSubPage'
 import Statistics from './subPages/StatisticsSubPage';
-import Manager from './subPages/ManagerSubPage';
 import Wishlist from './subPages/WishlistSubPage';
+import Manager from './subPages/ManagerSubPage';
 import Locations from './Locations';
 
 function NavDrawer({ isOpen, onClose, onNavigate }) {
@@ -44,6 +45,11 @@ function NavDrawer({ isOpen, onClose, onNavigate }) {
 						<md-list-item type="button" onClick={() => { onClose(false); onNavigate("Wishlist", <Wishlist />); }}>
 							<md-icon slot="start">bookmark_heart</md-icon>
 							<span>Wishlist</span>
+						</md-list-item>
+
+						<md-list-item type="button" onClick={() => { onClose(false); onNavigate("Best Value", <BestValue />); }}>
+							<md-icon slot="start">savings</md-icon>
+							<span>Best Value</span>
 						</md-list-item>
 
 						<md-list-item type="button" onClick={() => { onClose(false); onNavigate("Compare", <Compare />); }}>

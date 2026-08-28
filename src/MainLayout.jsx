@@ -85,12 +85,20 @@ function MainLayout() {
   
   const [activeScreen, setActiveScreen] = useState('explore');
 
-  const [isProductPageRendered, setIsProductPageRendered] = useState(false);
 	const [isProductPageOpen, setIsProductPageOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  
+  const closeProductPage = () => {
+		setIsProductPageOpen(false);
+		setTimeout(() => setSelectedProduct(null), 300);
+	}
+  const handleProductAreaClick = (product) => {
+    setSelectedProduct(product);
+		setTimeout(() => setIsProductPageOpen(true), 10);
+  }
 
   return (
     <>
-
       <TopAppBar searchValue={searchValue} onMenuClick={setIsNavDrawerOpen} onSearchClick={focusSearchInput} onAccountClick={setIsAccountCenterOpen} isLoggedIn={isLoggedIn} selectedCategories={selectedCategories} setSelectedCategories={setSelectedCategories} showRibbon={activeScreen} />
 
       <Search searchValue={searchValue} setSearchValue={setSearchValue} isOpen={isSearchOpen} onClose={setIsSearchOpen} searchInputRef={searchInputRef} onClearClick={focusSearchInput} />
@@ -106,9 +114,9 @@ function MainLayout() {
 
       <main id="screen">
         <div id="explore" className={`styleScreen ${activeScreen === 'explore' ? 'activeScreen' : 'exitScreen'}`}>
-          <ExploreScreen filteredProducts={filteredProducts} searchValue={searchValue} />
-          {isProductPageRendered && (
-            <ProductPageLayout />
+          <ExploreScreen filteredProducts={filteredProducts} searchValue={searchValue} onProductClick={handleProductAreaClick}/>
+          {selectedProduct && (
+            <ProductPageLayout product={selectedProduct} onClose={closeProductPage}/>
           )}
         </div>
         <div id="favourite" className={`styleScreen ${activeScreen === 'favourite' ? 'activeScreen' : 'exitScreen'}`}>

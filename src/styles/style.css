@@ -29,6 +29,10 @@
   --color-scheme-surface-container-highest: #e2e3d8;
   --color-scheme-inverse-surface: #2f312a;
   --color-scheme-inverse-on-surface: #f1f2e6;
+  --color-scheme-error: #ba1a1a;
+  --color-scheme-on-error: #ffffff;
+  --color-scheme-error-container: #ffdad6;
+  --color-scheme-error-on-container: #93000a;
 
 
   --md-sys-color-surface: var(--color-scheme-surface);

@@ -8,10 +8,13 @@ function ProductPage({ product }) {
         <md-icon slot='start'>arrow_left_alt</md-icon>
         <div slot='headline'>Back to products</div>
       </md-list-item>
+
       <div className="productPageContent">
          <md-divider />
         <div className="productHeadline">
-          <img src="https://static.mega-image.ro/medias/sys_master/products/h68/h99/9541402787870.jpg" />
+          <img src={product.image
+        ? product.image
+        : 'https://static.mega-image.ro/medias/sys_master/products/h8c/hb6/9434312409118.jpg'} />
           <md-divider />
           <span className="productDescription">
             brand nume flnd nume fly braavor capacipacity brand nund nume flavor
