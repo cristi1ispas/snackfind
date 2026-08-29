@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Compare() {
+function BestValue() {
 
   return(
     <>
@@ -12,4 +12,4 @@ function Compare() {
   )
 }
 
-export default Compare
+export default BestValue

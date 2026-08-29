@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import ProductGridItem from './ProductGridItem'
+import TextCard from './TextCard'
 
 function ExploreScreen({ searchValue, filteredProducts, onProductClick }) {
 

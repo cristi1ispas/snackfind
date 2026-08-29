@@ -108,7 +108,7 @@ function MainLayout() {
         <SubPageLayout title={subPageTitle} isOpen={isSubPageOpen} onClose={closeSubPage}>
           {subPageContent}
         </SubPageLayout>
-      )}      
+      )}
 		
 			<AccountCenter isOpen={isAccountCenterOpen} onClose={setIsAccountCenterOpen}/>
 
@@ -116,7 +116,7 @@ function MainLayout() {
         <div id="explore" className={`styleScreen ${activeScreen === 'explore' ? 'activeScreen' : 'exitScreen'}`}>
           <ExploreScreen filteredProducts={filteredProducts} searchValue={searchValue} onProductClick={handleProductAreaClick}/>
           {selectedProduct && (
-            <ProductPageLayout product={selectedProduct} onClose={closeProductPage}/>
+            <ProductPageLayout product={selectedProduct} isOpen={isProductPageOpen} onClose={closeProductPage}/>
           )}
         </div>
         <div id="favourite" className={`styleScreen ${activeScreen === 'favourite' ? 'activeScreen' : 'exitScreen'}`}>

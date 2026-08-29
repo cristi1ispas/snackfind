@@ -49,6 +49,8 @@
   --md-sys-color-inverse-surface: var(--color-scheme-inverse-surface);
   --md-sys-color-inverse-on-surface: var(--color-scheme-inverse-on-surface);
   --md-sys-color-outline-variant: var(--color-scheme-outline-variant);
+  --md-sys-color-tertiary-container: var(--color-scheme-tertiary-container);
+  --md-sys-color-on-tertiary-container: var(--color-scheme-on-tertiary-container);
 }
 
 @font-face {

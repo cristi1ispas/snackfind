@@ -7,6 +7,7 @@ import '@fontsource-variable/roboto/wght-italic.css'
 
 import './styles/style.css'     /* new, curated css */
 import './styles/screen.css'
+import './styles/textCard.css'
 import './styles/exploreScreen.css'
 import './styles/search.css'
 import './styles/subPageScreen.css'

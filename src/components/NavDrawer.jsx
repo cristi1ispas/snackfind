@@ -33,7 +33,7 @@ function NavDrawer({ isOpen, onClose, onNavigate }) {
 						</md-list-item>
 						
 						<md-list-item type="button" onClick={() => { onClose(false); onNavigate("Discounts", <Discounts />); }}>
-							<md-icon slot="start">percent</md-icon>
+							<md-icon slot="start">percent_discount</md-icon>
 							<span>Discounts</span>
 						</md-list-item>
 

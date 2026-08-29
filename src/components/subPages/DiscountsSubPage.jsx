@@ -5,7 +5,7 @@ function Discounts() {
   return(
     <>
       <div className='temporaryStyle'>
-        <md-icon>percent</md-icon>
+        <md-icon>percent_discount</md-icon>
         <div>Coming soon!</div>
       </div>
     </>
