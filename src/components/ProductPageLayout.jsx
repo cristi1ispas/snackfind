@@ -20,6 +20,7 @@ function ProductPage({ product, isOpen, onClose }) {
       <span key={index}>{flavour}</span>
     ));
   }
+  const ProductQuantity = `${product.quant} ${[1, 7].includes(product.category) ? 'L' : 'g'}`;
 
   return (
     <div className={`productPage ${isOpen? 'open' : ''}`}>
@@ -38,11 +39,13 @@ function ProductPage({ product, isOpen, onClose }) {
             <div className='textCardBandName'>
               <TextCard supportingText="Brand & Name" headline={handleProductBrandName()} />
             </div>
-            <div className='textCardFlavour'>
-              <TextCard supportingText="Flavours" headline={handleProductFlavour()} />
-            </div>
-            <div className="textCardQuantity">
-              <TextCard supportingText="Grams" headline={product.quant} />
+            <div className="FlavoursQuantity">
+              <div className='textCardFlavour'>
+                <TextCard supportingText="Flavours" headline={handleProductFlavour()} />
+              </div>
+              <div className="textCardQuantity">
+                <TextCard supportingText="Quantity" headline={ProductQuantity} />
+              </div>
             </div>
           </div>
         </div>

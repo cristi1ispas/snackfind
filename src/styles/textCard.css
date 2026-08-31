@@ -3,13 +3,12 @@
   box-sizing: border-box;
   width: var(--tc-width);
   height: var(--tc-height);
-  max-width: fit-content;
   max-height: fit-content;
   border-radius: var(--tc-border-radius, 20px);
   padding: var(--tc-padding, 14px);
   display: flex;
   flex-direction: column;
-  flex-shrink: 0;
+  flex-grow: 1;
   background-color: var(--tc-bg-color, var(--md-sys-color-tertiary-container, #825345));
 }
 .text-card > .supporting-text{

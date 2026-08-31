@@ -73,18 +73,22 @@ md-list-item.productPageRibbon > div[slot=headline]{
 	background-color: white;
 }
 .productHeadline > .productDescription{
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
 	padding: 12px;
-	column-gap: 8px;
-	row-gap: 8px;
+	gap: 8px;
+	width: 100%;
 }
-.productDescription .text-card{
-	--tc-width: 100vw;
+.productDescription > .FlavoursQuantity{
+	display: flex;
+	flex-direction: row;
+	gap: inherit;
+	width: 100%;
 }
-.productDescription > .textCardBandName{
-	grid-column-start: 1;
-  grid-column-end: 3;
+.FlavoursQuantity > .textCardFlavour, 
+.FlavoursQuantity > .textCardQuantity{
+	width: 100%;
 }
 
 .productPageContent .productActions{
