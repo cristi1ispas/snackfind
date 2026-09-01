@@ -6,8 +6,6 @@
 	justify-content: space-evenly;
 	background-color: var(--color-scheme-surface);
 	width: 100vw;
-	padding: 6px 0;
-	height: 52px;
 	z-index: 10;
 }
 #navBar > .navItem{
@@ -17,7 +15,7 @@
 	width: 100%;
 	gap: 4px;
 	text-align: center;
-	padding: 0;
+	padding: 6px 0;
 	flex-grow: 1;
 }
 #navBar > .navItem > .navItemIcon{

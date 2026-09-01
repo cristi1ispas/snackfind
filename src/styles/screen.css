@@ -12,9 +12,6 @@
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	padding-top: 64px;
-	padding-bottom: 64px;
-	box-sizing: border-box;
 	-webkit-overflow-scrolling: touch;
 	-webkit-font-smoothing: antialiased;
   scrollbar-width: none;
@@ -24,7 +21,8 @@
 #screen > .styleScreen > .screenContainers{
 	height: 100%;
 	width: 100%;
-	padding-bottom: 72px;
+	padding-top: 64px;
+	padding-bottom: 136px;
 	box-sizing: border-box;
 	overflow-x: hidden;
 	overflow-y: auto;

@@ -19,14 +19,14 @@ export default defineConfig({
         enabled: false
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png.svg}'],
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
         cleanupOutdatedCaches: true,
       },
       manifest: {
         name: 'Snack Find',
         short_name: 'snackfind',
         description: 'Crowd-sourced catalog for local shops',
-        theme_color: '#cdeda3',
+        theme_color: '#f9faef',
         background_color : '#f9faef',
         display: 'standalone',
         orientation: 'portrait',

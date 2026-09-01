@@ -14,12 +14,14 @@ function ProductGridItem({ product, selectProduct }) {
           <span className="productBrandTag">{product.brand}</span>
           )}
           <span className="productNameTag">
-            {product.name} {product.quant}
-            {[1, 7].includes(product.category) ? 'L' : 'g'}
+            {product.name}
           </span>
-          <span className="productFlavourTag">
-            {product.flavour}
-          </span>
+          <div className='FlavourQuant'>
+            <span className="productFlavourTag">{product.flavour}</span>
+            <span className='productQuantTag'>
+              {product.quant} {[1, 7].includes(product.category) ? 'L' : 'g'}
+            </span>
+          </div>
         </div>
       </div>
       { product.lim_edition && (<div className='productLimEdAlert'>
