@@ -1,5 +1,5 @@
 #exploreContainer{
-	padding-top: 48px;
+	padding-top: 112px !important; 
 }
 #searchFAB{
 	position: fixed;
@@ -94,14 +94,29 @@
   flex-shrink: 0;
   font-weight: bold;
 }
-.gridProductDetails > .productFlavourTag {
+.gridProductDetails > .FlavourQuant{
+	display: flex;
+	justify-content: space-between;
+}
+.FlavourQuant > span.productFlavourTag {
   display: block;
   white-space: nowrap;
   line-height: 1.5em;
   text-overflow: ellipsis;
   overflow: hidden;
 }
-
+.FlavourQuant > .productQuantTag{
+	flex-shrink: 0;
+  font-weight: bold;
+	white-space: nowrap;
+	font-size: 18px;
+	/*
+	background-color: aqua;
+	flex-shrink: 1;
+	height: 21px;
+	border-radius: 6px;
+	*/
+}
 .productGridItem > div.productLimEdAlert{
 	position: absolute;
 	top: 10px;

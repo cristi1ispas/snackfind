@@ -3,13 +3,13 @@
   box-sizing: border-box;
   width: var(--tc-width);
   height: var(--tc-height);
-  max-width: fit-content;
   max-height: fit-content;
   border-radius: var(--tc-border-radius, 20px);
   padding: var(--tc-padding, 14px);
   display: flex;
   flex-direction: column;
-  flex-shrink: 0;
+  flex-grow: 1;
+  gap: 8px;
   background-color: var(--tc-bg-color, var(--md-sys-color-tertiary-container, #825345));
 }
 .text-card > .supporting-text{
@@ -17,17 +17,18 @@
   color: var(--tc-supporting-text-color, var(--md-sys-color-on-tertiary-container, #663c2f));
   opacity: var(--tc-supporting-text-opacity, 1);
 }
-.text-card > .headline{
+.text-card .headline{
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 8px 0 0 8px;
-  color: var(--tc-supporting-text-color, var(--md-sys-color-on-tertiary-container, #663c2f));
+  color: var(--tc-headline-text-color, var(--md-sys-color-on-tertiary-container, #663c2f));
   font-size: var(--tc-headline-font-size, 22px);
   font-weight: 500;
+  text-align: center;
 }
 .text-card > .has-icon{
   display: flex;
   flex-direction: row;
   gap: 8px;
+  align-items: center;
 }

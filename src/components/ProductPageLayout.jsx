@@ -8,10 +8,7 @@ function ProductPage({ product, isOpen, onClose }) {
       return product.name;
     }
     return (
-      <>
-        <span>{product.brand},</span>
-        <span>{product.name}</span>
-      </>
+      `${product.brand}, ${product.name}`
     );
   }
   const handleProductFlavour = () => {
@@ -20,6 +17,7 @@ function ProductPage({ product, isOpen, onClose }) {
       <span key={index}>{flavour}</span>
     ));
   }
+  const productQuantity = `${product.quant} ${[1, 7].includes(product.category) ? 'L' : 'g'}`;
 
   return (
     <div className={`productPage ${isOpen? 'open' : ''}`}>
@@ -32,33 +30,35 @@ function ProductPage({ product, isOpen, onClose }) {
         
         <div className="productHeadline">
           <img src={product.image
-        ? product.image
-        : 'https://static.mega-image.ro/medias/sys_master/products/h8c/hb6/9434312409118.jpg'} />
+          ? product.image
+          : 'https://static.mega-image.ro/medias/sys_master/products/h8c/hb6/9434312409118.jpg'} />
           <div className="productDescription">
             <div className='textCardBandName'>
-              <TextCard supportingText="Brand & Name" headline={handleProductBrandName()} />
+              <TextCard supportingText="Brand / Name" headline={handleProductBrandName()} />
             </div>
-            <div className='textCardFlavour'>
-              <TextCard supportingText="Flavours" headline={handleProductFlavour()} />
-            </div>
-            <div className="textCardQuantity">
-              <TextCard supportingText="Grams" headline={product.quant} />
+            <div className="FlavoursQuantity">
+              <div className='textCardFlavour'>
+                <TextCard supportingText="Flavours" headline={handleProductFlavour()} />
+              </div>
+              <div className="QuantityVegan">
+                <div className="textCardQuantity">
+                  <TextCard headline={productQuantity} />
+                </div>
+                <div className={`textCardVegan ${product.vegan ? 'green' : 'red'}`}>
+                  <TextCard headline="Post" icon={(<md-icon>{product.vegan ? 'checkmark' : 'close'}</md-icon>)} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <md-divider />
         <div className="productActions">
           <md-filled-icon-button className="productFavBtn" toggle>
-            <md-icon className="material-symbols-outlined">favorite</md-icon>
-            <md-icon slot="selected" className="material-symbols-outlined">
-              favorite
-            </md-icon>
+            <md-icon>favorite</md-icon>
+            <md-icon slot="selected">favorite</md-icon>
           </md-filled-icon-button>
           <md-outlined-button className="productAddCartBtn">
-            <span
-              className="productAddCartBtnIcon"
-              slot="icon"
-              className="material-symbols-outlined "
-            />
+            <md-icon slot="icon">add_shopping_cart</md-icon>
             Add to cart
           </md-outlined-button>
         </div>

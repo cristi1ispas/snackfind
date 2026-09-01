@@ -4,7 +4,7 @@ function TextCard({ supportingText, headline, icon }) {
 
   return(
     <div className="text-card">
-      <span className="supporting-text">{supportingText}</span>
+      {supportingText && (<span className="supporting-text">{supportingText}</span>)}
       { icon 
         ? (<div className="has-icon">
             {icon}

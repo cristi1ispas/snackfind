@@ -1,7 +1,5 @@
-
-
 .productPage{
-	background-color: white;
+	background-color: var(--color-scheme-surface);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -26,7 +24,7 @@
 	transform: scale(1);
 	pointer-events: auto;
 }
-.productPage > md-divider{
+.productPage md-divider{
 	flex-shrink: 0;
 }
 .productPage > md-list-item.productPageRibbon{
@@ -73,28 +71,56 @@ md-list-item.productPageRibbon > div[slot=headline]{
 	background-color: white;
 }
 .productHeadline > .productDescription{
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
 	padding: 12px;
-	column-gap: 8px;
-	row-gap: 8px;
-}
-.productDescription .text-card{
-	--tc-width: 100vw;
+	gap: 8px;
+	width: 100%;
 }
 .productDescription > .textCardBandName{
-	grid-column-start: 1;
-  grid-column-end: 3;
+	--tc-headline-font-size: 26px;
+}
+.productDescription > .FlavoursQuantity{
+	display: flex;
+	flex-direction: row;
+	gap: inherit;
+	width: 100%;
+}
+.FlavoursQuantity > .textCardFlavour, 
+.FlavoursQuantity > .QuantityVegan{
+	flex-grow: 1;
+}
+.FlavoursQuantity > .QuantityVegan{
+	display: flex;
+	flex-direction: column;
+	gap: inherit;
+}
+.QuantityVegan > .textCardQuantity{
+	--tc-headline-font-size: 32px;
+	--tc-padding: 10px;
+}
+.QuantityVegan > .textCardVegan.green{
+	--tc-bg-color: var(--color-scheme-primary-container);
+	--tc-headline-text-color: var(--color-scheme-on-primary-container);
+}
+.textCardVegan.green md-icon{
+	color: var(--color-scheme-on-primary-container);
+}
+.QuantityVegan > .textCardVegan.red{
+	--tc-bg-color: var(--color-scheme-error-container);
+	--tc-headline-text-color: var(--color-scheme-on-error-container);
+}
+.textCardVegan.red md-icon{
+	color: var(--color-scheme-on-error-container);
 }
 
-.productPageContent .productActions{
+.productPageContent > .productActions{
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: space-between;
 	gap: 16px;
 	padding: 6px 12px;
-	background-color: orange;
 }
 /*fav btn*/
 .productPageContent .productActions .productFavBtn{
@@ -109,16 +135,14 @@ md-list-item.productPageRibbon > div[slot=headline]{
 	display: flex;
 	flex-grow: 1;
 	--_outline-width: 1px;
-	--md-sys-color-primary: black;
 	--_container-shape-start-start: 8px;
 	--_container-shape-start-end: 8px;
 	--_container-shape-end-start: 8px;
 	--_container-shape-end-end: 8px;
-	--_icon-size: ;     /* DO NOT ADD VALUE */
 }
 
 
-.productPageContent .productShopsList{
+.productPageContent > .productShopsList{
 	gap: 8px;
 	background-color: green;
 	padding: 6px 12px;
