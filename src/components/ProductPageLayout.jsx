@@ -21,6 +21,7 @@ function ProductPage({ product, isOpen, onClose }) {
 
   return (
     <div className={`productPage ${isOpen? 'open' : ''}`}>
+      <md-divider />
       <md-list-item className="productPageRibbon" type='link' onClick={onClose}>
         <md-icon slot='start'>arrow_left_alt</md-icon>
         <div slot='headline'>Back to products</div>

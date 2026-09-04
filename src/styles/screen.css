@@ -12,6 +12,7 @@
 	left: 0;
 	width: 100vw;
 	height: 100vh;
+	overflow: hidden;
 	-webkit-overflow-scrolling: touch;
 	-webkit-font-smoothing: antialiased;
   scrollbar-width: none;
