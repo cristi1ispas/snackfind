@@ -69,7 +69,8 @@ img{
 
 body{
 	margin: 0px; 
-  font-family: 'Roboto Variable', sans-serif; 
+  font-family: 'Roboto Variable', sans-serif;
+  overflow: hidden;
 }
  
 div:not(.material-symbols-outlined), 
