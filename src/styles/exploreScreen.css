@@ -41,7 +41,7 @@
 }
 #productGrid > .productGridItem{
 	position: relative;
-	border-radius: 8px;
+	border-radius: 12px;
 	max-width: calc(50vw - 12px);
 	box-sizing: border-box;
 	background-color: var(--color-scheme-secondary-container);
