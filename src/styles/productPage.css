@@ -147,15 +147,12 @@ md-list-item.productPageRibbon > div[slot=headline]{
 	padding: 6px;
 }
 .productShopsList > .productShopCard{
-	position: relative;
 	display: flex;
 	flex-grow: 1;
 	flex-direction: column;
-	gap: 8px;
+	gap: 4px;
 	border-radius: 20px;
 	padding: 8px;
-	background-color: var(--color-scheme-error-container);
-	background-image: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.25) 3%, transparent 10%)
 }
 .productShopsList > md-divider{
 	padding: 0 14px;
@@ -166,7 +163,7 @@ md-list-item.productPageRibbon > div[slot=headline]{
 }
 .productShopHeadline > md-list-item.shop-button{
 	flex-grow: 1;
-	border-radius: 16px 8px 8px 16px;
+	border-radius: 16px 8px 8px 8px;
 	gap: 10px;
 	--md-list-item-top-space: 0;
 	--md-list-item-bottom-space: 0;
@@ -186,7 +183,7 @@ md-list-item.shop-button > img{
 }
 md-list-item.productPriceButton{
 	height: 100%;
-	border-radius: 8px 16px 16px 8px;
+	border-radius: 8px 16px 8px 8px;
 	background-color: var(--color-scheme-tertiary-container);
 	--md-list-item-top-space: 8px;
 	--md-list-item-bottom-space: 8px;
@@ -220,10 +217,14 @@ div.IconPLUSDate > span.dateUpdated{
 }
 
 .productShopCard > .productDiscount{
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	border-radius: 16px;
+	padding: 8px;
+	border-radius: 8px 8px 16px 16px;
+	background-color: var(--color-scheme-error-container);
+	background-image: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.22) 2%, transparent 12%)
 }
 .productDiscount > md-icon.arrow_downward, .productDiscountOffer > md-icon{
 	--md-icon-size: 32px;
