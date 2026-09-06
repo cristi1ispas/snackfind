@@ -144,63 +144,76 @@ md-list-item.productPageRibbon > div[slot=headline]{
 
 .productPageContent > .productShopsList{
 	gap: 8px;
-	background-color: green;
-	padding: 6px 12px;
+	background-color: var(--color-scheme-surface);
+	padding: 6px 10px;
 }
-
-/* md-list */
-.productPageContent .productShopsList .productShopCard{
+.productShopsList > .productShopCard{
 	display: flex;
 	flex-grow: 1;
-	border-radius: 14px;
-	background-color: orange;
-	--md-list-item-top-space: 6px;
-	--md-list-item-bottom-space: 6px;
-	--md-list-item-leading-space: 6px;
+	flex-direction: column;
+	gap: 8px;
+	border-radius: 20px;
+}
+.productShopCard > .productShopHeadline{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 8px;
+}
+.productShopHeadline > md-list-item.shop-button{
+	flex-grow: 1;
+	border-radius: 16px;
+	gap: 10px;
+	--md-list-item-top-space: 0;
+	--md-list-item-bottom-space: 0;
+	--md-list-item-leading-space: 0;
 	--md-list-item-trailing-space: 8px;
-	/* commonName [slot="headline"] */
-	--md-list-item-label-text-size: larger;
+	--md-list-item-label-text-size: 20px;
 	--md-list-item-label-text-weight: 550;
-	/* formalName [slot="supporting-text"] */
 	--md-list-item-supporting-text-size: small;
 	--md-list-item-supporting-text-weight: 450;
-	/* shopPrice [slot="end"] */
-	--md-list-item-trailing-icon-color: black;
+	background-color: var(--color-scheme-primary-container);
 }
-/* img [slot="start"] */
-.productPageContent .productShopsList .productShopCard img{
-	background-color: lightgreen;
+md-list-item.shop-button > img{
+	background-color: var(--color-scheme-primary-container);
 	width: auto;
-	height: 18vw;
+	height: 20vw;
 	aspect-ratio: 1 / 1;
-	border-radius: 8px;
 	cursor: pointer;
 }
 /* [slot="end"] price details */
-.productPageContent .productShopsList .productShopCard div.productPrice{
+md-list-item.productPriceButton{
+	height: 100%;
+	border-radius: 16px;
+	background-color: var(--color-scheme-tertiary-container);
+	--md-list-item-top-space: 8px;
+	--md-list-item-bottom-space: 8px;
+	--md-list-item-leading-space: 8px;
+	--md-list-item-trailing-space: 8px;
+}
+div.productPrice{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-end;
-	padding: 6px 0 0 0;
 }
 /* price itself */
-.productPageContent .productShopsList .productShopCard div.productPrice div{
+div.productPrice div{
 	display: inline-flex;
 	align-items: baseline;
 }
 /* full */
-.productPageContent .productShopsList .productShopCard div.productPrice div span{
+div.productPrice div span{
 	font-size: 32px;
 	font-weight: 800;
 }
 /* decimal */ 
-.productPageContent .productShopsList .productShopCard div.productPrice div sub{
+div.productPrice div sub{
 	font-size: 20px;
 	font-weight: 600;
 }
 /* date updated */
-.productPageContent .productShopsList .productShopCard div.productPrice div.dateUpdated{
+div.productPrice div.dateUpdated{
     align-self: flex-end;
 	font-size: 12px;
 	font-weight: 500;
