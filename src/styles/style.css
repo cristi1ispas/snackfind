@@ -33,6 +33,9 @@
   --color-scheme-on-error: #ffffff;
   --color-scheme-error-container: #ffdad6;
   --color-scheme-on-error-container: #93000a;
+
+  --color-scheme-discount-container: #fcdebc;
+  --color-scheme-on-discount-container: #653e00;
 }
 
 @font-face {

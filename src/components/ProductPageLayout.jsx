@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import TextCard from './TextCard';
+import ProductShopCard from './ProductShopCard';
 
 function ProductPage({ product, isOpen, onClose }) {
 	
@@ -64,66 +65,9 @@ function ProductPage({ product, isOpen, onClose }) {
         </div>
         <md-divider />
         <md-list className="productShopsList">
-          <div className="productShopCard">
-            <div className="productShopHeadline">
-              <md-list-item className="shop-button" type="button">
-                <img slot="start" src='public/Shop-photo-id-1.png' />
-                <div slot="headline">Potica</div>
-                <div slot="supporting-text">Maria Eliza SRL</div>
-              </md-list-item>
-              <md-list-item className="productPriceButton" type="button">
-                <div className="productPrice">
-                  <div className='productPriceNumeral'>
-                    <md-icon>shelves</md-icon>
-                    <span>19</span>
-                    <sub>.99</sub>
-                  </div>
-                  <div className="dateUpdated">24/02</div>
-                </div>
-              </md-list-item>
-            </div>
-          </div>
-          <md-divider />
-          <div className="productShopCard">
-            <div className="productShopHeadline">
-              <md-list-item className="shop-button" type="button">
-                <img slot="start" src='public/Shop-photo-id-1.png' />
-                <div slot="headline">Potica</div>
-                <div slot="supporting-text">Maria Eliza SRL</div>
-              </md-list-item>
-              <md-list-item className="productPriceButton" type="button">
-                <div className="productPrice">
-                  <div className='productPriceNumeral'>
-                    <md-icon>cloud_download</md-icon>
-                    <span>19</span>
-                    <sub>.99</sub>
-                  </div>
-                  <div className="dateUpdated">24/02</div>
-                </div>
-              </md-list-item>
-            </div>
-          </div>
-          <md-divider />
-          <div className="productShopCard">
-            <div className="productShopHeadline">
-              <md-list-item className="shop-button" type="button">
-                <img slot="start" src='public/Shop-photo-id-1.png' />
-                <div slot="headline">Potica</div>
-                <div slot="supporting-text">Maria Eliza SRL</div>
-              </md-list-item>
-              <md-list-item className="productPriceButton" type="button">
-                <div className="productPrice">
-                  <div className='productPriceNumeral'>
-                    <md-icon>point_of_sale</md-icon>
-                    <span>19</span>
-                    <sub>.99</sub>
-                  </div>
-                  <div className="dateUpdated">24/02</div>
-                </div>
-              </md-list-item>
-            </div>
-          </div>
-          <md-divider />
+          <ProductShopCard />
+          <ProductShopCard />
+          <ProductShopCard />
         </md-list>
       </div>
     </div>

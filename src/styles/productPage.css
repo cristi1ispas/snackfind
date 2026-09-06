@@ -74,7 +74,6 @@ md-list-item.productPageRibbon > div[slot=headline]{
 	display: flex;
 	flex-grow: 1;
 	flex-direction: column;
-	padding: 12px;
 	gap: 8px;
 	width: 100%;
 }
@@ -143,26 +142,31 @@ md-list-item.productPageRibbon > div[slot=headline]{
 
 
 .productPageContent > .productShopsList{
-	gap: 8px;
+	gap: 4px;
 	background-color: var(--color-scheme-surface);
-	padding: 6px 10px;
+	padding: 6px;
 }
 .productShopsList > .productShopCard{
+	position: relative;
 	display: flex;
 	flex-grow: 1;
 	flex-direction: column;
 	gap: 8px;
 	border-radius: 20px;
+	padding: 8px;
+	background-color: var(--color-scheme-error-container);
+	background-image: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.25) 3%, transparent 10%)
+}
+.productShopsList > md-divider{
+	padding: 0 14px;
 }
 .productShopCard > .productShopHeadline{
 	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 8px;
+	gap: 4px;
 }
 .productShopHeadline > md-list-item.shop-button{
 	flex-grow: 1;
-	border-radius: 16px;
+	border-radius: 16px 8px 8px 16px;
 	gap: 10px;
 	--md-list-item-top-space: 0;
 	--md-list-item-bottom-space: 0;
@@ -176,46 +180,125 @@ md-list-item.productPageRibbon > div[slot=headline]{
 }
 md-list-item.shop-button > img{
 	background-color: var(--color-scheme-primary-container);
-	width: auto;
-	height: 20vw;
+	width: 25vw;
+	height: auto;
 	aspect-ratio: 1 / 1;
-	cursor: pointer;
 }
-/* [slot="end"] price details */
 md-list-item.productPriceButton{
 	height: 100%;
-	border-radius: 16px;
+	border-radius: 8px 16px 16px 8px;
 	background-color: var(--color-scheme-tertiary-container);
 	--md-list-item-top-space: 8px;
 	--md-list-item-bottom-space: 8px;
 	--md-list-item-leading-space: 8px;
-	--md-list-item-trailing-space: 8px;
+	--md-list-item-trailing-space: 10px;
 }
-div.productPrice{
+md-list-item.productPriceButton > div.productPrice{
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: flex-end;
+	gap: 8px;
 }
-/* price itself */
-div.productPrice div{
-	display: inline-flex;
-	align-items: baseline;
-}
-/* full */
-div.productPrice div span{
+div.productPrice > .productPriceNumeral > span{
 	font-size: 32px;
 	font-weight: 800;
 }
-/* decimal */ 
-div.productPrice div sub{
+div.productPrice > .productPriceNumeral > sup{
 	font-size: 20px;
 	font-weight: 600;
 }
-/* date updated */
-div.productPrice div.dateUpdated{
-    align-self: flex-end;
-	font-size: 12px;
+div.productPrice > div.IconPLUSDate{
+  display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	gap: 4px;
+	--md-icon-size: 28px;
+}
+div.IconPLUSDate > span.dateUpdated{
+	align-self: center;
+	font-size: 13px;
 	font-weight: 500;
+}
 
+.productShopCard > .productDiscount{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 16px;
+}
+.productDiscount > md-icon.arrow_downward, .productDiscountOffer > md-icon{
+	--md-icon-size: 32px;
+}
+.productDiscount > .productDiscountDetailsIndicator{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.productDiscount > .productDiscountOffer{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	flex-grow: 1;
+	width: 100%;
+}
+.productDiscountOffer > .requirement{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4px;
+	overflow: hidden;
+}
+.productDiscountOffer > .requirement > img{
+	width: 60%;
+	height: auto;
+	aspect-ratio: 1 / 1;
+	object-fit: contain;
+	background-color: var(--color-scheme-error-container);
+}
+.productDiscountOffer > .requirement > span{
+	display: block;
+	text-align: center;
+	line-height: 1rem;
+	max-height: 2rem;
+	text-overflow: ellipsis;
+}
+.productDiscount > .productDiscountReward{
+	display: flex;
+	flex-direction: row;
+	height: 25vw;
+	border-radius: 14px;
+	border: 1px solid var(--color-scheme-outline);
+}
+.productDiscountReward > img{
+	width: auto;
+	height: 100%;
+	border-radius: 14px 0 0 14px;
+	aspect-ratio: 1 / 1;
+	object-fit: contain;
+	background-color: var(--color-scheme-error-container);
+}
+.productDiscountReward > .RewardDetails{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	padding: 6px;
+	flex-grow: 1;
+}
+.RewardDetails > .RewardDetailsName{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.RewardDetails > .RewardDetailsPrice{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	color: var(--color-scheme-on-error);
+	background-color: var(--color-scheme-error);
+	padding: 2px;
+	border-radius: 8px;
+}
+.RewardDetailsPrice > b{
+	font-size: 20px;
 }
