@@ -74,7 +74,6 @@ md-list-item.productPageRibbon > div[slot=headline]{
 	display: flex;
 	flex-grow: 1;
 	flex-direction: column;
-	padding: 12px;
 	gap: 8px;
 	width: 100%;
 }
@@ -143,66 +142,171 @@ md-list-item.productPageRibbon > div[slot=headline]{
 
 
 .productPageContent > .productShopsList{
-	gap: 8px;
-	background-color: green;
-	padding: 6px 12px;
+	gap: 4px;
+	background-color: var(--color-scheme-surface);
+	padding: 6px;
 }
-
-/* md-list */
-.productPageContent .productShopsList .productShopCard{
+.productShopsList > .productShopCard{
 	display: flex;
 	flex-grow: 1;
-	border-radius: 14px;
-	background-color: orange;
-	--md-list-item-top-space: 6px;
-	--md-list-item-bottom-space: 6px;
-	--md-list-item-leading-space: 6px;
+	flex-direction: column;
+	gap: 4px;
+	border-radius: 20px;
+	padding: 6px;
+}
+.productShopsList > md-divider{
+	padding: 0 14px;
+}
+.productShopCard > .productShopHeadline{
+	display: flex;
+	gap: 4px;
+}
+.productShopHeadline > md-list-item.shop-button{
+	flex-grow: 1;
+	border-radius: 20px 6px 6px 20px;
+	gap: 10px;
+	--md-list-item-top-space: 0;
+	--md-list-item-bottom-space: 0;
+	--md-list-item-leading-space: 0;
 	--md-list-item-trailing-space: 8px;
-	/* commonName [slot="headline"] */
-	--md-list-item-label-text-size: larger;
+	--md-list-item-label-text-size: 20px;
 	--md-list-item-label-text-weight: 550;
-	/* formalName [slot="supporting-text"] */
 	--md-list-item-supporting-text-size: small;
 	--md-list-item-supporting-text-weight: 450;
-	/* shopPrice [slot="end"] */
-	--md-list-item-trailing-icon-color: black;
+	background-color: var(--color-scheme-primary-container);
 }
-/* img [slot="start"] */
-.productPageContent .productShopsList .productShopCard img{
-	background-color: lightgreen;
-	width: auto;
-	height: 18vw;
+.productShopHeadline > md-list-item.shop-button.discount{
+	border-radius: 20px 6px 6px 6px;
+}
+md-list-item.shop-button > img{
+	background-color: var(--color-scheme-primary-container);
+	width: 25vw;
+	height: auto;
+	object-fit: cover;
 	aspect-ratio: 1 / 1;
-	border-radius: 8px;
-	cursor: pointer;
 }
-/* [slot="end"] price details */
-.productPageContent .productShopsList .productShopCard div.productPrice{
+.productShopHeadline > md-list-item.productPriceButton{
+	height: 100%;
+	border-radius: 6px 20px 20px 6px;
+	background-color: var(--color-scheme-tertiary-container);
+	--md-list-item-top-space: 8px;
+	--md-list-item-bottom-space: 8px;
+	--md-list-item-leading-space: 8px;
+	--md-list-item-trailing-space: 10px;
+}
+.productShopHeadline > md-list-item.productPriceButton.discount{
+	border-radius: 6px 20px 6px 6px;
+}
+md-list-item.productPriceButton > div.productPrice{
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: flex-end;
-	padding: 6px 0 0 0;
+	gap: 8px;
 }
-/* price itself */
-.productPageContent .productShopsList .productShopCard div.productPrice div{
-	display: inline-flex;
-	align-items: baseline;
-}
-/* full */
-.productPageContent .productShopsList .productShopCard div.productPrice div span{
+div.productPrice > .productPriceNumeral > span{
 	font-size: 32px;
 	font-weight: 800;
 }
-/* decimal */ 
-.productPageContent .productShopsList .productShopCard div.productPrice div sub{
+div.productPrice > .productPriceNumeral > sup{
 	font-size: 20px;
 	font-weight: 600;
 }
-/* date updated */
-.productPageContent .productShopsList .productShopCard div.productPrice div.dateUpdated{
-    align-self: flex-end;
-	font-size: 12px;
+div.productPrice > div.IconPLUSDate{
+  display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	gap: 4px;
+	--md-icon-size: 28px;
+}
+div.IconPLUSDate > span.dateUpdated{
+	align-self: center;
+	font-size: 13px;
 	font-weight: 500;
+}
 
+.productShopCard > .productDiscount{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 8px;
+	border-radius: 6px 6px 20px 20px;
+	background-color: var(--color-scheme-error-container);
+	background-image: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.22) 2%, transparent 12%)
+}
+.productDiscount > md-icon.arrow_downward, .productDiscountOffer > md-icon{
+	--md-icon-size: 32px;
+}
+.productDiscount > .productDiscountDetailsIndicator{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.productDiscount > .productDiscountOffer{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	flex-grow: 1;
+	width: 100%;
+}
+.productDiscountOffer > .requirement{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4px;
+	overflow: hidden;
+}
+.productDiscountOffer > .requirement > img{
+	width: 60%;
+	height: auto;
+	aspect-ratio: 1 / 1;
+	object-fit: contain;
+	background-color: var(--color-scheme-error-container);
+}
+.productDiscountOffer > .requirement > span{
+	display: block;
+	text-align: center;
+	line-height: 1rem;
+	max-height: 2rem;
+	text-overflow: ellipsis;
+}
+.productDiscount > .productDiscountReward{
+	display: flex;
+	flex-direction: row;
+	height: 25vw;
+	border-radius: 14px;
+	border: 1px solid var(--color-scheme-outline);
+}
+.productDiscountReward > img{
+	width: auto;
+	height: 100%;
+	border-radius: 14px 0 0 14px;
+	aspect-ratio: 1 / 1;
+	object-fit: contain;
+	background-color: var(--color-scheme-error-container);
+}
+.productDiscountReward > .RewardDetails{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	padding: 6px;
+	flex-grow: 1;
+}
+.RewardDetails > .RewardDetailsName{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.RewardDetails > .RewardDetailsPrice{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	color: var(--color-scheme-on-error);
+	background-color: var(--color-scheme-error);
+	padding: 2px;
+	border-radius: 8px;
+}
+.RewardDetailsPrice > b{
+	font-size: 20px;
 }

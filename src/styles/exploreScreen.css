@@ -41,7 +41,7 @@
 }
 #productGrid > .productGridItem{
 	position: relative;
-	border-radius: 8px;
+	border-radius: 12px;
 	max-width: calc(50vw - 12px);
 	box-sizing: border-box;
 	background-color: var(--color-scheme-secondary-container);
@@ -146,7 +146,7 @@ div.productLimEdAlert > span{
 	bottom: 12px;
 	left: 8px;
 	display: inline-flex;
-	align-items: flex-end;
+	align-items: center;
 	flex-direction: row;
 	justify-content: flex-start;
 }
@@ -165,7 +165,7 @@ div.productDetailsPrice > span{
 	font-weight: 800;
 }
 div.productDetailsPrice > sup{
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: 800;
 	align-self: start;
 }

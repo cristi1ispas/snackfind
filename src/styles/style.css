@@ -34,23 +34,8 @@
   --color-scheme-error-container: #ffdad6;
   --color-scheme-on-error-container: #93000a;
 
-
-  --md-sys-color-surface: var(--color-scheme-surface);
-  --md-sys-color-on-surface: var(--color-scheme-on-surface);
-  --md-sys-color-surface-container: var(--color-scheme-surface-container);
-  --md-sys-color-secondary-container: var(--color-scheme-secondary-container);
-  --md-sys-color-on-secondary-container: var(--color-scheme-on-secondary-container);
-  --md-sys-color-on-surface-variant: var(--color-scheme-on-surface-variant);
-  --md-sys-color-surface-container-low: var(--color-scheme-surface-container-low);
-  --md-sys-color-outline: var(--color-scheme-outline);
-  --md-sys-color-primary: var(--color-scheme-primary);
-  --md-sys-color-surface-container-highest: var(--color-scheme-surface-container-highest);
-  --md-sys-color-on-primary: var(--color-scheme-on-primary);
-  --md-sys-color-inverse-surface: var(--color-scheme-inverse-surface);
-  --md-sys-color-inverse-on-surface: var(--color-scheme-inverse-on-surface);
-  --md-sys-color-outline-variant: var(--color-scheme-outline-variant);
-  --md-sys-color-tertiary-container: var(--color-scheme-tertiary-container);
-  --md-sys-color-on-tertiary-container: var(--color-scheme-on-tertiary-container);
+  --color-scheme-discount-container: #fcdebc;
+  --color-scheme-on-discount-container: #653e00;
 }
 
 @font-face {
@@ -70,7 +55,27 @@ img{
 body{
 	margin: 0px; 
   font-family: 'Roboto Variable', sans-serif;
+<<<<<<< HEAD
   overflow: hidden;
+=======
+  
+  --md-sys-color-surface: var(--color-scheme-surface);
+  --md-sys-color-on-surface: var(--color-scheme-on-surface);
+  --md-sys-color-surface-container: var(--color-scheme-surface-container);
+  --md-sys-color-secondary-container: var(--color-scheme-secondary-container);
+  --md-sys-color-on-secondary-container: var(--color-scheme-on-secondary-container);
+  --md-sys-color-on-surface-variant: var(--color-scheme-on-surface-variant);
+  --md-sys-color-surface-container-low: var(--color-scheme-surface-container-low);
+  --md-sys-color-outline: var(--color-scheme-outline);
+  --md-sys-color-primary: var(--color-scheme-primary);
+  --md-sys-color-surface-container-highest: var(--color-scheme-surface-container-highest);
+  --md-sys-color-on-primary: var(--color-scheme-on-primary);
+  --md-sys-color-inverse-surface: var(--color-scheme-inverse-surface);
+  --md-sys-color-inverse-on-surface: var(--color-scheme-inverse-on-surface);
+  --md-sys-color-outline-variant: var(--color-scheme-outline-variant);
+  --md-sys-color-tertiary-container: var(--color-scheme-tertiary-container);
+  --md-sys-color-on-tertiary-container: var(--color-scheme-on-tertiary-container);
+>>>>>>> ProductPage-feature
 }
  
 div:not(.material-symbols-outlined), 
