@@ -1,63 +1,85 @@
 import { useState } from 'react';
+import BuyXgetYtemplate from './discountTemplates/BuyXgetYtemplate';
+import SimpleDiscountTemplate from './discountTemplates/SimpleDiscountTemplate';
+import LoyaltyDiscountTemplate from './discountTemplates/LoyaltyDiscountTemplate';
 
-function ProductShopCard() {
+function ProductShopCard({ joint, shop, discount }) {
   
+  const handleDiscountType = () => {
+    switch (discount.type) {
+      case 1:
+        return <SimpleDiscountTemplate />;
+        break;
+      case 2:
+        return <BuyXgetYtemplate />;
+        break;
+      case 3:
+        return <LoyaltyDiscountTemplate />;
+        break;
+    }
+  }
+
+  const handleDiscount = () => {
+		if(discount) {
+			return (
+			<div className="productDiscount">
+				{handleDiscountType()}
+				<div className='productDiscountDetailsIndicator'>
+					<md-icon-button>
+						<md-icon>arrow_forward_ios</md-icon>
+					</md-icon-button>
+				</div>
+			</div>);
+		} 
+	}
+
+	const handlePrice = () => (
+	<>
+		<span>{Math.trunc(joint.price)}</span>
+		<sup>.{joint.price.toFixed(2).split('.')[1]}</sup>
+	</>);
+
+	const priceSource = () => {
+		switch (joint.source) {
+			case 1:
+				return `point_of_sale`;
+				break;
+
+			case 2:
+				return `cloud_download`;
+				break;
+
+			case 3:
+				return `shelves`;
+				break;
+		}
+	}
+
+	const priceDate = () => {
+		const date = joint.updated.slice(5, 10).split('-');
+		return `${date[1]}/${date[0]}`
+	}
+
   return(
     <>
       <div className="productShopCard">
         <div className="productShopHeadline">
           <md-list-item className="shop-button" type="button">
-            <img slot="start" src='public/Shop-photo-id-1.png' />
-            <div slot="headline">Potica</div>
-            <div slot="supporting-text">Maria Eliza SRL</div>
+            <img slot="start" src={`/Shop-photo-id-${shop.id}.png`} />
+            <div slot="headline">{shop.popular}</div>
+            <div slot="supporting-text">{shop.official}</div>
           </md-list-item>
           <md-list-item className="productPriceButton" type="button">
             <div className="productPrice">
               <div className='productPriceNumeral'>
-                <span>19</span>
-                <sup>.99</sup>
+                {handlePrice()}
               </div>
               <div className="IconPLUSDate">
-                <md-icon>shelves</md-icon>
-                <span className='dateUpdated'>24/02</span>
+                <md-icon>{priceSource()}</md-icon>
+                <span className='dateUpdated'>{priceDate()}</span>
               </div>
             </div>
           </md-list-item>
-        </div>
-        <div className="productDiscount">
-          
-          <div className="productDiscountOffer">
-            <div className="requirement">
-              <img src='https://static.mega-image.ro/medias/sys_master/products/h8c/hb6/9434312409118.jpg' />
-              <span>Fulg de Nea <span>60g</span></span>
-              <span>Înghețată pe băț</span>
-            </div>
-            <md-icon>add</md-icon>
-            <div className="requirement">
-              <img src='https://static.mega-image.ro/medias/sys_master/products/h8c/hb6/9434312409118.jpg' />
-              <span>Fulg de Nea <span>60g</span></span>
-              <span>Înghețată pe băț</span>
-            </div>
-          </div>
-          <md-icon className='arrow_downward'>arrow_downward</md-icon>
-          <div className="productDiscountReward">
-            <img src='https://static.mega-image.ro/medias/sys_master/products/h8c/hb6/9434312409118.jpg' />
-            <div className='RewardDetails'>
-              <div className="RewardDetailsName">
-                <span>Fulg de Nea <span>60g</span></span>
-                <span>Înghețată pe băț</span>
-              </div>
-              <div className='RewardDetailsPrice'>
-                <b>20</b>
-                <md-icon>percent_discount</md-icon>
-                <md-icon style={{padding : '2px 0'}}>arrow_forward</md-icon>
-                <b>15.99</b>
-              </div>
-            </div>
-          </div>
-          <div className='productDiscountDetailsIndicator'>
-            <md-icon-button><md-icon>arrow_forward_ios</md-icon></md-icon-button>
-          </div>
         </div>
       </div>
       <md-divider />

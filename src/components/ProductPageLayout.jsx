@@ -1,6 +1,9 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import TextCard from './TextCard';
 import ProductShopCard from './ProductShopCard';
+import { MOCK_JOINTS } from '../data/shop_prod_rows';
+import { MOCK_SHOPS } from '../data/shop_rows';
+import { MOCK_DISCOUNT } from '../data/discount_rows';
 
 function ProductPage({ product, isOpen, onClose }) {
 	
@@ -19,6 +22,22 @@ function ProductPage({ product, isOpen, onClose }) {
     ));
   }
   const productQuantity = `${product.quant} ${[1, 7].includes(product.category) ? 'L' : 'g'}`;
+
+  const shopCards = useMemo(() => {
+		const productDiscounts = MOCK_DISCOUNT.filter(discount => discount.prod_id === product.id);
+		const shopsMap = MOCK_SHOPS.reduce((acc, shop) => {
+			acc[shop.id] = shop;
+			return acc;
+		}, {});
+		return MOCK_JOINTS
+    .filter(joint => joint.prod_id === product.id)
+		.sort((a, b) => a.price - b.price)
+    .map(joint => {
+      const productShop = shopsMap[joint.shop_id];
+			const discount = productDiscounts.find(discount => discount.shop_id === joint.shop_id)
+      return <ProductShopCard key={joint.id} joint={joint} shop={productShop} discount={discount}/>
+    });
+  }, [product.id]);
 
   return (
     <div className={`productPage ${isOpen? 'open' : ''}`}>
@@ -65,9 +84,7 @@ function ProductPage({ product, isOpen, onClose }) {
         </div>
         <md-divider />
         <md-list className="productShopsList">
-          <ProductShopCard />
-          <ProductShopCard />
-          <ProductShopCard />
+          {shopCards}
         </md-list>
       </div>
     </div>

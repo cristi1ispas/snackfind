@@ -1,4 +1,4 @@
-export const MOCK_PRICES = [
+export const MOCK_JOINTS = [
   {
     "id": 1,
     "created_at": "2026-07-11 22:40:51.232179+00",
@@ -147,6 +147,16 @@ export const MOCK_PRICES = [
     "price": 10.39,
     "source": 1,
     "updated": "2026-07-16 19:47:00+00",
+    "price_old": ""
+  },
+  {
+    "id": 16,
+    "created_at": "2026-08-24 12:41:18.278696+00",
+    "shop_id": 2,
+    "prod_id": 3,
+    "price": 7.69,
+    "source": 2,
+    "updated": "2026-09-07 20:56:00+00",
     "price_old": ""
   }
 ]

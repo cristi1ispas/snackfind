@@ -13,6 +13,9 @@ import FiltersFAB from "./components/FiltersFAB"
 import SubPageLayout from "./components/SubPageLayout";
 import ProductPageLayout from './components/ProductPageLayout';
 import { MOCK_PRODUCTS } from './data/productsMock'
+import { MOCK_SHOPS } from "./data/shop_rows";
+import { MOCK_JOINTS } from "./data/shop_prod_rows";
+import { MOCK_DISCOUNT } from "./data/discount_rows";
 
 function MainLayout() {
 

@@ -152,7 +152,7 @@ md-list-item.productPageRibbon > div[slot=headline]{
 	flex-direction: column;
 	gap: 4px;
 	border-radius: 20px;
-	padding: 8px;
+	padding: 6px;
 }
 .productShopsList > md-divider{
 	padding: 0 14px;
@@ -163,7 +163,7 @@ md-list-item.productPageRibbon > div[slot=headline]{
 }
 .productShopHeadline > md-list-item.shop-button{
 	flex-grow: 1;
-	border-radius: 16px 8px 8px 8px;
+	border-radius: 20px 6px 6px 20px;
 	gap: 10px;
 	--md-list-item-top-space: 0;
 	--md-list-item-bottom-space: 0;
@@ -175,20 +175,27 @@ md-list-item.productPageRibbon > div[slot=headline]{
 	--md-list-item-supporting-text-weight: 450;
 	background-color: var(--color-scheme-primary-container);
 }
+.productShopHeadline > md-list-item.shop-button.discount{
+	border-radius: 20px 6px 6px 6px;
+}
 md-list-item.shop-button > img{
 	background-color: var(--color-scheme-primary-container);
 	width: 25vw;
 	height: auto;
+	object-fit: cover;
 	aspect-ratio: 1 / 1;
 }
-md-list-item.productPriceButton{
+.productShopHeadline > md-list-item.productPriceButton{
 	height: 100%;
-	border-radius: 8px 16px 8px 8px;
+	border-radius: 6px 20px 20px 6px;
 	background-color: var(--color-scheme-tertiary-container);
 	--md-list-item-top-space: 8px;
 	--md-list-item-bottom-space: 8px;
 	--md-list-item-leading-space: 8px;
 	--md-list-item-trailing-space: 10px;
+}
+.productShopHeadline > md-list-item.productPriceButton.discount{
+	border-radius: 6px 20px 6px 6px;
 }
 md-list-item.productPriceButton > div.productPrice{
 	display: flex;
@@ -222,7 +229,7 @@ div.IconPLUSDate > span.dateUpdated{
 	flex-direction: column;
 	align-items: center;
 	padding: 8px;
-	border-radius: 8px 8px 16px 16px;
+	border-radius: 6px 6px 20px 20px;
 	background-color: var(--color-scheme-error-container);
 	background-image: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.22) 2%, transparent 12%)
 }
