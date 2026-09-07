@@ -55,9 +55,7 @@ img{
 body{
 	margin: 0px; 
   font-family: 'Roboto Variable', sans-serif;
-<<<<<<< HEAD
   overflow: hidden;
-=======
   
   --md-sys-color-surface: var(--color-scheme-surface);
   --md-sys-color-on-surface: var(--color-scheme-on-surface);
@@ -75,7 +73,6 @@ body{
   --md-sys-color-outline-variant: var(--color-scheme-outline-variant);
   --md-sys-color-tertiary-container: var(--color-scheme-tertiary-container);
   --md-sys-color-on-tertiary-container: var(--color-scheme-on-tertiary-container);
->>>>>>> ProductPage-feature
 }
  
 div:not(.material-symbols-outlined), 
