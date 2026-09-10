@@ -143,8 +143,8 @@ div.productLimEdAlert > span{
 }
 .productGridItem > div.productDetailsPrice{
 	position: absolute;
-	bottom: 12px;
-	left: 8px;
+	bottom: 10px;
+	left: 10px;
 	display: inline-flex;
 	align-items: center;
 	flex-direction: row;
