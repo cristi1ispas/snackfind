@@ -1,13 +1,45 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { MOCK_DISCOUNT } from '../data/discount_rows';
 import { MOCK_JOINTS } from '../data/shop_prod_rows';
+import { supabase } from '../lib/supabaseClient';
 
 function ProductGridItem({ product, selectProduct }) {
 
   const [isDiscount, setIsDiscount] = useState(false);
 
+  /* data fetching */
+  const [joints , setJoints] = useState({});
+  const [jointsError, setJointsError] = useState(null);
+  const [isJointsLoading, setIsJointsLoading] = useState(true);
+  useEffect(() => {
+    const fetchJoints = async () => {
+      setIsJointsLoading(true);
+      const { data, error } = await supabase
+        .from('shop_prod').select();
+
+      if (error) {
+        setJointsError('Could not get joints');
+        console.error(error);
+        setIsJointsLoading(false);
+      }
+      if (data) {
+        const indexedJoints = data.reduce((acc, joint) => {
+          acc[joint.id] = joint;
+          return acc;
+        }, {});
+
+        setJoints(indexedJoints);
+        setJointsError(null);
+      }
+    }
+
+    fetchJoints();
+
+  }, []);
+
   const handleLowestPrice = () => {
-    const productJoints = MOCK_JOINTS.filter(joint => joint.prod_id === product.id);
+    const productJoints = Object.values(joints)
+      .filter(joint => joint.prod_id === product.id);
 		if (productJoints.length > 0) {
 			const lowestPrice = Math.min(...productJoints.map(j => j.price));
 			return (

@@ -2,14 +2,22 @@ import { useMemo, useState } from 'react'
 import ProductGridItem from './ProductGridItem'
 import TextCard from './TextCard'
 
-function ExploreScreen({ searchValue, filteredProducts, onProductClick }) {
-  
+function ExploreScreen({ filteredProducts, isProductsLoading, onProductClick }) {
+
+  console.log(`${isProductsLoading} explScreen`);
   return (
     <div id="exploreContainer" className='screenContainers'>
       <div id="productGrid">
-        {filteredProducts.map((product) => (
-          <ProductGridItem key={product.id} product={product} selectProduct={onProductClick}/>
-        ))}
+        {isProductsLoading ? (
+          <div className="loadingProducts">
+            <md-circular-progress four-color indeterminate></md-circular-progress>
+            <span>Hold on, fetching products!</span>
+          </div>
+        ) : (
+          filteredProducts.map((product) => (
+            <ProductGridItem key={product.id} product={product} selectProduct={onProductClick}/>
+          ))
+        )}
       </div>
 
       <md-dialog id="discardFiltersDialog" type="alert">

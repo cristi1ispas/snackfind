@@ -1,4 +1,5 @@
-import { useRef, useState, useMemo } from "react";
+import { useRef, useState, useMemo, useEffect } from "react";
+import { supabase } from "./lib/supabaseClient";
 import TopAppBar from './components/TopAppBar';
 import NavDrawer from './components/NavDrawer';
 import AccountCenter from './components/AccountCenter';
@@ -12,10 +13,6 @@ import SearchFAB from "./components/SearchFAB";
 import FiltersFAB from "./components/FiltersFAB"
 import SubPageLayout from "./components/SubPageLayout";
 import ProductPageLayout from './components/ProductPageLayout';
-import { MOCK_PRODUCTS } from './data/productsMock'
-import { MOCK_SHOPS } from "./data/shop_rows";
-import { MOCK_JOINTS } from "./data/shop_prod_rows";
-import { MOCK_DISCOUNT } from "./data/discount_rows";
 
 function MainLayout() {
 
@@ -52,10 +49,40 @@ function MainLayout() {
       .replace(/['`’\-]/g, "");
   };
 	
+  /* data fetching */
+  const [products , setProducts] = useState({});
+  const [productsError, setProductsError] = useState(null);
+  const [isProductsLoading, setIsProductsLoading] = useState(true);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setIsProductsLoading(true);
+      const { data, error } = await supabase
+        .from('prod').select();
+
+      if (error) {
+        setProductsError('Could not get products');
+        console.error(error); 
+        setIsProductsLoading(false);
+      }
+      if (data) {
+        const indexedProducts = data.reduce((acc, product) => {
+          acc[product.id] = product;
+          return acc;
+        }, {});
+
+        setProducts(indexedProducts);
+        setProductsError(null);
+        setIsProductsLoading(false);
+      }
+    }
+
+    fetchProducts();
+
+  }, []);
 
   const [selectedCategories, setSelectedCategories] = useState([]);
   const filteredProducts = useMemo(() => {
-    return MOCK_PRODUCTS.filter((product) => {
+    return Object.values(products).filter((product) => {
       if (selectedCategories.length === 0)
         return true;
       return selectedCategories.includes(product.category);
@@ -73,7 +100,7 @@ function MainLayout() {
         return productDetails.includes(word);
       });
     });
-  }, [searchValue, selectedCategories]);
+  }, [searchValue, selectedCategories, products]);
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const searchInputRef = useRef(null);
@@ -117,9 +144,9 @@ function MainLayout() {
 
       <main id="screen">
         <div id="explore" className={`styleScreen ${activeScreen === 'explore' ? 'activeScreen' : 'exitScreen'}`}>
-          <ExploreScreen filteredProducts={filteredProducts} searchValue={searchValue} onProductClick={handleProductAreaClick}/>
+          <ExploreScreen filteredProducts={filteredProducts} isProductsLoading={isProductsLoading} onProductClick={handleProductAreaClick}/>
           {selectedProduct && (
-            <ProductPageLayout product={selectedProduct} isOpen={isProductPageOpen} onClose={closeProductPage}/>
+          <ProductPageLayout product={selectedProduct} isOpen={isProductPageOpen} onClose={closeProductPage}/>
           )}
         </div>
         <div id="favourite" className={`styleScreen ${activeScreen === 'favourite' ? 'activeScreen' : 'exitScreen'}`}>
