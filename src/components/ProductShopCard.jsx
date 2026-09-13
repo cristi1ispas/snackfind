@@ -64,12 +64,12 @@ function ProductShopCard({ joint, shop, discount }) {
     <>
       <div className="productShopCard">
         <div className="productShopHeadline">
-          <md-list-item className="shop-button" type="button">
+          <md-list-item className={`shop-button ${discount ? 'discount' : ''}`} type="button">
             <img slot="start" src={`/Shop-photo-id-${shop.id}.png`} />
             <div slot="headline">{shop.popular}</div>
             <div slot="supporting-text">{shop.official}</div>
           </md-list-item>
-          <md-list-item className="productPriceButton" type="button">
+          <md-list-item className={`productPriceButton ${discount ? 'discount' : ''}`} type="button">
             <div className="productPrice">
               <div className='productPriceNumeral'>
                 {handlePrice()}
@@ -81,6 +81,7 @@ function ProductShopCard({ joint, shop, discount }) {
             </div>
           </md-list-item>
         </div>
+        {handleDiscount()}
       </div>
       <md-divider />
     </>
