@@ -28,11 +28,17 @@ function ProductPage() {
       ];
     })
   );
-
-  if (!product) {
-    return <div className='loadingProducts'> ProductPageLayout Exploded </div>
-  }
 	
+	const shopCards = useMemo(() => {
+		return [...productJoints]
+		.sort((a, b) => a.price - b.price)
+    .map(joint => {
+      const productShop = shops?.[joint.shop_id];
+			const productDiscount = productDiscounts?.find(discount => discount.shop_id === joint.shop_id)
+      return <ProductShopCard key={joint.id} joint={joint} shop={productShop} discount={productDiscount}/>
+    });
+  }, [product, productJoints, shops, productDiscounts]);
+
   function handleProductBrandName() {
     if (product.brand === product.name) {
       return product.name;
@@ -47,19 +53,14 @@ function ProductPage() {
       <span key={index}>{flavour}</span>
     ));
   }
+
   const productQuantity = product?.quant 
   ? `${product.quant} ${[1, 7].includes(product.category) ? 'L' : 'g'}`
   : '';
 
-  const shopCards = useMemo(() => {
-		return productJoints
-		.sort((a, b) => a.price - b.price)
-    .map(joint => {
-      const productShop = shops[joint.shop_id];
-			const productDiscount = productDiscounts.find(discount => discount.shop_id === joint.shop_id)
-      return <ProductShopCard key={joint.id} joint={joint} shop={productShop} discount={productDiscount}/>
-    });
-  }, [product]);
+  if (!product) {
+    return <div className='loadingProducts'> ProductPageLayout Exploded </div>
+  }
 
   return (
     <div className={`productPage ${isOpen? 'open' : ''}`}>
