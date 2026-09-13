@@ -1,15 +1,60 @@
-import { useMemo, useState } from 'react'
 import ProductGridItem from './ProductGridItem'
-import TextCard from './TextCard'
+import { useAppStore } from '../store/useAppStore';
+import { useMemo } from 'react';
 
-function ExploreScreen({ searchValue, filteredProducts, onProductClick }) {
-  
+
+function ExploreScreen() {
+  function normalizeText(text) {
+    if (!text) return '';
+    return text
+      .toString()
+      .toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/k/g, "c")
+      .replace(/,/g, ".")
+      .replace(/['`’\-]/g, "");
+  }
+
+  /* data fetching */
+  const isLoading = useAppStore((state) => state.isLoading)
+
+  const products = useAppStore((state) => state.products);
+  const searchValue = useAppStore((state) => state.searchValue);
+  const selectedCategories = useAppStore((state) => state.selectedCategories);
+  const filteredProducts = useMemo(() => {
+    return Object.values(products).filter((product) => {
+      if (selectedCategories.length === 0)
+        return true;
+      return selectedCategories.includes(product.category);
+    })
+    .filter((product) => {
+      if (searchValue.length === 0)
+        return true;
+      const searchWords = normalizeText(searchValue).split(' ').filter(w => w !== ''); /* array of searched words */
+      const unit = [1, 7].includes(product.category) ? 'l' : 'g' ;
+      const quantAndUnit = `${product.quant}${unit}`;
+      const productDetails = normalizeText(`${product.brand} ${product.name} ${product.flavour}`);
+      return searchWords.every(word => {
+        if(word === quantAndUnit || word === product.quant.toString())
+          return true;
+        return productDetails.includes(word);
+      });
+    });
+  }, [searchValue, selectedCategories, products]);
+
   return (
     <div id="exploreContainer" className='screenContainers'>
       <div id="productGrid">
-        {filteredProducts.map((product) => (
-          <ProductGridItem key={product.id} product={product} selectProduct={onProductClick}/>
-        ))}
+        {isLoading ? (
+          <div className="loadingProducts">
+            <md-circular-progress four-color indeterminate></md-circular-progress>
+            <span>Hold on, fetching products!</span>
+          </div>
+        ) : (
+          filteredProducts.map((product) => (
+            <ProductGridItem key={product.id} product={product}/>
+          ))
+        )}
       </div>
 
       <md-dialog id="discardFiltersDialog" type="alert">

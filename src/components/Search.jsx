@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useAppStore } from "../store/useAppStore";
 
-function Search({ searchValue, setSearchValue, isOpen, onClose, searchInputRef }) {
+function Search({ isOpen, onClose, searchInputRef }) {
+
+	const setSearchValue = useAppStore((state) => state.setSearchValue);
+	const searchValue = useAppStore((state) => state.searchValue);
 
 	const handleEneterKeyDown = (e) => {
 		if (e.key === 'Enter') {
@@ -9,14 +12,10 @@ function Search({ searchValue, setSearchValue, isOpen, onClose, searchInputRef }
 		}
 	};
 
-	const handleInputChange = (e) => {
-		setSearchValue(e.target.value);
-	}
-
   return(
     <>
       <div id="searchView" className={` ${isOpen === true ? 'open' : ''} `}>
-				<md-filled-text-field value={searchValue} onInput={handleInputChange} onKeyDown={handleEneterKeyDown} ref={searchInputRef} type="search" placeholder="Search..." id="searchTextField">
+				<md-filled-text-field value={searchValue} onInput={(e) => {		setSearchValue(e.target.value)}} onKeyDown={handleEneterKeyDown} ref={searchInputRef} type="search" placeholder="Search..." id="searchTextField">
 					<md-icon-button slot="leading-icon" onClick={() => onClose(false)}>
 						<md-icon>arrow_back</md-icon>
 					</md-icon-button>

@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import { useAppStore } from '../store/useAppStore';
 
-function CategoryChips({ selectedCategories, setSelectedCategories }) {
+function CategoryChips() {
 
-  const handleChipClick = (e) => {
+	const selectedCategories = useAppStore((state) => state.selectedCategories);
+	const setSelectedCategories = useAppStore((state) => state.setSelectedCategories);
+
+  function handleChipClick(e) {
     const chipCategory = Number(e.target.dataset.category);
     const isChipSelected = e.target.selected;
-    if(isChipSelected) {
+    if (isChipSelected) {
       setSelectedCategories([...selectedCategories, chipCategory]);
     } else {
-      setSelectedCategories(selectedCategories.filter((category) => category !== chipCategory))
+      setSelectedCategories(selectedCategories.filter((category) => category !== chipCategory));
     }
   }
 

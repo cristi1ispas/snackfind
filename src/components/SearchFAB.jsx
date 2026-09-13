@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useAppStore } from "../store/useAppStore";
 
-function SearchFAB({ isProductPageOpen, activeScreen, onClick }) {
+function SearchFAB({ activeScreen, onClick }) {
+
+  const isProductPageOpen = useAppStore((state) => state.isProductPageOpen);
 
   return(
     <>

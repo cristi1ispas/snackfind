@@ -66,11 +66,13 @@ body{
   --md-sys-color-surface-container-low: var(--color-scheme-surface-container-low);
   --md-sys-color-outline: var(--color-scheme-outline);
   --md-sys-color-primary: var(--color-scheme-primary);
+  --md-sys-color-primary-container: var(--color-scheme-primary-container);
   --md-sys-color-surface-container-highest: var(--color-scheme-surface-container-highest);
   --md-sys-color-on-primary: var(--color-scheme-on-primary);
   --md-sys-color-inverse-surface: var(--color-scheme-inverse-surface);
   --md-sys-color-inverse-on-surface: var(--color-scheme-inverse-on-surface);
   --md-sys-color-outline-variant: var(--color-scheme-outline-variant);
+  --md-sys-color-tertiary: var(--color-scheme-tertiary);
   --md-sys-color-tertiary-container: var(--color-scheme-tertiary-container);
   --md-sys-color-on-tertiary-container: var(--color-scheme-on-tertiary-container);
 }

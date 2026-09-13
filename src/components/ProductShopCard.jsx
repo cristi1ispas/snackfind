@@ -1,64 +1,49 @@
-import { useState } from 'react';
 import BuyXgetYtemplate from './discountTemplates/BuyXgetYtemplate';
 import SimpleDiscountTemplate from './discountTemplates/SimpleDiscountTemplate';
 import LoyaltyDiscountTemplate from './discountTemplates/LoyaltyDiscountTemplate';
 
 function ProductShopCard({ joint, shop, discount }) {
   
-  const handleDiscountType = () => {
+  function handleDiscountType() {
     switch (discount.type) {
       case 1:
         return <SimpleDiscountTemplate />;
-        break;
       case 2:
         return <BuyXgetYtemplate />;
-        break;
       case 3:
         return <LoyaltyDiscountTemplate />;
-        break;
     }
   }
 
-  const handleDiscount = () => {
-		if(discount) {
-			return (
-			<div className="productDiscount">
-				{handleDiscountType()}
-				<div className='productDiscountDetailsIndicator'>
-					<md-icon-button>
-						<md-icon>arrow_forward_ios</md-icon>
-					</md-icon-button>
-				</div>
-			</div>);
-		} 
-	}
+  function handleDiscount() {
+    if (discount) {
+      return (
+        <div className="productDiscount">
+          {handleDiscountType()}
+          <div className='productDiscountDetailsIndicator'>
+            <md-icon-button>
+              <md-icon>arrow_forward_ios</md-icon>
+            </md-icon-button>
+          </div>
+        </div>);
+    }
+  }
 
-	const handlePrice = () => (
-	<>
-		<span>{Math.trunc(joint.price)}</span>
-		<sup>.{joint.price.toFixed(2).split('.')[1]}</sup>
-	</>);
+	function priceSource() {
+    switch (joint.source) {
+      case 1:
+        return `point_of_sale`;
+      case 2:
+        return `cloud_download`;
+      case 3:
+        return `shelves`;
+    }
+  }
 
-	const priceSource = () => {
-		switch (joint.source) {
-			case 1:
-				return `point_of_sale`;
-				break;
-
-			case 2:
-				return `cloud_download`;
-				break;
-
-			case 3:
-				return `shelves`;
-				break;
-		}
-	}
-
-	const priceDate = () => {
-		const date = joint.updated.slice(5, 10).split('-');
-		return `${date[1]}/${date[0]}`
-	}
+	function priceDate() {
+    const date = joint.updated.slice(5, 10).split('-');
+    return `${date[1]}/${date[0]}`;
+  }
 
   return(
     <>
@@ -72,7 +57,8 @@ function ProductShopCard({ joint, shop, discount }) {
           <md-list-item className={`productPriceButton ${discount ? 'discount' : ''}`} type="button">
             <div className="productPrice">
               <div className='productPriceNumeral'>
-                {handlePrice()}
+                <span>{Math.trunc(joint.price)}</span>
+		            <sup>.{joint.price.toFixed(2).split('.')[1]}</sup>
               </div>
               <div className="IconPLUSDate">
                 <md-icon>{priceSource()}</md-icon>

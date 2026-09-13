@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function TextCard({ supportingText, headline, icon }) {
 
   return(

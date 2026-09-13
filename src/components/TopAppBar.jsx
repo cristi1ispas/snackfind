@@ -1,7 +1,9 @@
-import { useState } from 'react'
 import CategoryChips from './CategoryChips'
+import { useAppStore } from '../store/useAppStore'
 
-function TopAppBar({ onMenuClick, searchValue, onSearchClick, onAccountClick, isLoggedIn, userDetails, selectedCategories, setSelectedCategories, showRibbon }) {
+function TopAppBar({ onMenuClick, onSearchClick, onAccountClick, isLoggedIn, userDetails, showRibbon }) {
+
+	const searchValue = useAppStore((state) => state.searchValue);
 
   return (
 		<div id="topAppBar">
@@ -32,7 +34,7 @@ function TopAppBar({ onMenuClick, searchValue, onSearchClick, onAccountClick, is
 				
 			</div>
 			<div id="ribbonRow" className={` ${showRibbon === 'explore' ? 'open' : ''}`}>
-				<CategoryChips selectedCategories={selectedCategories} setSelectedCategories={setSelectedCategories} />
+				<CategoryChips />
 				<div className='verticalDivider'></div>
 				<div id="filterToggle">
 					<label htmlFor="switchFilterToggle">Filters</label>
