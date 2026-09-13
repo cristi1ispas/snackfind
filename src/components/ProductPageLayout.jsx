@@ -28,6 +28,10 @@ function ProductPage() {
       ];
     })
   );
+
+  if (!product) {
+    return <div className='loadingProducts'> ProductPageLayout Exploded </div>
+  }
 	
   function handleProductBrandName() {
     if (product.brand === product.name) {
