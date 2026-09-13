@@ -2,16 +2,32 @@ import { useMemo } from 'react'
 import TextCard from './TextCard';
 import ProductShopCard from './ProductShopCard';
 import { useAppStore } from '../store/useAppStore';
+import { useShallow } from 'zustand/shallow';
 
 function ProductPage() {
 
-  const isOpen = useAppStore((state) => state.isProductPageOpen);
-  const onClose = useAppStore((state) => state.closeProductPage);
-  const prodInfo = useAppStore((state) => state.productPageProd);
-  const shops = useAppStore((state) => state.shops)
-  const product = (useAppStore((state) => state.products))[prodInfo[0]];
-  const productJoints = prodInfo[1];
-  const productDiscounts = prodInfo[2];
+  const [
+    isOpen, 
+    onClose, 
+    product, 
+    productJoints, 
+    productDiscounts, 
+    shops
+  ] = useAppStore(
+    useShallow((state) => {
+      const info = state.productPageProd || [];
+      const prodId = info[0];
+
+      return [
+        state.isProductPageOpen,
+        state.closeProductPage,
+        state.products?.[prodId],
+        info[1] || [],
+        info[2] || [],
+        state.shops
+      ];
+    })
+  );
 	
   function handleProductBrandName() {
     if (product.brand === product.name) {
@@ -27,7 +43,9 @@ function ProductPage() {
       <span key={index}>{flavour}</span>
     ));
   }
-  const productQuantity = `${product.quant} ${[1, 7].includes(product.category) ? 'L' : 'g'}`;
+  const productQuantity = product?.quant 
+  ? `${product.quant} ${[1, 7].includes(product.category) ? 'L' : 'g'}`
+  : '';
 
   const shopCards = useMemo(() => {
 		return productJoints
