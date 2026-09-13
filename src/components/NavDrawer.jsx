@@ -13,11 +13,11 @@ function NavDrawer({ isOpen, onClose, onNavigate }) {
 
 	const locationAriaMenuRef = useRef(null);
 
-	const toggleLocationAriaMenu = () => {
-		if(locationAriaMenuRef.current) {
+	function toggleLocationAriaMenu() {
+		if (locationAriaMenuRef.current) {
 			locationAriaMenuRef.current.open = !locationAriaMenuRef.current.open;
 		}
-	};
+	}
 
   return (
     <>

@@ -1,13 +1,19 @@
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import TextCard from './TextCard';
 import ProductShopCard from './ProductShopCard';
-import { MOCK_JOINTS } from '../data/shop_prod_rows';
-import { MOCK_SHOPS } from '../data/shop_rows';
-import { MOCK_DISCOUNT } from '../data/discount_rows';
+import { useAppStore } from '../store/useAppStore';
 
-function ProductPage({ product, isOpen, onClose }) {
+function ProductPage() {
+
+  const isOpen = useAppStore((state) => state.isProductPageOpen);
+  const onClose = useAppStore((state) => state.closeProductPage);
+  const prodInfo = useAppStore((state) => state.productPageProd);
+  const shops = useAppStore((state) => state.shops)
+  const product = (useAppStore((state) => state.products))[prodInfo[0]];
+  const productJoints = prodInfo[1];
+  const productDiscounts = prodInfo[2];
 	
-  const handleProductBrandName = () => {
+  function handleProductBrandName() {
     if (product.brand === product.name) {
       return product.name;
     }
@@ -15,7 +21,7 @@ function ProductPage({ product, isOpen, onClose }) {
       `${product.brand}, ${product.name}`
     );
   }
-  const handleProductFlavour = () => {
+  function handleProductFlavour() {
     const flavoursArray = product.flavour.split(', ');
     return flavoursArray.map((flavour, index) => (
       <span key={index}>{flavour}</span>
@@ -24,25 +30,19 @@ function ProductPage({ product, isOpen, onClose }) {
   const productQuantity = `${product.quant} ${[1, 7].includes(product.category) ? 'L' : 'g'}`;
 
   const shopCards = useMemo(() => {
-		const productDiscounts = MOCK_DISCOUNT.filter(discount => discount.prod_id === product.id);
-		const shopsMap = MOCK_SHOPS.reduce((acc, shop) => {
-			acc[shop.id] = shop;
-			return acc;
-		}, {});
-		return MOCK_JOINTS
-    .filter(joint => joint.prod_id === product.id)
+		return productJoints
 		.sort((a, b) => a.price - b.price)
     .map(joint => {
-      const productShop = shopsMap[joint.shop_id];
-			const discount = productDiscounts.find(discount => discount.shop_id === joint.shop_id)
-      return <ProductShopCard key={joint.id} joint={joint} shop={productShop} discount={discount}/>
+      const productShop = shops[joint.shop_id];
+			const productDiscount = productDiscounts.find(discount => discount.shop_id === joint.shop_id)
+      return <ProductShopCard key={joint.id} joint={joint} shop={productShop} discount={productDiscount}/>
     });
-  }, [product.id]);
+  }, [product]);
 
   return (
     <div className={`productPage ${isOpen? 'open' : ''}`}>
       <md-divider />
-      <md-list-item className="productPageRibbon" type='link' onClick={onClose}>
+      <md-list-item className="productPageRibbon" type='link' onClick={() => onClose()}>
         <md-icon slot='start'>arrow_left_alt</md-icon>
         <div slot='headline'>Back to products</div>
       </md-list-item>

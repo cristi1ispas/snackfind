@@ -1,5 +1,4 @@
-import { useRef, useState, useMemo, useEffect } from "react";
-import { supabase } from "./lib/supabaseClient";
+import { useRef, useState, useEffect } from "react";
 import TopAppBar from './components/TopAppBar';
 import NavDrawer from './components/NavDrawer';
 import AccountCenter from './components/AccountCenter';
@@ -13,8 +12,14 @@ import SearchFAB from "./components/SearchFAB";
 import FiltersFAB from "./components/FiltersFAB"
 import SubPageLayout from "./components/SubPageLayout";
 import ProductPageLayout from './components/ProductPageLayout';
+import { useAppStore } from "./store/useAppStore";
 
 function MainLayout() {
+
+  const fetchSupabaseData = useAppStore((state) => state.fetchSupabaseData);
+  useEffect(() => {
+    fetchSupabaseData();
+  }, [fetchSupabaseData]);
 
   const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false);
   
@@ -28,85 +33,18 @@ function MainLayout() {
 		setIsSubPageRendered(true);
 		setTimeout(() => setIsSubPageOpen(true), 10);
 	}
-
 	const closeSubPage = () => {
 		setIsSubPageOpen(false);
 		setTimeout(() => setIsSubPageRendered(false), 300);
 	}
-
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const [searchValue, setSearchValue] = useState('');
-
-  const normalizeText = (text) => {
-    if (!text) return '';
-    return text
-      .toString()
-      .toLowerCase()
-      .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-      .replace(/k/g, "c")
-      .replace(/,/g, ".")
-      .replace(/['`’\-]/g, "");
-  };
-	
-  /* data fetching */
-  const [products , setProducts] = useState({});
-  const [productsError, setProductsError] = useState(null);
-  const [isProductsLoading, setIsProductsLoading] = useState(true);
-  useEffect(() => {
-    const fetchProducts = async () => {
-      setIsProductsLoading(true);
-      const { data, error } = await supabase
-        .from('prod').select();
-
-      if (error) {
-        setProductsError('Could not get products');
-        console.error(error); 
-        setIsProductsLoading(false);
-      }
-      if (data) {
-        const indexedProducts = data.reduce((acc, product) => {
-          acc[product.id] = product;
-          return acc;
-        }, {});
-
-        setProducts(indexedProducts);
-        setProductsError(null);
-        setIsProductsLoading(false);
-      }
-    }
-
-    fetchProducts();
-
-  }, []);
-
-  const [selectedCategories, setSelectedCategories] = useState([]);
-  const filteredProducts = useMemo(() => {
-    return Object.values(products).filter((product) => {
-      if (selectedCategories.length === 0)
-        return true;
-      return selectedCategories.includes(product.category);
-    })
-    .filter((product) => {
-      if (searchValue.length === 0)
-        return true;
-      const searchWords = normalizeText(searchValue).split(' ').filter(w => w !== ''); /* array of searched words */
-      const unit = [1, 7].includes(product.category) ? 'l' : 'g' ;
-      const quantAndUnit = `${product.quant}${unit}`;
-      const productDetails = normalizeText(`${product.brand} ${product.name} ${product.flavour}`);
-      return searchWords.every(word => {
-        if(word === quantAndUnit || word === product.quant.toString())
-          return true;
-        return productDetails.includes(word);
-      });
-    });
-  }, [searchValue, selectedCategories, products]);
+  /** The subPage system is horrible, will be redone when the feature comes out.
+   *  of of my days of learning react */
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const searchInputRef = useRef(null);
-  const focusSearchInput = () => {
+  function focusSearchInput() {
     setIsSearchOpen(true);
-    if(searchInputRef.current){
+    if (searchInputRef.current) {
       searchInputRef.current.focus();
     }
   }
@@ -115,39 +53,25 @@ function MainLayout() {
   
   const [activeScreen, setActiveScreen] = useState('explore');
 
-	const [isProductPageOpen, setIsProductPageOpen] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  
-  const closeProductPage = () => {
-		setIsProductPageOpen(false);
-		setTimeout(() => setSelectedProduct(null), 300);
-	}
-  const handleProductAreaClick = (product) => {
-    setSelectedProduct(product);
-		setTimeout(() => setIsProductPageOpen(true), 10);
-  }
-
   return (
     <>
-      <TopAppBar searchValue={searchValue} onMenuClick={setIsNavDrawerOpen} onSearchClick={focusSearchInput} onAccountClick={setIsAccountCenterOpen} isLoggedIn={isLoggedIn} selectedCategories={selectedCategories} setSelectedCategories={setSelectedCategories} showRibbon={activeScreen} />
+      <TopAppBar onMenuClick={setIsNavDrawerOpen} onSearchClick={focusSearchInput} onAccountClick={setIsAccountCenterOpen} showRibbon={activeScreen} />
 
-      <Search searchValue={searchValue} setSearchValue={setSearchValue} isOpen={isSearchOpen} onClose={setIsSearchOpen} searchInputRef={searchInputRef} onClearClick={focusSearchInput} />
+      <Search isOpen={isSearchOpen} onClose={setIsSearchOpen} searchInputRef={searchInputRef} onClearClick={focusSearchInput} />
 
 			<NavDrawer isOpen={isNavDrawerOpen} onClose={setIsNavDrawerOpen} onNavigate={renderSubPage} />
       {isSubPageRendered && (
-        <SubPageLayout title={subPageTitle} isOpen={isSubPageOpen} onClose={closeSubPage}>
-          {subPageContent}
-        </SubPageLayout>
+      <SubPageLayout title={subPageTitle} isOpen={isSubPageOpen} onClose={closeSubPage}>
+        {subPageContent}
+      </SubPageLayout>
       )}
 		
 			<AccountCenter isOpen={isAccountCenterOpen} onClose={setIsAccountCenterOpen}/>
 
       <main id="screen">
         <div id="explore" className={`styleScreen ${activeScreen === 'explore' ? 'activeScreen' : 'exitScreen'}`}>
-          <ExploreScreen filteredProducts={filteredProducts} isProductsLoading={isProductsLoading} onProductClick={handleProductAreaClick}/>
-          {selectedProduct && (
-          <ProductPageLayout product={selectedProduct} isOpen={isProductPageOpen} onClose={closeProductPage}/>
-          )}
+          <ExploreScreen />
+          <ProductPageLayout />
         </div>
         <div id="favourite" className={`styleScreen ${activeScreen === 'favourite' ? 'activeScreen' : 'exitScreen'}`}>
           <FavouriteScreen />
@@ -159,7 +83,7 @@ function MainLayout() {
           <ContributeScreen />
         </div>
         <div id="FABs">
-          <SearchFAB isProductPageOpen={isProductPageOpen} activeScreen={activeScreen} onClick={focusSearchInput} />
+          <SearchFAB activeScreen={activeScreen} onClick={focusSearchInput} />
           <FiltersFAB />
         </div>
       </main>
