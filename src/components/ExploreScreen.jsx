@@ -12,6 +12,7 @@ function ExploreScreen() {
       .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
       .replace(/k/g, "c")
       .replace(/,/g, ".")
+      .replace(/y/g, "i")
       .replace(/['`’\-]/g, "");
   }
 

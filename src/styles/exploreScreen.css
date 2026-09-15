@@ -44,14 +44,14 @@
 #productGrid {
   display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	padding: 8px;
-	column-gap: 8px;
-	row-gap: 8px;
+	padding: 6px;
+	column-gap: 6px;
+	row-gap: 6px;
 }
 #productGrid > .productGridItem{
 	position: relative;
 	border-radius: 12px;
-	max-width: calc(50vw - 12px);
+	max-width: calc(50vw - 9px);
 	box-sizing: border-box;
 	background-color: var(--color-scheme-secondary-container);
 	animation: fadeIn 0.3s cubic-bezier(0.2, 0, 0, 1) forwards;

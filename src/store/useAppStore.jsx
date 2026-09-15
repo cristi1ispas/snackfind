@@ -6,6 +6,7 @@ export const useAppStore = create(
   persist(
     (set) => ({
       products: [],
+      productsMap: [],
       shops: [],
       joints: [],
       discounts: [],
@@ -24,10 +25,16 @@ export const useAppStore = create(
 			closeProductPage: () => set({ isProductPageOpen: false }),
 
       fetchSupabaseData: async () => {
+
+        if (!navigator.onLine) {
+          console.log("App offline, loading cached data.");
+          return;
+        }
+
         set({ isLoading: true });
         try {
           const responses = await Promise.all([
-            supabase.from('prod').select(),
+            supabase.from('prod').select().order('created_at', {ascending: false}),
             supabase.from('shop').select(),
             supabase.from('shop_prod').select(),
             supabase.from('discount').select(),
@@ -35,8 +42,7 @@ export const useAppStore = create(
 
           const failedResponse = responses.find(response => response.error);
           if (failedResponse) {
-            console.error('failed response supabase:', failedResponse.error);
-            return;
+            throw new Error(`failed response supabase: ${JSON.stringify(failedResponse.error)}`);
           }
 
           const indexData = (data) =>
@@ -49,13 +55,14 @@ export const useAppStore = create(
           const [prod, shop, shop_prod, discount] = responses;
 
           set({
-            products: indexData(prod.data),
-            shops: indexData(shop.data),
-            joints: shop_prod.data,
-            discounts: discount.data,
+            products/*Map*/: prod.data ? indexData(prod.data) : [],
+            /*products: prod.data || [],*/
+            shops: shop.data ? indexData(shop.data) : [],
+            joints: shop_prod.data || [],
+            discounts: discount.data || [],
           })
         } catch (error) {
-          console.error('FATAL network ', error);
+          console.error('FATAL network.', error);
         } finally {
           set({ isLoading: false });
         }

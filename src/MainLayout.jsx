@@ -17,9 +17,12 @@ import { useAppStore } from "./store/useAppStore";
 function MainLayout() {
 
   const fetchSupabaseData = useAppStore((state) => state.fetchSupabaseData);
+  const products = useAppStore((state) => state.products);
   useEffect(() => {
-    fetchSupabaseData();
-  }, [fetchSupabaseData]);
+    if (navigator.onLine || products.length === 0) {
+      fetchSupabaseData();
+    }
+  }, [fetchSupabaseData, products.length]);
 
   const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false);
   
