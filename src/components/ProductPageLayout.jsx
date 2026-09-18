@@ -47,12 +47,6 @@ function ProductPage() {
       `${product.brand}, ${product.name}`
     );
   }
-  function handleProductFlavour() {
-    const flavoursArray = product.flavour.split(', ');
-    return flavoursArray.map((flavour, index) => (
-      <span key={index}>{flavour}</span>
-    ));
-  }
 
   const productQuantity = product?.quant 
   ? `${product.quant} ${[1, 7].includes(product.category) ? 'L' : 'g'}`
@@ -82,7 +76,7 @@ function ProductPage() {
             </div>
             <div className="FlavoursQuantity">
               <div className='textCardFlavour'>
-                <TextCard supportingText="Flavours" headline={handleProductFlavour()} />
+                <TextCard supportingText="Flavours" headline={product.flavour.map((flavour, index) => (<span key={index}>{flavour}</span>))} />
               </div>
               <div className="QuantityVegan">
                 <div className="textCardQuantity">

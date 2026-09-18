@@ -3,11 +3,12 @@ import { useAppStore } from '../store/useAppStore';
 function ProductGridItem({ product }) {
 
   const joints = useAppStore((state) => state.joints);
+  const discounts = useAppStore((state) => state.discounts);
   const productJoints = Object.values(joints)
     .filter(joint => joint.prod_id === product.id);
-  const discounts = useAppStore((state) => state.discounts);
-  const productDiscounts = Object.values(discounts)
-    .filter(discount => discount.prod_id === product.id);
+  const productDiscounts =
+    Object.values(discounts).filter(discount =>
+      discount.prod_reward === product.id || discount.prod_required?.includes(product.id));
   const setProductPageProd = useAppStore((state) => state.setProductPageProd);
 
   function handleLowestPrice() {
@@ -41,7 +42,7 @@ function ProductGridItem({ product }) {
             {product.name}
           </span>
           <div className='FlavourQuant'>
-            <span className="productFlavourTag">{product.flavour}</span>
+            <span className="productFlavourTag">{product.flavour?.join(', ')}</span>
             <span className='productQuantTag'>
               {product.quant} {[1, 7].includes(product.category) ? 'L' : 'g'}
             </span>
