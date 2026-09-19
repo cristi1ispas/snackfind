@@ -19,7 +19,7 @@ function MainLayout() {
   const fetchSupabaseData = useAppStore((state) => state.fetchSupabaseData);
   const products = useAppStore((state) => state.products);
   useEffect(() => {
-    if (navigator.onLine || products.length === 0) {
+    if (navigator.onLine) {
       fetchSupabaseData();
     }
   }, [fetchSupabaseData, products.length]);
