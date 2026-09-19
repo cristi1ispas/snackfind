@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import { useState } from "react"
+import SignUpFormTest from "./SignUpFormTest";
+import SignInFormTest from "./SignInFormTest";
 
 function AccountCenter({ isOpen ,onClose }) {
 
-
+  const [isSignUpFormOpen, setIsSignUpFormOpen] = useState(false);
+  const [isSignInFormOpen, setIsSignInFormOpen] = useState(false);
 
   return (
     <>
@@ -19,6 +22,16 @@ function AccountCenter({ isOpen ,onClose }) {
             <sup>$username$</sup>
             <br />
           </div>
+
+        <md-filled-button onClick={() => {setIsSignUpFormOpen(true); setIsSignInFormOpen(false)}}>
+          <span>Sign Up</span>
+        </md-filled-button>
+        <md-filled-button onClick={() => {setIsSignUpFormOpen(false); setIsSignInFormOpen(true)}}>
+          <span>Sign In</span>
+        </md-filled-button>
+
+        {isSignUpFormOpen && <SignUpFormTest />}
+        {isSignInFormOpen && <SignInFormTest />}
         
         <md-list id="accountSettingsList">
           <md-list-item type="button">

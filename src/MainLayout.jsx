@@ -18,11 +18,15 @@ function MainLayout() {
 
   const fetchSupabaseData = useAppStore((state) => state.fetchSupabaseData);
   const products = useAppStore((state) => state.products);
+  const initializeAuth = useAppStore((state) => state.initializeAuth);
   useEffect(() => {
     if (navigator.onLine || products.length === 0) {
       fetchSupabaseData();
     }
   }, [fetchSupabaseData, products.length]);
+  useEffect(() => {
+    initializeAuth();
+  }, [initializeAuth]);
 
   const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false);
   

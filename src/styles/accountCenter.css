@@ -8,6 +8,7 @@
     width: 100vw;
     height: 100vh;
     z-index: 9900;
+    will-change: transition;
     transform: translateX(100%);
     transition: all 0.2s ease-in-out;
 }
@@ -66,4 +67,12 @@ md-list#accountSettingsList md-list-item.settingsTheme label[for="themeSwitch"] 
     align-items: center;
     gap: 4px;
     margin: 12px 0 12px 0;
+}
+
+
+
+.signUpFormTest{
+	position: fixed;
+	top: 0;
+	left: 0;
 }

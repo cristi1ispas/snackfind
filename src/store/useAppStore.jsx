@@ -2,15 +2,24 @@ import { create } from "zustand";
 import { supabase } from "../lib/supabaseClient";
 import { persist } from "zustand/middleware";
 
+const emptyProfile = null;
+
+function usernameToEmail(username) {
+  const normalizedUsername = username.trim().toLowerCase();
+  return `${normalizedUsername}@users.email.snackfind`;
+}
+
 export const useAppStore = create(
   persist(
-    (set) => ({
+    (set, get) => ({
       products: [],
       productsMap: [],
       shops: [],
       joints: [],
       discounts: [],
+
       isLoading: false,
+
       searchValue: '',
       selectedCategories: [],
       productPageProd: [1, [], []],
@@ -23,6 +32,193 @@ export const useAppStore = create(
         isProductPageOpen: true,
       }),
 			closeProductPage: () => set({ isProductPageOpen: false }),
+
+      session: null,
+      profile: null,
+      authLoading: true,
+      authError: null,
+
+      fetchProfile: async () => {
+        const currentSession = get().session;
+
+        if (!currentSession?.user) {
+          set({ profile: null });
+          return;
+        }
+
+        const { data, error } = await supabase
+          .from("profiles")
+          .select("id, username, score, rank")
+          .eq("id", currentSession.user.id)
+          .single();
+
+        if (error) {
+          console.error("Could not fetch profile:", error);
+          set({ profile: null });
+          return;
+        }
+
+        set({ profile: data });
+      },
+
+      initializeAuth: async () => {
+        set({ authLoading: true });
+
+        const {
+          data: { session },
+        } = await supabase.auth.getSession();
+
+        set({ session });
+
+        if (session) {
+          await get().fetchProfile();
+        }
+
+        const {
+          data: { subscription },
+        } = supabase.auth.onAuthStateChange((event, newSession) => {
+          set({ session: newSession });
+
+          if (newSession) {
+            setTimeout(() => {
+              get().fetchProfile();
+            }, 10);
+          } else {
+            set({ profile: null });
+          }
+        });
+
+        set({ authLoading: false });
+
+        return () => {
+          subscription.unsubscribe();
+        };
+      },
+
+      signUp: async (username, password, inviteCode) => {
+        set({
+          authError: null,
+          authLoading: true,
+        });
+
+        const cleanUsername = username.trim();
+        const cleanInviteCode = inviteCode.trim();
+
+        if (!cleanUsername || !password || !cleanInviteCode) {
+          const error = new Error(
+            "Username, password, and invite code are required."
+          );
+
+          set({
+            authError: error.message,
+            authLoading: false,
+          });
+
+          throw error;
+        }
+
+        const email = usernameToEmail(cleanUsername);
+
+        const { data, error } = await supabase.auth.signUp({
+          email,
+          password,
+          options: {
+            data: {
+              username: cleanUsername,
+              invite_code: cleanInviteCode.toUpperCase(),
+            },
+          },
+        });
+
+        if (error) {
+          set({
+            authError: error.message,
+            authLoading: false,
+          });
+
+          throw error;
+        }
+
+        set({
+          session: data.session,
+          authLoading: false,
+        });
+
+        if (data.session) {
+          await get().fetchProfile();
+        }
+
+        return data;
+      },
+
+      signIn: async (username, password) => {
+        set({ authError: null, authLoading: true });
+
+        const email = usernameToEmail(username);
+
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
+
+        if (error) {
+          set({
+            authError: error.message,
+            authLoading: false,
+          });
+
+          throw error;
+        }
+
+        set({
+          session: data.session,
+          authLoading: false,
+        });
+
+        await get().fetchProfile();
+      },
+
+      signOut: async () => {
+        const { error } = await supabase.auth.signOut();
+
+        if (error) {
+          throw error;
+        }
+
+        set({
+          session: null,
+          profile: null,
+          authError: null,
+        });
+      },
+      // Call with `await <function>(<param>,<param>);`
+
+      updateShopProductPrice: async (shopId, prodId, newPrice, source) => {
+        const numericPrice = Number(newPrice);
+
+        if (!Number.isFinite(numericPrice)) {
+          throw new Error("Price must be a valid number.");
+        }
+
+        const { data, error } = await supabase.rpc(
+          "update_shop_product_price",
+          {
+            p_shop_id: shopId,
+            p_prod_id: prodId,
+            p_new_price: numericPrice,
+            p_source: source,
+          }
+        );
+
+        if (error) {
+          throw error;
+        }
+
+        await get().fetchSupabaseData();
+        await get().fetchProfile();
+
+        return data;
+      },
 
       fetchSupabaseData: async () => {
 
@@ -75,6 +271,7 @@ export const useAppStore = create(
         shops: state.shops,
         joints: state.joints,
         discounts: state.discounts,
+        isLoading: state.isLoading,
       }),
     }
   )

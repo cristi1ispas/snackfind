@@ -24,7 +24,7 @@ function TopAppBar({ onMenuClick, onSearchClick, onAccountClick, isLoggedIn, use
 					</md-icon-button>
 				</div>
 
-				<md-icon-button id="account" onClick={() => onAccountClick(true)} disabled>
+				<md-icon-button id="account" onClick={() => onAccountClick(true)}>
 					{isLoggedIn && userDetails.pfp
 						? (<img src={userDetails.pfp} alt='Profile'/>)
 						: (<md-icon>account_circle</md-icon>)
