@@ -228,85 +228,25 @@ div.IconPLUSDate > span.dateUpdated{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	gap: 8px;
 	padding: 8px;
 	border-radius: 6px 6px 20px 20px;
 	background-color: var(--color-scheme-error-container);
 	background-image: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.22) 2%, transparent 12%)
-}
-.productDiscount > md-icon.arrow_downward, .productDiscountOffer > md-icon{
-	--md-icon-size: 32px;
 }
 .productDiscount > .productDiscountDetailsIndicator{
 	position: absolute;
 	bottom: 0;
 	right: 0;
 }
-.productDiscount > .productDiscountOffer{
+.productDiscount > .discountCancelWarn{
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
 	align-items: center;
-	flex-grow: 1;
-	width: 100%;
-}
-.productDiscountOffer > .requirement{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 4px;
-	overflow: hidden;
-}
-.productDiscountOffer > .requirement > img{
-	width: 60%;
-	height: auto;
-	aspect-ratio: 1 / 1;
-	object-fit: contain;
-	background-color: var(--color-scheme-error-container);
-}
-.productDiscountOffer > .requirement > span{
-	display: block;
-	text-align: center;
-	line-height: 1rem;
-	max-height: 2rem;
-	text-overflow: ellipsis;
-}
-.productDiscount > .productDiscountReward{
-	display: flex;
-	flex-direction: row;
-	height: 25vw;
-	border-radius: 14px;
-	border: 1px solid var(--color-scheme-outline);
-}
-.productDiscountReward > img{
-	width: auto;
-	height: 100%;
-	border-radius: 14px 0 0 14px;
-	aspect-ratio: 1 / 1;
-	object-fit: contain;
-	background-color: var(--color-scheme-error-container);
-}
-.productDiscountReward > .RewardDetails{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
+	gap: 6px;
 	padding: 6px;
-	flex-grow: 1;
-}
-.RewardDetails > .RewardDetailsName{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-.RewardDetails > .RewardDetailsPrice{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	color: var(--color-scheme-on-error);
-	background-color: var(--color-scheme-error);
-	padding: 2px;
 	border-radius: 8px;
-}
-.RewardDetailsPrice > b{
-	font-size: 20px;
+	margin-right: 48px;
+	color: var(--color-scheme-on-error-container);
+	background-color: rgba(250, 0, 0, 0.1);
 }

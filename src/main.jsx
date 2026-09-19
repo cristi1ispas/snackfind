@@ -11,6 +11,7 @@ import './styles/textCard.css'
 import './styles/exploreScreen.css'
 import './styles/search.css'
 import './styles/subPageScreen.css'
+import './styles/discountTypes.css'
 
 import './styles/accountCenter.css'
 import './styles/topAppBar.css'

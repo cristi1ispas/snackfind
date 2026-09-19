@@ -7,25 +7,38 @@ function ProductShopCard({ joint, shop, discount }) {
   function handleDiscountType() {
     switch (discount.type) {
       case 1:
-        return <SimpleDiscountTemplate />;
+        return <SimpleDiscountTemplate discount={discount}/>;
       case 2:
-        return <BuyXgetYtemplate />;
+        return <BuyXgetYtemplate discount={discount}/>;
       case 3:
-        return <LoyaltyDiscountTemplate />;
+        return <LoyaltyDiscountTemplate discount={discount}/>;
     }
+  }
+
+  function handleCancelWarning() {
+    return (
+      <div className='discountCancelWarn'>
+        <md-icon>warning</md-icon>
+        <b>{/*discount.canceled_by.length*/}2 Users say it's not there anymore!</b>
+      </div>
+    )
   }
 
   function handleDiscount() {
     if (discount) {
       return (
         <div className="productDiscount">
-          {handleDiscountType()}
+          <div className={`discountType${discount.type}`}>
+            {handleDiscountType()}
+          </div>
+          {/*discount.canceled_by !== null && */handleCancelWarning()}
           <div className='productDiscountDetailsIndicator'>
             <md-icon-button>
               <md-icon>arrow_forward_ios</md-icon>
             </md-icon-button>
           </div>
-        </div>);
+        </div>
+      );
     }
   }
 
@@ -37,6 +50,8 @@ function ProductShopCard({ joint, shop, discount }) {
         return `cloud_download`;
       case 3:
         return `shelves`;
+      case 4:
+        return `hearing`;
     }
   }
 
@@ -49,12 +64,12 @@ function ProductShopCard({ joint, shop, discount }) {
     <>
       <div className="productShopCard">
         <div className="productShopHeadline">
-          <md-list-item className={`shop-button`} type="button">
+          <md-list-item className={`shop-button ${discount ? 'discount' : ''}`} type="button">
             <img slot="start" src={`/Shop-photo-id-${shop.id}.png`} />
             <div slot="headline">{shop.popular}</div>
             <div slot="supporting-text">{shop.official}</div>
           </md-list-item>
-          <md-list-item className={`productPriceButton`} type="button">
+          <md-list-item className={`productPriceButton  ${discount ? 'discount' : ''}`} type="button">
             <div className="productPrice">
               <div className='productPriceNumeral'>
                 <span>{Math.trunc(joint.price)}</span>
@@ -67,6 +82,7 @@ function ProductShopCard({ joint, shop, discount }) {
             </div>
           </md-list-item>
         </div>
+        {handleDiscount()}
       </div>
       <md-divider />
     </>

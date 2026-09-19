@@ -32,6 +32,16 @@ export const useAppStore = create(
         isProductPageOpen: true,
       }),
 			closeProductPage: () => set({ isProductPageOpen: false }),
+      validateDiscount: (valid_until, canceled_at) => {
+        const deviceTime = Date.now();
+
+        if(canceled_at !== null) return false;
+
+        if (valid_until !== null) {
+          if(deviceTime > new Date(valid_until).getTime()) return false;
+        }
+        return true;
+      },
 
       session: null,
       profile: null,
@@ -248,15 +258,21 @@ export const useAppStore = create(
             }, {})
             : {};
 
-          const [prod, shop, shop_prod, discount] = responses;
+          const [prod, shop, shop_prod, discountRaw] = responses;
+          const discountData = discountRaw.data || [];
+
+          const activeDiscounts = discountData.filter(row => 
+            get().validateDiscount(row.valid_until, row.canceled_at)
+          );
 
           set({
             products/*Map*/: prod.data ? indexData(prod.data) : [],
             /*products: prod.data || [],*/
             shops: shop.data ? indexData(shop.data) : [],
             joints: shop_prod.data || [],
-            discounts: discount.data || [],
-          })
+            discounts: activeDiscounts,
+            discountsHistory: discountData,
+          });
         } catch (error) {
           console.error('FATAL network.', error);
         } finally {
