@@ -1,7 +1,8 @@
 import { Fragment } from 'react';
 import { useAppStore } from '../../store/useAppStore';
+import SimpleDiscountTemplate from './SimpleDiscountTemplate';
 
-function BuyXgetYtemplate({ discount }) {
+function BuyXgetYtemplate({ discount, children }) {
 
   const products = useAppStore((state) => state.products)
   
@@ -13,7 +14,6 @@ function BuyXgetYtemplate({ discount }) {
   }
 
   const firstRequirement = products[discount.prod_required[0]];
-  const discountReward = products[discount.prod_reward]
 
   function handleRequirements() {
     if (discount.prod_required && discount.prod_required.length > 1) {
@@ -48,22 +48,9 @@ function BuyXgetYtemplate({ discount }) {
         </div>
         {handleRequirements()}
       </div>
+      {children}
       <md-icon className='arrow_downward'>arrow_downward</md-icon>
-      <div className="productDiscountReward">
-        <img src={discountReward.image} />
-        <div className='RewardDetails'>
-          <div className="RewardDetailsName">
-            <span>{discountReward.brand} <b>{discountReward.quant}{[1,7].includes(discountReward.category) ? `L` : 'g'}</b></span>
-            {areSame(discount.prod_required[0]) && <span>{discountReward.name}</span>}
-          </div>
-          <div className='RewardDetailsPrice'>
-            <b>{discount.percent}</b>
-            <md-icon>percent</md-icon>
-            <md-icon style={{padding : '2px 0'}}>arrow_right_alt</md-icon>
-            <b>{discount.price === 0 ? 'FREE!' : discount.price}</b>
-          </div>
-        </div>
-      </div>
+      <SimpleDiscountTemplate discount={discount} />
     </>
   )
 }

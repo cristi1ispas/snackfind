@@ -142,20 +142,19 @@ md-list-item.productPageRibbon > div[slot=headline]{
 
 
 .productPageContent > .productShopsList{
-	gap: 4px;
+	gap: 8px;
 	background-color: var(--color-scheme-surface);
-	padding: 6px;
+	padding: 8px;
 }
 .productShopsList > .productShopCard{
 	display: flex;
 	flex-grow: 1;
 	flex-direction: column;
 	gap: 4px;
-	border-radius: 20px;
-	padding: 6px;
 }
 .productShopsList > md-divider{
-	padding: 0 14px;
+	padding: 0 8px;
+	--md-divider-thickness: 3px;
 }
 .productShopCard > .productShopHeadline{
 	display: flex;
@@ -173,6 +172,7 @@ md-list-item.productPageRibbon > div[slot=headline]{
 	--md-list-item-label-text-weight: 550;
 	--md-list-item-supporting-text-size: small;
 	--md-list-item-supporting-text-weight: 450;
+	--md-sys-color-on-surface: var(--color-scheme-on-primary-container);
 	background-color: var(--color-scheme-primary-container);
 }
 .productShopHeadline > md-list-item.shop-button.discount{
@@ -188,6 +188,7 @@ md-list-item.shop-button > img{
 .productShopHeadline > md-list-item.productPriceButton{
 	height: 100%;
 	border-radius: 6px 20px 20px 6px;
+	--md-sys-color-on-surface: var(--color-scheme-on-tertiary-container);
 	background-color: var(--color-scheme-tertiary-container);
 	--md-list-item-top-space: 8px;
 	--md-list-item-bottom-space: 8px;
@@ -230,9 +231,13 @@ div.IconPLUSDate > span.dateUpdated{
 	align-items: center;
 	gap: 8px;
 	padding: 8px;
-	border-radius: 6px 6px 20px 20px;
-	background-color: var(--color-scheme-error-container);
+	border-radius: 6px;
+	background-color: var(--color-scheme-discount-container);
+	color: var(--color-scheme-on-discount-container);
 	background-image: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.22) 2%, transparent 12%)
+}
+.productShopCard > .productDiscount:last-child {
+  border-radius: 6px 6px 20px 20px;
 }
 .productDiscount > .productDiscountDetailsIndicator{
 	position: absolute;
@@ -247,6 +252,6 @@ div.IconPLUSDate > span.dateUpdated{
 	padding: 6px;
 	border-radius: 8px;
 	margin-right: 48px;
-	color: var(--color-scheme-on-error-container);
+	color: #820009;
 	background-color: rgba(250, 0, 0, 0.1);
 }

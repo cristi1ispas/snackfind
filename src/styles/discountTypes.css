@@ -1,9 +1,9 @@
-.productDiscount > .discountType2{
+.productDiscount > .discountType2, .productDiscount > .discountType3{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-.discountType2 > .productDiscountOffer{
+.discountType2 > .productDiscountOffer, .discountType3 > .productDiscountOffer{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
@@ -11,17 +11,17 @@
 	flex-grow: 1;
 	width: 100%;
 }
-.discountType2 > md-icon.arrow_downward, .productDiscountOffer > md-icon{
+.discountType2 > md-icon.arrow_downward, .discountType3 > md-icon.arrow_downward, .productDiscountOffer > md-icon{
 	--md-icon-size: 32px;
 }
-.discountType2 .productDiscountOffer > .requirement{
+.discountType2 .productDiscountOffer > .requirement, .discountType3 .productDiscountOffer > .requirement{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 4px;
 	overflow: hidden;
 }
-.discountType2 .productDiscountOffer > .requirement > img{
+.discountType2 .productDiscountOffer > .requirement > img, .discountType3 .productDiscountOffer > .requirement > img{
 	width: 60%;
 	height: auto;
 	aspect-ratio: 1 / 1;
@@ -29,22 +29,21 @@
 	object-fit: contain;
 	background-color: var(--color-scheme-error-container);
 }
-.discountType2 .productDiscountOffer > .requirement > span{
+.discountType2 .productDiscountOffer > .requirement > span, .discountType3 .productDiscountOffer > .requirement > span{
 	display: block;
 	text-align: center;
 	line-height: 1rem;
 	max-height: 2rem;
 	text-overflow: ellipsis;
 }
-.discountType2 > .productDiscountReward{
+.productDiscount .productDiscountReward{
 	display: flex;
 	flex-direction: row;
 	height: 25vw;
 	border-radius: 14px;
-	border: 1px solid var(--color-scheme-outline);
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.6);
 }
-.discountType2 .productDiscountReward > img{
+.productDiscount .productDiscountReward > img{
 	width: auto;
 	height: 100%;
 	border-radius: 14px 0 0 14px;
@@ -52,7 +51,7 @@
 	object-fit: contain;
 	background-color: var(--color-scheme-error-container);
 }
-.discountType2 .productDiscountReward > .RewardDetails{
+.productDiscount .productDiscountReward > .RewardDetails{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -60,20 +59,31 @@
 	padding: 6px;
 	flex-grow: 1;
 }
-.discountType2 .RewardDetails > .RewardDetailsName{
+.productDiscount .RewardDetails > .RewardDetailsName{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-.discountType2 .RewardDetails > .RewardDetailsPrice{
+.productDiscount .RewardDetails > .RewardDetailsPrice{
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	color: var(--color-scheme-on-error);
-	background-color: var(--color-scheme-error);
+	color: #df0000;
 	padding: 2px;
 	border-radius: 8px;
 }
-.discountType2 .RewardDetailsPrice > b{
+.productDiscount .RewardDetailsPrice > b{
 	font-size: 20px;
+}
+.discountType3 .loyaltyProgramRequirement{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 6px;
+	padding: 6px;
+	margin: 8px 0 0 4px;
+	border-radius: 8px;
+	color: #820009;
+	background-color: rgba(250, 0, 0, 0.1);
+	scale: 1.1;
 }

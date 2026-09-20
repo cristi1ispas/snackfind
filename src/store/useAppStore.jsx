@@ -9,6 +9,17 @@ function usernameToEmail(username) {
   return `${normalizedUsername}@users.email.snackfind`;
 }
 
+function validateDiscount (valid_until, canceled_at) {
+  const deviceTime = Date.now();
+
+  if(canceled_at !== null) return false;
+
+  if (valid_until !== null) {
+    if(deviceTime > new Date(valid_until).getTime()) return false;
+  }
+  return true;
+}
+
 export const useAppStore = create(
   persist(
     (set, get) => ({
@@ -32,16 +43,6 @@ export const useAppStore = create(
         isProductPageOpen: true,
       }),
 			closeProductPage: () => set({ isProductPageOpen: false }),
-      validateDiscount: (valid_until, canceled_at) => {
-        const deviceTime = Date.now();
-
-        if(canceled_at !== null) return false;
-
-        if (valid_until !== null) {
-          if(deviceTime > new Date(valid_until).getTime()) return false;
-        }
-        return true;
-      },
 
       session: null,
       profile: null,
@@ -262,7 +263,7 @@ export const useAppStore = create(
           const discountData = discountRaw.data || [];
 
           const activeDiscounts = discountData.filter(row => 
-            get().validateDiscount(row.valid_until, row.canceled_at)
+            validateDiscount(row.valid_until, row.canceled_at)
           );
 
           set({
@@ -287,6 +288,7 @@ export const useAppStore = create(
         shops: state.shops,
         joints: state.joints,
         discounts: state.discounts,
+        discountsHistory: state.discountsHistory,
         isLoading: state.isLoading,
       }),
     }

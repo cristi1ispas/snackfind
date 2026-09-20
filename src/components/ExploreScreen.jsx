@@ -17,7 +17,7 @@ function ExploreScreen() {
   }
 
   /* data fetching */
-  const isLoading = useAppStore((state) => state.isLoading)
+  const isLoading = useAppStore((state) => state.isLoading);
 
   const products = useAppStore((state) => state.products);
   const searchValue = useAppStore((state) => state.searchValue);
@@ -32,8 +32,7 @@ function ExploreScreen() {
       if (searchValue.length === 0)
         return true;
       const searchWords = normalizeText(searchValue).split(' ').filter(w => w !== ''); /* array of searched words */
-      const unit = [1, 7].includes(product.category) ? 'l' : 'g' ;
-      const quantAndUnit = `${product.quant}${unit}`;
+      const quantAndUnit = `${product.quant}${[1, 7].includes(product.category) ? 'l' : 'g'}`;
       const productDetails = normalizeText(`${product.brand} ${product.name} ${product.flavour}`);
       return searchWords.every(word => {
         if(word === quantAndUnit || word === product.quant.toString())

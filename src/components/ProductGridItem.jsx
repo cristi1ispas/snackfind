@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useAppStore } from '../store/useAppStore';
 
 function ProductGridItem({ product }) {
@@ -6,9 +7,13 @@ function ProductGridItem({ product }) {
   const discounts = useAppStore((state) => state.discounts);
   const productJoints = Object.values(joints)
     .filter(joint => joint.prod_id === product.id);
-  const productDiscounts =
-    Object.values(discounts).filter(discount =>
-      discount.prod_reward === product.id || discount.prod_required?.includes(product.id));
+  const productDiscounts = useMemo(() => 
+    Object.values(discounts).filter(
+      discount =>
+        discount.prod_reward === product.id ||
+        discount.prod_required?.includes(product.id)
+    ),[discounts, product.id]);
+    
   const setProductPageProd = useAppStore((state) => state.setProductPageProd);
 
   function handleLowestPrice() {
@@ -60,8 +65,7 @@ function ProductGridItem({ product }) {
       <md-divider onClick={() => setProductPageProd([ product.id, productJoints, productDiscounts ])} />
       <div className="productDetailsPrice" onClick={() => setProductPageProd([ product.id, productJoints, productDiscounts ])} >
         {handleLowestPrice()}
-        {productDiscounts.length > 0 &&
-        <md-icon>percent_discount</md-icon>}
+        {productDiscounts.length > 0 && <md-icon>percent_discount</md-icon>}
       </div>
       <md-outlined-icon-button className="addToBasketBtn" toggle disabled>
         <md-icon>add_shopping_cart</md-icon>

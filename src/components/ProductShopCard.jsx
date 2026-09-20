@@ -2,9 +2,9 @@ import BuyXgetYtemplate from './discountTemplates/BuyXgetYtemplate';
 import SimpleDiscountTemplate from './discountTemplates/SimpleDiscountTemplate';
 import LoyaltyDiscountTemplate from './discountTemplates/LoyaltyDiscountTemplate';
 
-function ProductShopCard({ joint, shop, discount }) {
+function ProductShopCard({ joint, shop, discounts = [] }) {
   
-  function handleDiscountType() {
+  function handleDiscountType(discount) {
     switch (discount.type) {
       case 1:
         return <SimpleDiscountTemplate discount={discount}/>;
@@ -15,31 +15,30 @@ function ProductShopCard({ joint, shop, discount }) {
     }
   }
 
-  function handleCancelWarning() {
+  function handleCancelWarning(discount) {
     return (
       <div className='discountCancelWarn'>
         <md-icon>warning</md-icon>
-        <b>{/*discount.canceled_by.length*/}2 Users say it's not there anymore!</b>
+        <b>{discount.canceled_by.length} User{discount.canceled_by.length === 2 && 's'} say{discount.canceled_by.length === 1 && 's'} it's not there anymore!</b>
       </div>
     )
   }
 
-  function handleDiscount() {
-    if (discount) {
-      return (
-        <div className="productDiscount">
-          <div className={`discountType${discount.type}`}>
-            {handleDiscountType()}
-          </div>
-          {/*discount.canceled_by !== null && */handleCancelWarning()}
-          <div className='productDiscountDetailsIndicator'>
-            <md-icon-button>
-              <md-icon>arrow_forward_ios</md-icon>
-            </md-icon-button>
-          </div>
+  function handleDiscount(discount) {
+    return (
+      <div key={discount.id} className="productDiscount">
+        <div className={`discountType${discount.type}`}>
+          {handleDiscountType(discount)}
         </div>
-      );
-    }
+        {console.log(discount.canceled_by)}
+        {discount.canceled_by.length !== 0 && handleCancelWarning(discount)}
+        <div className='productDiscountDetailsIndicator'>
+          <md-icon-button>
+            <md-icon>arrow_forward_ios</md-icon>
+          </md-icon-button>
+        </div>
+      </div>
+    );
   }
 
 	function priceSource() {
@@ -64,12 +63,12 @@ function ProductShopCard({ joint, shop, discount }) {
     <>
       <div className="productShopCard">
         <div className="productShopHeadline">
-          <md-list-item className={`shop-button ${discount ? 'discount' : ''}`} type="button">
+          <md-list-item className={`shop-button ${discounts ? 'discount' : ''}`} type="button">
             <img slot="start" src={`/Shop-photo-id-${shop.id}.png`} />
             <div slot="headline">{shop.popular}</div>
             <div slot="supporting-text">{shop.official}</div>
           </md-list-item>
-          <md-list-item className={`productPriceButton  ${discount ? 'discount' : ''}`} type="button">
+          <md-list-item className={`productPriceButton  ${discounts ? 'discount' : ''}`} type="button">
             <div className="productPrice">
               <div className='productPriceNumeral'>
                 <span>{Math.trunc(joint.price)}</span>
@@ -82,7 +81,7 @@ function ProductShopCard({ joint, shop, discount }) {
             </div>
           </md-list-item>
         </div>
-        {handleDiscount()}
+        {discounts.map((discount) => handleDiscount(discount))}
       </div>
       <md-divider />
     </>
