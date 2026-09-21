@@ -10,6 +10,7 @@
 	align-items: center;
 	flex-grow: 1;
 	width: 100%;
+	margin-bottom: 4px;
 }
 .discountType2 > md-icon.arrow_downward, .discountType3 > md-icon.arrow_downward, .productDiscountOffer > md-icon{
 	--md-icon-size: 32px;
@@ -27,7 +28,10 @@
 	aspect-ratio: 1 / 1;
   border-radius: 8px;
 	object-fit: contain;
-	background-color: var(--color-scheme-error-container);
+	background-color: inherit;
+}
+.discountType2 .productDiscountOffer > .requirement > img.onlyOne, .discountType3 .productDiscountOffer > .requirement > img.onlyOne{
+	width: 40%;
 }
 .discountType2 .productDiscountOffer > .requirement > span, .discountType3 .productDiscountOffer > .requirement > span{
 	display: block;
@@ -49,7 +53,7 @@
 	border-radius: 14px 0 0 14px;
 	aspect-ratio: 1 / 1;
 	object-fit: contain;
-	background-color: var(--color-scheme-error-container);
+	background-color: inherit;
 }
 .productDiscount .productDiscountReward > .RewardDetails{
 	display: flex;
@@ -81,9 +85,8 @@
 	align-items: center;
 	gap: 6px;
 	padding: 6px;
-	margin: 8px 0 0 4px;
+	margin: 4px 0;
 	border-radius: 8px;
 	color: #820009;
 	background-color: rgba(250, 0, 0, 0.1);
-	scale: 1.1;
 }

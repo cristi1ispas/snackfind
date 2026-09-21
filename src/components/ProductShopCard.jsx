@@ -30,7 +30,6 @@ function ProductShopCard({ joint, shop, discounts = [] }) {
         <div className={`discountType${discount.type}`}>
           {handleDiscountType(discount)}
         </div>
-        {console.log(discount.canceled_by)}
         {discount.canceled_by.length !== 0 && handleCancelWarning(discount)}
         <div className='productDiscountDetailsIndicator'>
           <md-icon-button>
@@ -63,12 +62,12 @@ function ProductShopCard({ joint, shop, discounts = [] }) {
     <>
       <div className="productShopCard">
         <div className="productShopHeadline">
-          <md-list-item className={`shop-button ${discounts ? 'discount' : ''}`} type="button">
+          <md-list-item className={`shop-button ${discounts.length > 0 ? 'discount' : ''}`} type="button">
             <img slot="start" src={`/Shop-photo-id-${shop.id}.png`} />
             <div slot="headline">{shop.popular}</div>
             <div slot="supporting-text">{shop.official}</div>
           </md-list-item>
-          <md-list-item className={`productPriceButton  ${discounts ? 'discount' : ''}`} type="button">
+          <md-list-item className={`productPriceButton ${discounts.length > 0 ? 'discount' : ''}`} type="button">
             <div className="productPrice">
               <div className='productPriceNumeral'>
                 <span>{Math.trunc(joint.price)}</span>
