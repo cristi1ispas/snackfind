@@ -59,7 +59,7 @@ export const useAppStore = create(
 
         const { data, error } = await supabase
           .from("profiles")
-          .select("id, username, score, rank")
+          .select()
           .eq("id", currentSession.user.id)
           .single();
 
@@ -112,8 +112,8 @@ export const useAppStore = create(
           authLoading: true,
         });
 
-        const cleanUsername = username.trim();
-        const cleanInviteCode = inviteCode.trim();
+        const cleanUsername = String(username ?? "").trim();
+        const cleanInviteCode = String(inviteCode ?? "").trim();
 
         if (!cleanUsername || !password || !cleanInviteCode) {
           const error = new Error(

@@ -1,78 +1,191 @@
 #accountCenter{
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    background-color: orchid;
-    top: 0;
-    right: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9900;
-    will-change: transition;
-    transform: translateX(100%);
-    transition: all 0.2s ease-in-out;
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--color-scheme-surface);
+	top: 0;
+	right: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 5000;
+	will-change: transform;
+	transform: translateX(100%);
+	will-change: transform;
+	transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1);
 }
 #accountCenter.open{
-    transform: translateX(0);
+	transform: translateX(0);
+}
+#accountCenter > .accountCenterWrapper{
+	position: relative;
+	display: flex;
+	flex-direction: column;
 }
 #accountCloseBtn{
-    align-self: flex-end;
-    padding: 4px;
-    width: 56px;
-    height: 56px;
-    --_icon-size: 32px;
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	width: 56px;
+	height: 56px;
+	--_icon-size: 32px;
+}
+.accountCenterWrapper > .accountSignInAction{
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	--md-outlined-button-icon-size: 24px
 }
 #accountPreview{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+	margin: 48px 0 8px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
 }
-#accountPreviewIMG{
-    position: relative;
-    width: 148px;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    border: 6px solid blue;
+#accountPreview  img{
+	width: 50vw;
+	height: auto;
+	aspect-ratio: 1 / 1;
+	border-radius: 50%;
+	border: 8px solid var(--color-scheme-outline-variant);
 }
-#accountPhotoAdd{
-    position: absolute;
-	right: 0;
-    top: 92px;
-    width: 56px;
-    height: 56px;
+#accountProgressXP{
+	position: absolute;
+	top: -4%;
+	left: -2%;
+	--_size: 105%;
+	--md-circular-progress-active-indicator-width: 5;
+	transform:rotate(225deg);
+}
+#accountPreview .lvlNumberWraper{
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 18%;
+	height: 18%;
+	bottom: 5%;
+	left: 5%;
+	border-radius: 50%;
+	padding: 4px;
+	aspect-ratio: 1 / 1;
+	background-color: var(--color-scheme-primary);
+	color: var(--color-scheme-on-primary);
 }
 md-list#accountSettingsList{
-    background-color: bisque;
+	background-color: var(--color-scheme-surface-container);
 }
 md-list#accountSettingsList md-list-item.settingsTheme{
-    --md-list-item-top-space: 0;
-    --md-list-item-bottom-space: 0;
-    --md-list-item-leading-space: 0;
-    --md-list-item-trailing-space: 0;
+	--md-list-item-top-space: 0;
+	--md-list-item-bottom-space: 0;
+	--md-list-item-leading-space: 0;
+	--md-list-item-trailing-space: 0;
 }
 md-list#accountSettingsList md-list-item.settingsTheme label[for="themeSwitch"]{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
-    box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	padding-left: 16px;
+	padding-right: 16px;
+	box-sizing: border-box;
 }
 md-list#accountSettingsList md-list-item.settingsTheme label[for="themeSwitch"] .iconsAndThemeSwitch{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-    margin: 12px 0 12px 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 4px;
+	margin: 12px 0 12px 0;
 }
 
 
 
-.signUpFormTest{
-	position: fixed;
+#signInPage{
+	position: absolute;
 	top: 0;
 	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 9000;
+	display: flex;
+	align-items: center;
+	transform: translateY(-100%);
+	justify-content: center;
+	background-color: var(--color-scheme-surface);
+	will-change: transform;
+	transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1);
+}
+#signInPage.open{
+	transform: translateY(0);
+}
+.signUpFormTest{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	padding: 40px;
+	padding-top: 48px;
+	box-sizing: border-box;
+	border: 2px solid var(--color-scheme-outline);
+	border-radius: 32px;
+}
+.signUpFormTest > md-text-button{
+	position: absolute;
+	top: 4px;
+	left: 10px;
+	scale: 1.2;
+}
+.inputContainer {
+  position: relative;
+  width: 100%;
+	box-sizing: border-box;
+}
+.mdInput {
+  width: 100%;
+  padding: 16px;
+	padding-right: 64px;
+  font-size: 16px;
+  border: 1px solid #79747E;
+  border-radius: 4px;
+  outline: none;
+  background: transparent;
+  color: #1C1B1F;
+  box-sizing: border-box;
+  transition: border-color 0.2s, border-width 0.1s;
+}
+.mdInput:focus {
+  border: 2px solid #6750A4;
+}
+.mdLabel {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  padding: 0 4px;
+  color: #49454F;
+  font-size: 16px;
+  transition: 0.2s ease all;
+  pointer-events: none;
+}
+.mdInput:focus ~ .mdLabel,
+.mdInput:not(:placeholder-shown) ~ .mdLabel {
+  top: 0;
+  font-size: 12px;
+  color: #6750A4;
+	box-sizing: border-box;
+}
+.mdInput:not(:focus):not(:placeholder-shown) ~ .mdLabel {
+  color: #49454F;
+}
+.md-icon-btn {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.mdButtonDetails{
+	display: flex;
+	flex-direction: column;
+	gap:12px;
 }

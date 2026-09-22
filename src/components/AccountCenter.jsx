@@ -1,37 +1,57 @@
-import { useState } from "react"
-import SignUpFormTest from "./SignUpFormTest";
-import SignInFormTest from "./SignInFormTest";
+import { useEffect, useState } from "react"
+import SignInUpForm from "./SignInUpForm";
+import { useAppStore } from "../store/useAppStore";
 
 function AccountCenter({ isOpen ,onClose }) {
 
-  const [isSignUpFormOpen, setIsSignUpFormOpen] = useState(false);
   const [isSignInFormOpen, setIsSignInFormOpen] = useState(false);
 
+  const profile = useAppStore(state => state.profile);
+  const signOut = useAppStore(state => state.signOut);
+
+  const [xpValue, setXpValue] = useState(0);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setXpValue(0);
+    } else {
+      if (profile) {
+        setTimeout(() => {
+          setXpValue(Number(profile.xp) / Number(profile.xp_required));
+        }, 220);
+      }
+    }
+  }, [profile, isOpen]);
+
   return (
-    <>
-      <div id="accountCenter" className={` ${isOpen? 'open' : ''}`}>
-        
+    <div id="accountCenter" className={`${isOpen && 'open'}`}>
+      <div className="accountCenterWrapper">
+        <SignInUpForm isOpen={isSignInFormOpen} closeForm={setIsSignInFormOpen} />
         <md-icon-button onClick={() => onClose(false)} id="accountCloseBtn">
           <md-icon>close</md-icon>
         </md-icon-button>
-        
-          <div id="accountPreview">
-            <img id="accountPreviewIMG" src="https://static.mega-image.ro/medias/sys_master/products/h68/h99/9541402787870.jpg" />
-            
-            <b>$PROFILE NAME$</b>
-            <sup>$username$</sup>
-            <br />
+        {profile ? (
+          <md-outlined-button className='accountSignInAction' onClick={() => signOut()}>
+            <md-icon slot='icon'>door_open</md-icon>
+            <span>Log out</span>
+          </md-outlined-button>
+        ) : (
+          <md-filled-button className='accountSignInAction' onClick={() => setIsSignInFormOpen(true)}>
+            <md-icon slot='icon'>login</md-icon>
+            <span>Sign In</span>
+          </md-filled-button>
+        )}
+
+        <div id="accountPreview">
+          <div style={{position: 'relative'}}>
+            <img src={profile?.image? profile.image :'https://static.mega-image.ro/medias/sys_master/products/h68/h99/9541402787870.jpg'} />
+            <md-circular-progress id='accountProgressXP' value={xpValue}></md-circular-progress>
+            <div className="lvlNumberWraper">
+              <b style={{fontSize: '24px'}}>{profile?.level ? profile.level : '?'}</b>
+            </div>
           </div>
-
-        <md-filled-button onClick={() => {setIsSignUpFormOpen(true); setIsSignInFormOpen(false)}}>
-          <span>Sign Up</span>
-        </md-filled-button>
-        <md-filled-button onClick={() => {setIsSignUpFormOpen(false); setIsSignInFormOpen(true)}}>
-          <span>Sign In</span>
-        </md-filled-button>
-
-        {isSignUpFormOpen && <SignUpFormTest />}
-        {isSignInFormOpen && <SignInFormTest />}
+          <span style={{fontSize : '32px'}}>@{profile?.username ? profile.username : 'anon'}</span>
+        </div>
         
         <md-list id="accountSettingsList">
           <md-list-item type="button">
@@ -68,7 +88,7 @@ function AccountCenter({ isOpen ,onClose }) {
 
         </md-list>
       </div>
-    </>
+    </div>
   )
 }
 
