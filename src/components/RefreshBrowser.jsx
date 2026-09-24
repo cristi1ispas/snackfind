@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 const T_zero = Date.now();
 
@@ -74,6 +75,9 @@ function RefreshBrowser({ closeNavDrawer }) {
 					<md-filled-button onClick={hardRefresh}>Refresh</md-filled-button>
 				</div>
 			</md-dialog>
+			{createPortal(
+				<div id="dialogBlur" className={`${isRefreshDialogOpen && 'open'}`}></div>,
+				document.body )}
     </>
   )
 }
