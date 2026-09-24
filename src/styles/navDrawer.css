@@ -11,7 +11,7 @@
 	border-top-right-radius: 16px;
 	background: var(--color-scheme-surface);
 	transition: transform 0.3s ease;
-	z-index: 900;
+	z-index: 30;
 }
 #navDrawer.open {
 	transform: translateX(0);
@@ -24,20 +24,19 @@
 	width: auto;
 }
 
-#locationAria{
+#refreshBrowser{
+	z-index: 9999;
+	width: 75vw;
+	color: var(--color-scheme-on-error-container);
+	--md-dialog-container-color: var(--color-scheme-error-container);
+	--md-dialog-headline-color: var(--color-scheme-on-error-container);
+}
+#refreshBrowser > form{
 	display: flex;
 	flex-direction: column;
-	padding: 24px;
-	padding-bottom: 48px;
 }
-#locationAriaBtn {
-  --md-filled-tonal-button-icon-size: 20px;
-}
-
-md-menu#locationAriaMenu, 
-md-menu#locationAriaMenu > md-sub-menu > md-menu[slot="menu"]
-{
-  max-height: 350px;
+#refreshBrowser md-filled-button{
+	--md-sys-color-primary: var(--color-scheme-error);
 }
 
 #navDrawerBlur{
@@ -48,7 +47,7 @@ md-menu#locationAriaMenu > md-sub-menu > md-menu[slot="menu"]
 	height: 100vh;
 	background-color: rgba(0, 0, 0, 0.0);
 	pointer-events: none;
-	z-index: 899;
+	z-index: 29;
 	transition: background-color 0.3s ease-out;
 }
 #navDrawerBlur.open{

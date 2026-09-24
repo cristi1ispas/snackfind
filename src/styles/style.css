@@ -54,7 +54,7 @@ img{
 
 body{
 	margin: 0px; 
-  font-family: 'Roboto Variable', sans-serif;
+  font-family: 'Roboto Variable', sans-serif !important;
   overflow: hidden;
   
   --md-sys-color-surface: var(--color-scheme-surface);
@@ -90,8 +90,8 @@ input:not(.material-symbols-outlined) {
   font-family: 'Roboto Variable', sans-serif !important;
 }
 
-md-filter-chip, md-filled-text-field, md-outlined-button, md-text-button{
-  --md-ref-typeface-plain: 'Roboto Variable', sans-serif;
+md-filter-chip, md-filled-text-field, md-outlined-button, md-text-button, md-filled-button{
+  --md-ref-typeface-plain: 'Roboto Variable', sans-serif !important;
 }
 
 .no-color{

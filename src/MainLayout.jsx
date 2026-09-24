@@ -13,16 +13,20 @@ import FiltersFAB from "./components/FiltersFAB"
 import SubPageLayout from "./components/SubPageLayout";
 import ProductPageLayout from './components/ProductPageLayout';
 import { useAppStore } from "./store/useAppStore";
+import { useOnlineStatus } from "./hooks/useOnlineStatus";
 
 function MainLayout() {
 
   const fetchSupabaseData = useAppStore((state) => state.fetchSupabaseData);
   const products = useAppStore((state) => state.products);
+  const hasNoProducts = Object.keys(products).length === 0;
+
+  const isOnline = useOnlineStatus();
   useEffect(() => {
-    if (navigator.onLine) {
+    if (isOnline && hasNoProducts) {
       fetchSupabaseData();
     }
-  }, [fetchSupabaseData, products.length]);
+  }, [isOnline, fetchSupabaseData, hasNoProducts]);
 
   const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false);
   
