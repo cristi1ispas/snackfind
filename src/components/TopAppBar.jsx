@@ -1,7 +1,7 @@
 import CategoryChips from './CategoryChips'
 import { useAppStore } from '../store/useAppStore'
 
-function TopAppBar({ onMenuClick, onSearchClick, onAccountClick, isLoggedIn, userDetails, showRibbon }) {
+function TopAppBar({ onMenuClick, onSearchClick, onAccountClick, showRibbon }) {
 
 	const searchValue = useAppStore((state) => state.searchValue);
 
@@ -25,10 +25,10 @@ function TopAppBar({ onMenuClick, onSearchClick, onAccountClick, isLoggedIn, use
 				</div>
 
 				<md-icon-button id="account" onClick={() => onAccountClick(true)}>
-					{isLoggedIn && userDetails.pfp
+					{/*isLoggedIn && userDetails.pfp
 						? (<img src={userDetails.pfp} alt='Profile'/>)
-						: (<md-icon>account_circle</md-icon>)
-					}
+						: (*/<md-icon>account_circle</md-icon>/*)
+					*/}
 				</md-icon-button>
 
 				

@@ -1,23 +1,13 @@
-import { useState, useRef } from 'react'
 import News from './subPages/NewsSubPage';
 import Discounts from './subPages/DiscountsSubPage';
 import Shops from './subPages/ShopsSubPage';
 import Compare from './subPages/CompareSubPage';
 import BestValue from './subPages/BestValueSubPage'
 import Statistics from './subPages/StatisticsSubPage';
-import Wishlist from './subPages/WishlistSubPage';
 import Manager from './subPages/ManagerSubPage';
-import Locations from './Locations';
+import RefreshBrowser from './RefreshBrowser';
 
 function NavDrawer({ isOpen, onClose, onNavigate }) {
-
-	const locationAriaMenuRef = useRef(null);
-
-	function toggleLocationAriaMenu() {
-		if (locationAriaMenuRef.current) {
-			locationAriaMenuRef.current.open = !locationAriaMenuRef.current.open;
-		}
-	}
 
   return (
     <>
@@ -42,46 +32,30 @@ function NavDrawer({ isOpen, onClose, onNavigate }) {
 							<span>Shops</span>
 						</md-list-item>
 
-						<md-list-item type="button" onClick={() => { onClose(false); onNavigate("Wishlist", <Wishlist />); }}>
-							<md-icon slot="start">bookmark_heart</md-icon>
-							<span>Wishlist</span>
-						</md-list-item>
-
-						<md-list-item type="button" onClick={() => { onClose(false); onNavigate("Best Value", <BestValue />); }}>
-							<md-icon slot="start">savings</md-icon>
-							<span>Best Value</span>
-						</md-list-item>
-
-						<md-list-item type="button" onClick={() => { onClose(false); onNavigate("Compare", <Compare />); }}>
-							<md-icon slot="start">compare_arrows</md-icon>
-							<span>Compare</span>
-						</md-list-item>
-
 						<md-list-item type="button" onClick={() => { onClose(false); onNavigate("Statistics", <Statistics />); }}>
 							<md-icon slot="start">finance_mode</md-icon>
 							<span>Statistics</span>
 						</md-list-item>
 
-						<md-list-item type="button" onClick={() => { onClose(false); onNavigate("Manager", <Manager />); }}>
+						<md-list-item type="button" onClick={() => { onClose(false); onNavigate("Best Value", <BestValue />); }} disabled>
+							<md-icon slot="start">savings</md-icon>
+							<span>Best Value</span>
+						</md-list-item>
+
+						<md-list-item type="button" onClick={() => { onClose(false); onNavigate("Compare", <Compare />); }} disabled>
+							<md-icon slot="start">compare_arrows</md-icon>
+							<span>Compare</span>
+						</md-list-item>
+
+						<md-list-item type="button" onClick={() => { onClose(false); onNavigate("Manager", <Manager />); }} disabled>
 							<md-icon slot="start">engineering</md-icon>
 							<span>Manager program</span>
 						</md-list-item>
 
 					</md-list>
 				</div>
-				<div id="locationAria">
-					<span>Your general area:</span>
-					<br />
-					<md-filled-tonal-button onClick={toggleLocationAriaMenu} id="locationAriaBtn">
-						<md-icon slot="icon">near_me</md-icon>
-						<span>Prahova</span>
-					</md-filled-tonal-button>
-				</div>
-			</div>
-
-			<md-menu ref={locationAriaMenuRef} anchor="locationAriaBtn" has-overflow positioning="popover" id="locationAriaMenu">
-				<Locations />
-			</md-menu>		
+				<RefreshBrowser closeNavDrawer={onClose}/>
+			</div>	
 
 			<div id="navDrawerBlur" onClick={() => onClose(false)} className={` ${isOpen? 'open' : ''}`}></div>
 		

@@ -1,9 +1,13 @@
+import { useEffect } from "react"
+import { useOnlineStatus } from "../hooks/useOnlineStatus"
 
 function NavBar({ onScreenChange, activeScreen }) {
 	
+  const isOnline = useOnlineStatus();
+
   return (
-    <>
-      <nav id="navBar">
+    <nav id="navWrapper">
+      <div id="navBar">
         <div className="navItem" onClick={() => onScreenChange('explore')}>
           <div className={`navItemIcon ${activeScreen === 'explore' ? 'active' : ''}`}>
             {activeScreen === 'explore' ? (
@@ -42,8 +46,13 @@ function NavBar({ onScreenChange, activeScreen }) {
           </div>
           <span className={`navItemName ${activeScreen === 'contribute' ? 'active' : ''}`}>Contribute</span>
         </div>
-      </nav>
-    </>
+      </div>
+      {!isOnline && (
+        <div className="offlineWarning">
+          <span>Offline mode!</span>
+        </div>
+      )}
+    </nav>
   )
 }
 
