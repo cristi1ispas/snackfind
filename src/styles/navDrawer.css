@@ -24,11 +24,38 @@
 	width: auto;
 }
 
+md-filled-tonal-icon-button > .iconBadge{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: red;
+}
 #refreshBrowser{
 	width: 75vw;
-	color: var(--color-scheme-on-error-container);
 	--md-dialog-container-color: var(--color-scheme-error-container);
 	--md-dialog-headline-color: var(--color-scheme-on-error-container);
+}
+#refreshBrowser.green{
+	--md-dialog-container-color: var(--color-scheme-secondary-container);
+	--md-dialog-headline-color: var(--color-scheme-on-primary-container);
+}
+#refreshBrowser > form{
+	display: flex;
+	flex-direction: column;
+	color: var(--color-scheme-on-error-container);
+	gap: 6px;
+}
+#refreshBrowser.green > form{
+	color: var(--color-scheme-on-secondary-container);
+}
+#refreshBrowser md-filled-button{
+	--md-sys-color-primary: var(--color-scheme-error);
+}
+#refreshBrowser.green md-filled-button{
+	--md-sys-color-primary: var(--color-scheme-primary);
 }
 #dialogBlur{
 	position: fixed;
@@ -47,18 +74,11 @@
 	opacity: 0.5;
 	pointer-events: auto;
 }
-#refreshBrowser > form{
-	display: flex;
-	flex-direction: column;
-}
-#refreshBrowser md-filled-button{
-	--md-sys-color-primary: var(--color-scheme-error);
-}
 
 #navDrawerBlur{
 	position: fixed;
 	top: 0;
-	left: 0;     
+	left: 0;
 	width: 100vw;
 	height: 100vh;
 	pointer-events: none;
@@ -72,4 +92,3 @@
 	pointer-events: auto;
 	opacity: 0.5;
 }
-
