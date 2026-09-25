@@ -37,7 +37,7 @@ function ProductPage() {
 			const productDiscount = productDiscounts?.find(discount => discount.shop_id === joint.shop_id)
       return <ProductShopCard key={joint.id} joint={joint} shop={productShop} discount={productDiscount}/>
     });
-  }, [product, productJoints, shops, productDiscounts]);
+  }, [productJoints, shops, productDiscounts]);
 
   function handleProductBrandName() {
     if (product.brand === product.name) {
