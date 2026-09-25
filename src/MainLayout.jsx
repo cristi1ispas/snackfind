@@ -49,7 +49,8 @@ function MainLayout() {
 		setTimeout(() => setIsSubPageRendered(false), 300);
 	}
   /** The subPage system is horrible, will be redone when the feature comes out.
-   *  of of my days of learning react */
+   *  of of my days of learning react 
+   *  TODO: use createPortal on these*/
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const searchInputRef = useRef(null);

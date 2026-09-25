@@ -31,13 +31,13 @@ function ProductPage() {
 	
 	const shopCards = useMemo(() => {
 		return [...productJoints]
-      .sort((a, b) => a.price - b.price)
-      .map(joint => {
-        const productShop = shops?.[joint.shop_id];
-        const productDiscount = productDiscounts?.filter(discount => discount.shop_id === joint.shop_id)
-        return <ProductShopCard key={joint.id} joint={joint} shop={productShop} discounts={productDiscount}/>
-      });
-  }, [product, productJoints, shops, productDiscounts]);
+		.sort((a, b) => a.price - b.price)
+    .map(joint => {
+      const productShop = shops?.[joint.shop_id];
+			const productDiscount = productDiscounts?.find(discount => discount.shop_id === joint.shop_id)
+      return <ProductShopCard key={joint.id} joint={joint} shop={productShop} discount={productDiscount}/>
+    });
+  }, [productJoints, shops, productDiscounts]);
 
   function handleProductBrandName() {
     if (product.brand === product.name) {

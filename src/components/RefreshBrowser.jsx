@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { useRegisterSW } from "virtual:pwa-register/react";
 
 const T_zero = Date.now();
 
@@ -39,17 +40,33 @@ function RefreshBrowser({ closeNavDrawer }) {
 		} catch (error) {
 			console.error("Error Refreshing:", error);
 		} finally {
+			if (typeof updateServiceWorker === 'function') {
+				await updateServiceWorker(true);
+			}
+
 			const url = new URL(window.location.href);
 			url.searchParams.set('reload', Date.now().toString());
 			window.location.href = url.toString();
 		}
 	}
 
+	const {
+		needRefresh: [needRefresh, setNeedRefresh],
+		updateServiceWorker,
+	} = useRegisterSW({
+		onRegister(r){
+			r && setInterval(() => {
+				r.update();
+			}, 60 * 60 * 1000);
+		}
+	});
+
   return(
     <>
       <md-list-item style={{marginBottom : '24px'}}>
-        <md-filled-tonal-icon-button slot='start' onClick={() => {setIsRefreshDialogOpen(true); closeNavDrawer(false)}}>
+        <md-filled-tonal-icon-button style={{position: 'relative'}} slot='start' onClick={() => {setIsRefreshDialogOpen(true); closeNavDrawer(false)}}>
           <md-icon>sync</md-icon>
+					{needRefresh && <div className="iconBadge"></div>}
         </md-filled-tonal-icon-button>
         <span slot='headline'>Last Updated:</span>
         <span slot='supporting-text'>{refreshInterval()} ago</span>
@@ -58,21 +75,22 @@ function RefreshBrowser({ closeNavDrawer }) {
       <md-dialog
 				pop-over
 				id='refreshBrowser'
+				className={`${needRefresh && 'green'}`}
 				type="alert"
 				open={isRefreshDialogOpen}
 				onclose={() => setIsRefreshDialogOpen(false)}
 				oncancel={() => setIsRefreshDialogOpen(false)}
 			>
 				<div slot="headline">
-					<md-icon>warning</md-icon>Before refreshing...
+					<md-icon>{needRefresh ? 'update' : 'warning'}</md-icon>{needRefresh ? 'New content!' : 'Before refreshing...'}
 				</div>
-				<form style={{color:'var(--color-scheme-on-error-container)'}} id="refresh-form" slot="content" method="dialog">
-					<span style={{ margin: '0 0 8px 0' }}>This will reset cached data and apply app updates.</span>
+				<form id="refresh-form" slot="content" method="dialog">
+					<span>This will reset cached data and apply app updates.</span>
 					<span>Make sure to have a stable internet connection.</span>
 				</form>
 				<div slot="actions">
 					<md-outlined-button onclick={() => setIsRefreshDialogOpen(false)}>Cancel</md-outlined-button>
-					<md-filled-button onClick={hardRefresh}>Refresh</md-filled-button>
+					<md-filled-button onclick={hardRefresh}>Refresh</md-filled-button>
 				</div>
 			</md-dialog>
 			{createPortal(
